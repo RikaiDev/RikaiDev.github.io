@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F2EEE5"/>
+  <rect width="1200" height="630" fill="none"/>
+  <!-- 離卦 master mark -->
+  <g transform="translate(96,150) scale(3.3)">
+    <rect x="24" y="30" width="52" height="11" rx="5.5" fill="#B23A28"/>
+    <rect x="24" y="47" width="21" height="11" rx="5.5" fill="#1F1C17"/>
+    <rect x="55" y="47" width="21" height="11" rx="5.5" fill="#1F1C17"/>
+    <rect x="24" y="64" width="52" height="11" rx="5.5" fill="#1F1C17"/>
+  </g>
+  <text x="470" y="250" font-family="Georgia, 'Noto Serif TC', serif" font-size="92" font-weight="500" fill="#1F1C17">RikaiDev</text>
+  <text x="472" y="330" font-family="'JetBrains Mono', monospace" font-size="30" letter-spacing="2" fill="#B23A28">理解 · Human vision. AI execution.</text>
+  <text x="472" y="392" font-family="'JetBrains Mono', monospace" font-size="24" fill="#6B655A">Open-source developer tools · MIT · Building in public</text>
+  <g font-family="'JetBrains Mono', monospace" font-size="22" fill="#6B655A">
+    <text x="472" y="470">yomi · toki · mesen · kaido · mimamori · minori</text>
+  </g>
+  <rect x="96" y="540" width="1008" height="2" fill="#1F1C17" opacity="0.14"/>
+  <text x="96" y="590" font-family="'JetBrains Mono', monospace" font-size="22" fill="#6B655A">github.com/RikaiDev</text>
+</svg>

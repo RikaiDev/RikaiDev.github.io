@@ -1,0 +1,39 @@
+# RikaiDev（理解）
+
+> Human vision. AI execution. Real products. RikaiDev is an open-source
+> organization building developer tools where humans provide insight and
+> judgment, and AI provides execution and scale — together shipping what one
+> person couldn't build alone. Every product is MIT-licensed, local-first,
+> privacy-first, and built in public. "The code is the proof."
+
+RikaiDev's naming system uses Japanese wago (和語) words carried by kanji, where
+the word's literal meaning maps directly to what the tool does, and the subject
+is always a human act of perception or care — never the machine. The visual mark
+is the I Ching trigram Li (離卦, fire/clarity), whose yang/yin lines double as
+binary (0/1) and as human-judgment / AI-iteration; the top line is vermilion (朱)
+and blinks like a terminal cursor.
+
+## Pages
+- [Landing](https://rikaidev.github.io/): overview, products, why open source.
+- [Brand System](https://rikaidev.github.io/brand/): full CIS — logo, color, typography, naming laws, voice & tone, applications.
+
+## Products (all MIT, open source)
+- [yomi (読み)](https://github.com/RikaiDev/yomi): read/write LINE from any AI agent; local MCP server with E2EE local decryption. Reads not just messages but context.
+- [toki (時)](https://github.com/RikaiDev/toki): automatic developer time tracking — no timer to press; infers context from IDE and git.
+- [mesen (目線)](https://github.com/RikaiDev/mesen): UX behavior testing through simulated user viewpoints ("see your UI with someone else's eyes"), persona-driven.
+- [kaido (海道)](https://github.com/RikaiDev/kaido): terminal AI Ops coach — diagnoses while teaching *why*, not just *how*. Local LLM, offline-capable.
+- [mimamori (見守り)](https://github.com/RikaiDev/mimamori): Discord bot that guards team communication tone — gentle watching, not surveillance.
+- [minori (実り)](https://github.com/RikaiDev/minori): AI agriculture collaboration — voice field logs, harvest prediction, connecting farmers and buyers over LINE.
+
+## Concept layer
+- AII (AI Interactive): the manifesto/philosophy layer — "interfaces should understand people, not force people to learn interfaces." Not a product; uses an acronym rather than a wago name.
+- cortex: an early English-named forerunner, now archived. Predates the naming laws.
+
+## Brand facts
+- Colors: 紙 washi #F2EEE5 (paper), 墨 sumi #1F1C17 (ink), 朱 shu #B23A28 (the single accent).
+- Type: Noto Serif TC (display), Zen Old Mincho (Japanese names), Noto Sans TC (body), JetBrains Mono (code/CLI).
+- Voice: honest (silence over fabricated success), coaching (why over what), building in public, restraint (less but better).
+
+## Links
+- GitHub org: https://github.com/RikaiDev
+- License: MIT

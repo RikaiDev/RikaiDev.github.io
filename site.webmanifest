@@ -1,0 +1,13 @@
+{
+  "name": "RikaiDev — 理解",
+  "short_name": "RikaiDev",
+  "description": "Human vision. AI execution. Real products. 以人為本、AI 為力的開源開發者工具。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F2EEE5",
+  "theme_color": "#F2EEE5",
+  "lang": "zh-Hant",
+  "icons": [
+    { "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
