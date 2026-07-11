@@ -31,18 +31,31 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "yomi",
-    "alternateName": "読み",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "macOS, Linux, Windows",
-    "description": "A local-first, end-to-end-encrypted MCP server that lets any AI agent read, reply to, and search your LINE.",
-    "url": "https://rikaidev.github.io/yomi/",
-    "downloadUrl": "https://github.com/RikaiDev/yomi",
-    "license": "https://opensource.org/licenses/MIT",
-    "isAccessibleForFree": true,
-    "author": { "@type": "Organization", "name": "RikaiDev", "url": "https://github.com/RikaiDev" },
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "yomi", "alternateName": "読み",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Linux, Windows",
+        "description": "A local-first, end-to-end-encrypted MCP server that lets any AI agent read, reply to, and search your LINE.",
+        "url": "https://rikaidev.github.io/yomi/",
+        "downloadUrl": "https://github.com/RikaiDev/yomi",
+        "license": "https://opensource.org/licenses/MIT",
+        "isAccessibleForFree": true,
+        "author": { "@type": "Organization", "name": "RikaiDev", "url": "https://github.com/RikaiDev" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is yomi free and open source?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. yomi is MIT-licensed and available on GitHub. It's free to use." } },
+          { "@type": "Question", "name": "Do I need a bot account or LINE's official API?", "acceptedAnswer": { "@type": "Answer", "text": "No. yomi logs in as a secondary device on your own account and speaks LINE's protocol directly — no bot account, no official API, no webhook." } },
+          { "@type": "Question", "name": "Is my data uploaded anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Letter Sealing (E2EE) messages and media are decrypted on your machine. Nothing leaves your device." } },
+          { "@type": "Question", "name": "Which agents work with yomi?", "acceptedAnswer": { "@type": "Answer", "text": "Any MCP client — Claude Desktop, Claude Code, or anything that speaks the Model Context Protocol." } },
+          { "@type": "Question", "name": "What do I need to run it?", "acceptedAnswer": { "@type": "Answer", "text": "bun and a LINE account. yomi runs straight from npm via bunx — no clone, no build step." } }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -73,236 +86,237 @@
     </div>
     <nav class="flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub">
       <span class="rk-controls" aria-label="Site controls"></span>
-      <a href="#name" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">The name</a><a href="#name" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">名字</a>
-      <a href="#how" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">How it works</a><a href="#how" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">運作方式</a>
-      <a href="#install" class="hidden sm:inline hover:text-ink transition-colors" data-t lang="en">Install</a><a href="#install" class="hidden sm:inline hover:text-ink transition-colors" data-t lang="zh">安裝</a>
+      <a href="#kit" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">The kit</a><a href="#kit" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">功能</a>
+      <a href="#how" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">How it works</a><a href="#how" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">運作</a>
+      <a href="#faq" class="hidden sm:inline hover:text-ink transition-colors" data-t lang="en">FAQ</a><a href="#faq" class="hidden sm:inline hover:text-ink transition-colors" data-t lang="zh">問答</a>
       <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-ink text-paper px-[13px] py-[7px] rounded-[5px] hover:opacity-90 transition-opacity">★ GitHub</a>
     </nav>
   </header>
 
   <main>
-  <!-- hero -->
-  <section class="mx-auto max-w-[1120px] px-6 md:px-10 pt-16 md:pt-24 pb-16 md:pb-24">
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
+  <!-- ===== hero ===== -->
+  <section class="mx-auto max-w-[1200px] px-6 md:px-10 pt-14 md:pt-20 pb-14">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-14 items-center">
       <div>
-        <div class="font-mincho text-[15px] tracking-[0.4em] text-accent mb-5">読み · よみ</div>
-        <h1 class="font-serif font-medium text-[clamp(40px,6.5vw,84px)] leading-[1.03] tracking-[0.01em] mb-6" data-t lang="en">Read your LINE<br>from any AI agent.</h1>
-        <h1 class="font-serif font-medium text-[clamp(40px,6.5vw,84px)] leading-[1.05] tracking-[0.01em] mb-6" data-t lang="zh">讓任何 AI agent<br>讀你的 LINE。</h1>
-        <p class="font-sans font-light text-[clamp(16px,2vw,20px)] leading-[1.85] text-inksoft max-w-[560px] mb-4" data-t lang="en">Read, reply, send images, mention someone, and search across every conversation — without a browser and without LINE's own client. A small, local, end-to-end-encrypted MCP server that any agent can point at.</p>
-        <p class="font-sans font-light text-[clamp(16px,2vw,20px)] leading-[1.85] text-inksoft max-w-[560px] mb-4" data-t lang="zh">讀訊息、回覆、傳圖、標註某人、搜尋每一段對話——不需要瀏覽器，也不需要 LINE 官方 client。一個小巧、本機、端對端加密的 MCP server，任何 agent 都能接上。</p>
-        <p class="font-mono text-[12.5px] tracking-[0.02em] text-sub mb-9" data-t lang="en">It doesn't just read your messages — it reads the situation, the way you do.</p>
-        <p class="font-mono text-[12.5px] tracking-[0.02em] text-sub mb-9" data-t lang="zh">它不只是讀訊息——它讀懂情境，像你一樣。</p>
+        <div class="inline-flex items-center gap-2.5 font-mono text-[11.5px] tracking-[0.16em] uppercase text-sub border border-line rounded-full px-3.5 py-1.5 mb-7">
+          <span class="w-[7px] h-[7px] rounded-full bg-accent pulse"></span>読み · <span data-t lang="en">read your LINE, out loud</span><span data-t lang="zh">把你的 LINE 讀出來</span>
+        </div>
+        <h1 class="font-serif font-semibold text-[clamp(44px,7vw,88px)] leading-[0.98] tracking-[-0.01em] mb-6" data-t lang="en">Read your LINE from&nbsp;any AI agent.</h1>
+        <h1 class="font-serif font-semibold text-[clamp(44px,7vw,88px)] leading-[1.02] tracking-[0.01em] mb-6" data-t lang="zh">讓任何 AI agent 讀你的&nbsp;LINE。</h1>
+        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="en">Read, reply, send images, mention someone, and search every conversation — <b class="font-medium text-accent">end-to-end encrypted</b>, <b class="font-medium text-accent">local-first</b>, from <b class="font-medium text-accent">any MCP agent</b>. No browser. No bot account.</p>
+        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="zh">讀訊息、回覆、傳圖、標註某人、搜尋每一段對話——<b class="font-medium text-accent">端對端加密</b>、<b class="font-medium text-accent">本機優先</b>，來自<b class="font-medium text-accent">任何 MCP agent</b>。沒有瀏覽器、沒有 bot 帳號。</p>
 
-        <div id="install" class="max-w-[560px]">
-          <div class="flex items-stretch rounded-[8px] overflow-hidden border border-line bg-card">
-            <span class="font-mono text-[13px] text-sub2 px-3 py-3 border-r border-line select-none">$</span>
-            <code class="rk-xscroll flex-1 font-mono text-[13px] text-accent px-4 py-3 whitespace-nowrap">claude mcp add yomi -- bunx @rikaidev/yomi</code>
-          </div>
-          <div class="flex gap-3 flex-wrap mt-4">
-            <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-accent text-hi px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity" data-t lang="en">Get yomi on GitHub ↗</a>
-            <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-accent text-hi px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity" data-t lang="zh">到 GitHub 取得 yomi ↗</a>
-            <a href="#how" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors" data-t lang="en">How it works</a>
-            <a href="#how" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors" data-t lang="zh">看運作方式</a>
-          </div>
-          <div class="flex gap-4 flex-wrap mt-6 font-mono text-[11px] tracking-[0.1em] uppercase text-sub2">
-            <span>MIT</span><span aria-hidden="true" class="opacity-40">·</span><span>Runtime: bun</span><span aria-hidden="true" class="opacity-40">·</span><span>MCP · stdio</span><span aria-hidden="true" class="opacity-40">·</span><span>E2EE local</span>
-          </div>
+        <div class="flex items-stretch rounded-[8px] overflow-hidden border border-line bg-card max-w-[520px] mb-4">
+          <span class="font-mono text-[13px] text-sub2 px-3 py-3 border-r border-line select-none">$</span>
+          <code class="rk-xscroll flex-1 font-mono text-[13px] text-accent px-4 py-3 whitespace-nowrap">claude mcp add yomi -- bunx @rikaidev/yomi</code>
+        </div>
+        <div class="flex gap-3 flex-wrap">
+          <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-accent text-hi px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity" data-t lang="en">Get yomi →</a>
+          <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-accent text-hi px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity" data-t lang="zh">取得 yomi →</a>
+          <a href="#how" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors" data-t lang="en">How it works</a>
+          <a href="#how" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors" data-t lang="zh">運作方式</a>
         </div>
       </div>
 
-      <!-- animated mark -->
-      <div class="justify-self-center lg:justify-self-end">
-        <div class="w-[220px] h-[220px] md:w-[280px] md:h-[280px] rounded-[18px] flex items-center justify-center rotate-[-1.5deg] shadow-[inset_0_0_0_2px_rgba(244,240,231,0.9),0_2px_0_rgba(31,28,23,0.12)] bg-card">
-          <svg viewBox="0 0 100 100" width="150" height="150" class="mark" aria-hidden="true">
-            <path d="M30 24 L48 50 L30 76" fill="none" stroke="var(--color-ink,#1F1C17)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M70 24 L52 50 L70 76" fill="none" stroke="var(--color-ink,#1F1C17)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="50" cy="50" r="5.2" fill="var(--color-accent,#B23A28)" class="pulse"/>
-          </svg>
+      <!-- hero terminal -->
+      <div class="rounded-[12px] overflow-hidden shadow-[0_2px_0_rgba(31,28,23,0.12)]" style="background:#17150F;" data-reveal>
+        <div class="flex items-center gap-[7px] px-[18px] py-[13px]" style="border-bottom:1px solid rgba(237,231,218,0.1);">
+          <div class="w-[11px] h-[11px] rounded-full" style="background:#8E2E20;"></div>
+          <div class="w-[11px] h-[11px] rounded-full" style="background:#B5892F;"></div>
+          <div class="w-[11px] h-[11px] rounded-full" style="background:#5B7355;"></div>
+          <span class="font-mono text-[11px] ml-2" style="color:#9C9382;">yomi — claude</span>
+        </div>
+        <div class="rk-xscroll p-[22px] font-mono text-[12.5px] leading-[1.95]" style="color:#EDE7DA;">
+          <span style="color:#5B7355;">$</span> claude mcp add yomi -- bunx @rikaidev/yomi<br>
+          <span style="color:#9C9382;">✓ paired as device · 7 tools · E2EE ready</span><br><br>
+          <span style="color:#9C9382;">you ›</span> what did I miss in the design channel?<br>
+          <span class="text-accent">yomi ›</span> read_chat("Design", since:"09:00")<br>
+          <span style="color:#9C9382;">// 3 threads · 41 messages · 2 images — decrypted locally</span><br>
+          <span style="color:#B5892F;">summary ›</span> Aya shipped the new mark; Ken wants<br>
+          &nbsp;&nbsp;the 88px lockup; nothing needs you tonight.<br>
+          <span style="color:#9C9382;">you ›</span> reply "love it — ship it 🚀"<br>
+          <span class="text-accent">yomi ›</span> send_message("Design", "love it — ship it 🚀") <span style="color:#5B7355;">✓</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- the name -->
-  <section id="name" class="border-t border-line bg-paper2">
-    <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[110px]">
-      <div class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6" data-reveal>The name / 読み</div>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[820px] mb-4" data-reveal data-t lang="en">One word, read three ways.</h2>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[820px] mb-4" data-reveal data-t lang="zh">一個詞，三種讀法。</h2>
-      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-16" data-reveal data-t lang="en">Every RikaiDev name carries more than one meaning. yomi carries three — and together they describe exactly what the tool does.</p>
-      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-16" data-reveal data-t lang="zh">每個 RikaiDev 的名字都不只一層意思。yomi 有三層——合起來，正好說明這個工具在做的事。</p>
+  <!-- ===== marquee ===== -->
+  <div class="rk-marquee border-y border-line" style="background:var(--color-ink);" aria-hidden="true">
+    <div class="rk-marquee__track font-mono text-[13px] tracking-[0.14em] uppercase py-3" style="color:var(--color-paper);">
+      <span class="px-6">Read</span><span class="text-accent">★</span><span class="px-6">Reply</span><span class="text-accent">★</span><span class="px-6">Send images</span><span class="text-accent">★</span><span class="px-6">Mention</span><span class="text-accent">★</span><span class="px-6">Search history</span><span class="text-accent">★</span><span class="px-6">E2EE local</span><span class="text-accent">★</span><span class="px-6">MCP · stdio</span><span class="text-accent">★</span><span class="px-6">No bot account</span><span class="text-accent">★</span><span class="px-6">MIT</span><span class="text-accent">★</span>
+    </div>
+    <div class="rk-marquee__track font-mono text-[13px] tracking-[0.14em] uppercase py-3" style="color:var(--color-paper);">
+      <span class="px-6">Read</span><span class="text-accent">★</span><span class="px-6">Reply</span><span class="text-accent">★</span><span class="px-6">Send images</span><span class="text-accent">★</span><span class="px-6">Mention</span><span class="text-accent">★</span><span class="px-6">Search history</span><span class="text-accent">★</span><span class="px-6">E2EE local</span><span class="text-accent">★</span><span class="px-6">MCP · stdio</span><span class="text-accent">★</span><span class="px-6">No bot account</span><span class="text-accent">★</span><span class="px-6">MIT</span><span class="text-accent">★</span>
+    </div>
+  </div>
+
+  <!-- ===== the name ===== -->
+  <section id="name" class="border-b border-line">
+    <div class="mx-auto max-w-[1200px] px-6 md:px-10 py-20 md:py-[104px]">
+      <div class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6" data-reveal>[ the name · 読み ]</div>
+      <h2 class="font-serif font-medium text-[clamp(28px,4.4vw,52px)] leading-[1.22] max-w-[820px] mb-4" data-reveal data-t lang="en">One word, read three ways.</h2>
+      <h2 class="font-serif font-medium text-[clamp(28px,4.4vw,52px)] leading-[1.3] max-w-[820px] mb-4" data-reveal data-t lang="zh">一個詞，三種讀法。</h2>
+      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-14" data-reveal data-t lang="en">Every RikaiDev name carries more than one meaning. yomi carries three — and together they describe exactly what it does.</p>
+      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-14" data-reveal data-t lang="zh">每個 RikaiDev 名字都不只一層意思。yomi 有三層——合起來，正好說明它在做的事。</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-line border border-line">
         <div class="bg-card p-8 md:p-10 flex flex-col gap-4" data-reveal>
-          <div class="font-mincho text-[64px] leading-none text-ink">読</div>
-          <div class="font-serif text-[20px]" data-t lang="en">A reading</div>
-          <div class="font-serif text-[20px]" data-t lang="zh">讀</div>
+          <div class="font-mincho text-[72px] leading-none text-ink">読</div>
+          <div class="font-serif text-[20px]" data-t lang="en">A reading</div><div class="font-serif text-[20px]" data-t lang="zh">讀</div>
           <p class="font-sans font-light text-[14px] leading-[1.8] text-sub" data-t lang="en">Not just parsing your messages — reading the situation, the way you would.</p>
           <p class="font-sans font-light text-[14px] leading-[1.8] text-sub" data-t lang="zh">不只是解析訊息——而是像你一樣，讀懂當下的情境。</p>
         </div>
         <div class="bg-card p-8 md:p-10 flex flex-col gap-4" data-reveal>
-          <div class="font-mincho text-[64px] leading-none text-ink">詠</div>
-          <div class="font-serif text-[20px]" data-t lang="en">To recite</div>
-          <div class="font-serif text-[20px]" data-t lang="zh">詠</div>
-          <p class="font-sans font-light text-[14px] leading-[1.8] text-sub" data-t lang="en">It doesn't read in silence. It reads things back to you, out loud, through your agent.</p>
-          <p class="font-sans font-light text-[14px] leading-[1.8] text-sub" data-t lang="zh">它不是默讀。它會透過你的 agent，把讀到的東西唸回給你聽。</p>
+          <div class="font-mincho text-[72px] leading-none text-ink">詠</div>
+          <div class="font-serif text-[20px]" data-t lang="en">To recite</div><div class="font-serif text-[20px]" data-t lang="zh">詠</div>
+          <p class="font-sans font-light text-[14px] leading-[1.8] text-sub" data-t lang="en">It doesn't read in silence. It reads things back to you, through your agent.</p>
+          <p class="font-sans font-light text-[14px] leading-[1.8] text-sub" data-t lang="zh">它不是默讀。它會透過你的 agent，把讀到的東西唸回給你。</p>
         </div>
         <div class="bg-card p-8 md:p-10 flex flex-col gap-4" data-reveal>
-          <div class="font-mincho text-[64px] leading-none text-accent">黄泉</div>
-          <div class="font-serif text-[20px]" data-t lang="en">What was buried</div>
-          <div class="font-serif text-[20px]" data-t lang="zh">黄泉</div>
-          <p class="font-sans font-light text-[14px] leading-[1.8] text-sub" data-t lang="en">The realm of what's out of reach — the yomi in <i>yomigaeri</i>, "the return." yomi brings the forgotten back to light.</p>
-          <p class="font-sans font-light text-[14px] leading-[1.8] text-sub" data-t lang="zh">埋藏、觸不到之地——「黄泉帰り」（yomigaeri，復返）裡的那個 yomi。yomi 把被遺忘的重新帶回光下。</p>
+          <div class="font-mincho text-[72px] leading-none text-accent">黄泉</div>
+          <div class="font-serif text-[20px]" data-t lang="en">What was buried</div><div class="font-serif text-[20px]" data-t lang="zh">黄泉</div>
+          <p class="font-sans font-light text-[14px] leading-[1.8] text-sub" data-t lang="en">The realm out of reach — the yomi in <i>yomigaeri</i>, "the return." yomi brings the forgotten back to light.</p>
+          <p class="font-sans font-light text-[14px] leading-[1.8] text-sub" data-t lang="zh">觸不到之地——「黄泉帰り」（復返）裡的那個 yomi。yomi 把被遺忘的帶回光下。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- how it works -->
-  <section id="how" class="border-t border-line">
-    <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[110px]">
-      <div class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6" data-reveal>How it works</div>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-4" data-reveal data-t lang="en">No API. No bot account. No webhook.</h2>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-4" data-reveal data-t lang="zh">沒有 API、沒有 bot 帳號、沒有 webhook。</h2>
-      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-16" data-reveal data-t lang="en">yomi logs in as a secondary device on your own account, speaks LINE's protocol directly, and hands the result to your agent — all on your machine.</p>
-      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-16" data-reveal data-t lang="zh">yomi 以「次要裝置」登入你自己的帳號、直接講 LINE 的協定，再把結果交給你的 agent——全部在你的機器上完成。</p>
-
+  <!-- ===== how it works ===== -->
+  <section id="how" class="border-b border-line bg-paper2">
+    <div class="mx-auto max-w-[1200px] px-6 md:px-10 py-20 md:py-[104px]">
+      <div class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6" data-reveal>[ how it works ]</div>
+      <h2 class="font-serif font-medium text-[clamp(28px,4.4vw,52px)] leading-[1.22] max-w-[760px] mb-14" data-reveal data-t lang="en">No API. No bot account. No webhook.</h2>
+      <h2 class="font-serif font-medium text-[clamp(28px,4.4vw,52px)] leading-[1.3] max-w-[760px] mb-14" data-reveal data-t lang="zh">沒有 API、沒有 bot 帳號、沒有 webhook。</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line">
-        <div class="bg-card p-7 flex flex-col gap-3 min-h-[210px]" data-reveal>
+        <div class="bg-card p-7 flex flex-col gap-3 min-h-[200px]" data-reveal><div class="font-mono text-[13px] text-accent">01</div><div class="font-serif text-[19px]" data-t lang="en">Pair as a device</div><div class="font-serif text-[19px]" data-t lang="zh">配對為裝置</div><p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="en">Log in as a secondary device on your own LINE account.</p><p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="zh">以次要裝置登入你自己的 LINE 帳號。</p></div>
+        <div class="bg-card p-7 flex flex-col gap-3 min-h-[200px]" data-reveal><div class="font-mono text-[13px] text-accent">02</div><div class="font-serif text-[19px]" data-t lang="en">Speak the protocol</div><div class="font-serif text-[19px]" data-t lang="zh">直接講協定</div><p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="en">Talks LINE's TCompact-over-HTTPS directly — no browser in the loop.</p><p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="zh">直接講 LINE 的 TCompact-over-HTTPS——過程沒有瀏覽器。</p></div>
+        <div class="bg-card p-7 flex flex-col gap-3 min-h-[200px]" data-reveal><div class="font-mono text-[13px] text-accent">03</div><div class="font-serif text-[19px]" data-t lang="en">Decrypt locally</div><div class="font-serif text-[19px]" data-t lang="zh">本機解密</div><p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="en">Letter Sealing (E2EE) messages and media decrypt on your machine.</p><p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="zh">Letter Sealing（E2EE）訊息與媒體在你的機器上解密。</p></div>
+        <div class="bg-card p-7 flex flex-col gap-3 min-h-[200px]" data-reveal><div class="font-mono text-[13px] text-accent">04</div><div class="font-serif text-[19px]" data-t lang="en">Expose to any agent</div><div class="font-serif text-[19px]" data-t lang="zh">開放給任何 agent</div><p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="en">A small stdio MCP server. Point any MCP client at it.</p><p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="zh">一個小巧的 stdio MCP server。任何 MCP client 指過來即可。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== the full kit ===== -->
+  <section id="kit" class="border-b border-line">
+    <div class="mx-auto max-w-[1200px] px-6 md:px-10 py-20 md:py-[104px]">
+      <div class="flex items-baseline justify-between flex-wrap gap-3 mb-14">
+        <h2 class="font-serif font-medium text-[clamp(28px,4.4vw,52px)] leading-[1.15]" data-reveal>The full kit</h2>
+        <span class="font-mono text-[12px] text-sub" data-reveal data-t lang="en">everything yomi ships</span><span class="font-mono text-[12px] text-sub" data-reveal data-t lang="zh">yomi 帶的一切</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12">
+        <div data-reveal>
+          <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">◱</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Read</h3></div>
+          <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
+            <li><span class="text-accent">→</span> <span data-t lang="en">Read any 1:1 or group chat, with history</span><span data-t lang="zh">讀任何一對一或群組聊天，含歷史</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Media &amp; stickers, decrypted locally</span><span data-t lang="zh">媒體與貼圖，本機解密</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Reads the situation, not just the text</span><span data-t lang="zh">讀懂情境，不只是文字</span></li>
+          </ul>
+        </div>
+        <div data-reveal>
+          <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">◲</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Write</h3></div>
+          <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
+            <li><span class="text-accent">→</span> <span data-t lang="en">Reply, send images, mention people</span><span data-t lang="zh">回覆、傳圖、標註成員</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Your agent drafts; you stay in control</span><span data-t lang="zh">agent 草擬；主導權在你</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">The full loop, from the terminal</span><span data-t lang="zh">從終端機完成整個循環</span></li>
+          </ul>
+        </div>
+        <div data-reveal>
+          <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">⌕</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Search</h3></div>
+          <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
+            <li><span class="text-accent">→</span> <span data-t lang="en">Search across your whole history</span><span data-t lang="zh">跨你的全部歷史搜尋</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Local &amp; instant — nothing indexed remotely</span><span data-t lang="zh">本機、瞬間——不在遠端建索引</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Ask in natural language via your agent</span><span data-t lang="zh">透過 agent 用自然語言問</span></li>
+          </ul>
+        </div>
+        <div data-reveal>
+          <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">⚿</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Security</h3></div>
+          <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
+            <li><span class="text-accent">→</span> <span data-t lang="en">Letter Sealing (E2EE) decrypted on-device</span><span data-t lang="zh">Letter Sealing（E2EE）在裝置上解密</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Local-first — your data never leaves</span><span data-t lang="zh">本機優先——資料不外流</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Reads your own account only</span><span data-t lang="zh">只讀你自己的帳號</span></li>
+          </ul>
+        </div>
+        <div data-reveal>
+          <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">◈</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Runtime</h3></div>
+          <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
+            <li><span class="text-accent">→</span> <span data-t lang="en">Runs from npm via <code class="text-accent">bunx</code> — no build</span><span data-t lang="zh">透過 <code class="text-accent">bunx</code> 從 npm 執行——免 build</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">macOS, Linux, Windows</span><span data-t lang="zh">macOS、Linux、Windows</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">One line to install</span><span data-t lang="zh">一行安裝</span></li>
+          </ul>
+        </div>
+        <div data-reveal>
+          <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">◇</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Integration</h3></div>
+          <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
+            <li><span class="text-accent">→</span> <span data-t lang="en">Any MCP client: Claude Desktop / Code</span><span data-t lang="zh">任何 MCP client：Claude Desktop／Code</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">stdio server — no port, no host</span><span data-t lang="zh">stdio server——不用埠、不用架站</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">MIT-licensed, open on GitHub</span><span data-t lang="zh">MIT 授權，GitHub 開源</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="border-b border-line bg-paper2">
+    <div class="mx-auto max-w-[960px] px-6 md:px-10 py-20 md:py-[104px]">
+      <h2 class="font-serif font-medium text-[clamp(28px,4.4vw,52px)] leading-[1.15] mb-14" data-reveal>FAQ</h2>
+      <div class="flex flex-col">
+        <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-line" data-reveal>
           <div class="font-mono text-[13px] text-accent">01</div>
-          <div class="font-serif text-[19px]" data-t lang="en">Pair as a device</div>
-          <div class="font-serif text-[19px]" data-t lang="zh">配對為裝置</div>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="en">Log in as a secondary device on your own LINE account. No bot, no official API.</p>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="zh">以次要裝置登入你自己的 LINE 帳號。不用 bot、不用官方 API。</p>
+          <div>
+            <h3 class="font-serif text-[20px] mb-2" data-t lang="en">Is yomi free and open source?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">yomi 是免費且開源的嗎？</h3>
+            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Yes. yomi is MIT-licensed and on GitHub — clone it, read it, run it.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">是的。yomi 採 MIT 授權、放在 GitHub——clone、閱讀、執行都可以。</p>
+          </div>
         </div>
-        <div class="bg-card p-7 flex flex-col gap-3 min-h-[210px]" data-reveal>
+        <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-line" data-reveal>
           <div class="font-mono text-[13px] text-accent">02</div>
-          <div class="font-serif text-[19px]" data-t lang="en">Speak the protocol</div>
-          <div class="font-serif text-[19px]" data-t lang="zh">直接講協定</div>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="en">yomi talks LINE's TCompact-over-HTTPS protocol directly — no browser in the loop.</p>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="zh">yomi 直接講 LINE 的 TCompact-over-HTTPS 協定——過程中沒有瀏覽器。</p>
+          <div>
+            <h3 class="font-serif text-[20px] mb-2" data-t lang="en">Do I need a bot account or LINE's official API?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">需要 bot 帳號或 LINE 官方 API 嗎？</h3>
+            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">No. yomi logs in as a secondary device on your own account and speaks the protocol directly — no bot, no official API, no webhook.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">不用。yomi 以次要裝置登入你自己的帳號、直接講協定——不用 bot、官方 API 或 webhook。</p>
+          </div>
         </div>
-        <div class="bg-card p-7 flex flex-col gap-3 min-h-[210px]" data-reveal>
+        <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-line" data-reveal>
           <div class="font-mono text-[13px] text-accent">03</div>
-          <div class="font-serif text-[19px]" data-t lang="en">Decrypt locally</div>
-          <div class="font-serif text-[19px]" data-t lang="zh">本機解密</div>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="en">Letter Sealing (E2EE) messages and media are decrypted on your machine — never in the cloud.</p>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="zh">Letter Sealing（E2EE）的訊息與媒體都在你的機器上解密——不經過雲端。</p>
+          <div>
+            <h3 class="font-serif text-[20px] mb-2" data-t lang="en">Is my data uploaded anywhere?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">我的資料會被上傳嗎？</h3>
+            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">No. E2EE messages and media are decrypted on your machine. Nothing leaves your device.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">不會。E2EE 訊息與媒體都在你的機器上解密。沒有東西離開你的裝置。</p>
+          </div>
         </div>
-        <div class="bg-card p-7 flex flex-col gap-3 min-h-[210px]" data-reveal>
+        <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-line" data-reveal>
           <div class="font-mono text-[13px] text-accent">04</div>
-          <div class="font-serif text-[19px]" data-t lang="en">Expose to any agent</div>
-          <div class="font-serif text-[19px]" data-t lang="zh">開放給任何 agent</div>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="en">A small stdio MCP server. Point Claude — or any MCP client — at it, and it just works.</p>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub" data-t lang="zh">一個小巧的 stdio MCP server。把 Claude、或任何 MCP client 指過來，就能用。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- terminal demo -->
-  <section class="border-t border-line bg-paper2">
-    <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[110px]">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div>
-          <div class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6" data-reveal>In your agent</div>
-          <h2 class="font-serif font-medium text-[clamp(26px,3.4vw,42px)] leading-[1.3] mb-5" data-reveal data-t lang="en">Catch up on LINE the way you do.</h2>
-          <h2 class="font-serif font-medium text-[clamp(26px,3.4vw,42px)] leading-[1.3] mb-5" data-reveal data-t lang="zh">用你自己的方式，補上 LINE 的進度。</h2>
-          <p class="font-sans font-light text-[15.5px] leading-[1.9] text-sub max-w-[520px]" data-reveal data-t lang="en">Read, reply, send an image, mention someone, and search your whole history — locally. yomi gives your agent the tools; you stay in control.</p>
-          <p class="font-sans font-light text-[15.5px] leading-[1.9] text-sub max-w-[520px]" data-reveal data-t lang="zh">讀訊息、回覆、傳圖、標註某人、搜尋你的全部歷史——都在本機。yomi 把工具交給你的 agent；主導權在你。</p>
-        </div>
-        <div class="rounded-[12px] overflow-hidden shadow-[0_1px_0_rgba(31,28,23,0.12)]" style="background:#17150F;" data-reveal>
-          <div class="flex items-center gap-[7px] px-[18px] py-[14px]" style="border-bottom:1px solid rgba(237,231,218,0.1);">
-            <div class="w-[11px] h-[11px] rounded-full" style="background:#8E2E20;"></div>
-            <div class="w-[11px] h-[11px] rounded-full" style="background:#B5892F;"></div>
-            <div class="w-[11px] h-[11px] rounded-full" style="background:#5B7355;"></div>
-            <span class="font-mono text-[11px] ml-2" style="color:#9C9382;">yomi — claude</span>
+          <div>
+            <h3 class="font-serif text-[20px] mb-2" data-t lang="en">Which agents work with yomi?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">哪些 agent 可以用 yomi？</h3>
+            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Any MCP client — Claude Desktop, Claude Code, or anything that speaks the Model Context Protocol.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">任何 MCP client——Claude Desktop、Claude Code，或任何會講 Model Context Protocol 的工具。</p>
           </div>
-          <div class="rk-xscroll p-[22px] font-mono text-[12.5px] leading-[1.9]" style="color:#EDE7DA;">
-            <span style="color:#5B7355;">$</span> claude mcp add yomi -- bunx @rikaidev/yomi<br>
-            <span style="color:#9C9382;">✓ connected · 7 tools</span><br><br>
-            <span style="color:#9C9382;">you ›</span> what did I miss in the design channel today?<br>
-            <span class="text-accent">yomi ›</span> read_chat("Design", since: "9:00")<br>
-            <span style="color:#9C9382;">// 3 threads · 41 messages · 2 images decrypted locally</span><br>
-            <span style="color:#B5892F;">summary ›</span> Aya shipped the new mark; Ken asked<br>
-            &nbsp;&nbsp;for the 88px lockup; nothing needs you tonight.
+        </div>
+        <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-b border-line" data-reveal>
+          <div class="font-mono text-[13px] text-accent">05</div>
+          <div>
+            <h3 class="font-serif text-[20px] mb-2" data-t lang="en">Is this official, and is it allowed?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">這是官方的嗎？可以用嗎？</h3>
+            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Unofficial. yomi isn't affiliated with LINE. Using it may be against LINE's Terms of Service and carries a risk of rate-limiting or suspension. It's for reading your own account, at your own risk.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">非官方。yomi 與 LINE 無關聯。使用它可能違反 LINE 服務條款，並有被限流或停權的風險。它是用來讀你自己的帳號，請自行承擔風險。</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- features -->
-  <section class="border-t border-line">
-    <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[110px]">
-      <div class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-12 md:mb-16" data-reveal>What it does</div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-11">
-        <div data-reveal>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="en">Read &amp; reply</h3>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="zh">讀取與回覆</h3>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Read messages, reply, send images, and mention people — the full loop, from your agent.</p>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">讀訊息、回覆、傳圖、標註成員——從你的 agent 完成整個循環。</p>
-        </div>
-        <div data-reveal>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="en">Search everything</h3>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="zh">搜尋全部</h3>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Search across every conversation in your whole history — locally, in an instant.</p>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">在你的全部歷史裡跨對話搜尋——本機、瞬間完成。</p>
-        </div>
-        <div data-reveal>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="en">End-to-end encrypted</h3>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="zh">端對端加密</h3>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Letter Sealing messages and media are decrypted on your machine. Nothing leaves it.</p>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">Letter Sealing 的訊息與媒體在你的機器上解密。沒有東西離開它。</p>
-        </div>
-        <div data-reveal>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="en">Local-first</h3>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="zh">本機優先</h3>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">A stdio MCP server that runs beside your agent. No server to host, no data to hand over.</p>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">一個跟 agent 並肩執行的 stdio MCP server。不用架站，也不交出資料。</p>
-        </div>
-        <div data-reveal>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="en">No clone, no build</h3>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="zh">免 clone、免 build</h3>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Runs straight from npm via <code class="font-mono text-[12.5px] text-accent">bunx</code>. One line and your agent can read LINE.</p>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">透過 <code class="font-mono text-[12.5px] text-accent">bunx</code> 直接從 npm 執行。一行，你的 agent 就能讀 LINE。</p>
-        </div>
-        <div data-reveal>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="en">Works with any MCP client</h3>
-          <h3 class="font-serif text-[21px] mb-2.5" data-t lang="zh">相容任何 MCP client</h3>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Claude Desktop, Claude Code, or anything that speaks the Model Context Protocol.</p>
-          <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">Claude Desktop、Claude Code，或任何會講 Model Context Protocol 的工具。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- trust / disclaimer -->
-  <section class="border-t border-line bg-paper2">
-    <div class="mx-auto max-w-[820px] px-6 md:px-10 py-16 md:py-20">
-      <div class="rounded-[10px] border border-linestrong border-dashed p-7 md:p-9" data-reveal>
-        <div class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-4">Honest note</div>
-        <p class="font-sans font-light text-[14.5px] leading-[1.9] text-inksoft" data-t lang="en"><b>Unofficial.</b> yomi is an independent personal project, not affiliated with or endorsed by LINE. Using it may be against LINE's Terms of Service, and running an additional client on your account carries a risk of rate-limiting or suspension. It's intended for reading <i>your own</i> account. Use it at your own risk.</p>
-        <p class="font-sans font-light text-[14.5px] leading-[1.9] text-inksoft" data-t lang="zh"><b>非官方。</b>yomi 是獨立的個人專案，與 LINE 無任何關聯、也未獲其背書。使用它可能違反 LINE 的服務條款，且在帳號上多跑一個 client 有被限流或停權的風險。它是用來讀取<i>你自己的</i>帳號。請自行承擔風險。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="border-t border-line">
-    <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[110px] text-center">
-      <svg viewBox="0 0 100 100" width="72" height="72" class="mark mx-auto mb-8" aria-hidden="true"><path d="M30 24 L48 50 L30 76" fill="none" stroke="var(--color-ink,#1F1C17)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M70 24 L52 50 L70 76" fill="none" stroke="var(--color-ink,#1F1C17)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="50" r="4.8" fill="var(--color-accent,#B23A28)" class="pulse"/></svg>
-      <h2 class="font-serif font-medium text-[clamp(30px,5vw,60px)] leading-[1.1] mb-6" data-t lang="en">Give your agent a reading.</h2>
-      <h2 class="font-serif font-medium text-[clamp(30px,5vw,60px)] leading-[1.1] mb-6" data-t lang="zh">讓你的 agent，替你讀一次。</h2>
+  <!-- ===== big CTA (full-bleed 朱) ===== -->
+  <section style="background:var(--color-accent);">
+    <div class="mx-auto max-w-[1200px] px-6 md:px-10 py-24 md:py-32 text-center">
+      <svg viewBox="0 0 100 100" width="64" height="64" class="mark mx-auto mb-8" aria-hidden="true"><path d="M30 24 L48 50 L30 76" fill="none" stroke="#F4F0E7" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M70 24 L52 50 L70 76" fill="none" stroke="#F4F0E7" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="50" r="4.8" fill="#1F1C17" class="pulse"/></svg>
+      <h2 class="font-serif font-semibold text-[clamp(36px,6.5vw,80px)] leading-[1.02] mb-8" style="color:#F4F0E7;" data-t lang="en">Give your agent<br>a reading.</h2>
+      <h2 class="font-serif font-semibold text-[clamp(36px,6.5vw,80px)] leading-[1.08] mb-8" style="color:#F4F0E7;" data-t lang="zh">讓你的 agent，<br>替你讀一次。</h2>
       <div class="max-w-[520px] mx-auto">
-        <div class="flex items-stretch rounded-[8px] overflow-hidden border border-line bg-card">
-          <span class="font-mono text-[13px] text-sub2 px-3 py-3 border-r border-line select-none">$</span>
-          <code class="rk-xscroll flex-1 font-mono text-[13px] text-accent px-4 py-3 whitespace-nowrap text-left">claude mcp add yomi -- bunx @rikaidev/yomi</code>
+        <div class="flex items-stretch rounded-[8px] overflow-hidden mb-5" style="background:rgba(23,21,15,0.9);">
+          <span class="font-mono text-[13px] px-3 py-3 border-r select-none" style="color:#9C9382;border-color:rgba(237,231,218,0.15);">$</span>
+          <code class="rk-xscroll flex-1 font-mono text-[13px] px-4 py-3 whitespace-nowrap text-left" style="color:#F4F0E7;">claude mcp add yomi -- bunx @rikaidev/yomi</code>
         </div>
-        <div class="flex gap-3 justify-center flex-wrap mt-5">
-          <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-ink text-paper px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity">★ Star yomi on GitHub ↗</a>
-          <a href="/" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors" data-t lang="en">All RikaiDev tools</a>
-          <a href="/" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors" data-t lang="zh">看所有 RikaiDev 工具</a>
+        <div class="flex gap-3 justify-center flex-wrap">
+          <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px] transition-opacity hover:opacity-90" style="background:#1F1C17;color:#F4F0E7;">★ Star yomi on GitHub ↗</a>
+          <a href="/" class="font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px] border transition-colors" style="color:#F4F0E7;border-color:rgba(244,240,231,0.5);" data-t lang="en">All RikaiDev tools</a>
+          <a href="/" class="font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px] border transition-colors" style="color:#F4F0E7;border-color:rgba(244,240,231,0.5);" data-t lang="zh">所有 RikaiDev 工具</a>
         </div>
       </div>
     </div>
@@ -311,7 +325,7 @@
 
   <!-- footer -->
   <footer class="bg-deep2 text-ondarksub">
-    <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-14 flex justify-between items-end flex-wrap gap-8">
+    <div class="mx-auto max-w-[1200px] px-6 md:px-10 py-14 flex justify-between items-end flex-wrap gap-8">
       <div class="flex items-center gap-4">
         <svg width="40" height="40" viewBox="0 0 100 100" class="mark" aria-hidden="true"><use href="#m-li-lite"/></svg>
         <div>
