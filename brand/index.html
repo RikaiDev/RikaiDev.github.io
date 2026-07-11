@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,11 +69,11 @@
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/app.css">
 
   <!-- no-flash theme restore -->
-  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('rk-theme');if(t==='sumi')d.setAttribute('data-theme','sumi');var a=localStorage.getItem('rk-accent');if(a)d.style.setProperty('--color-accent',a);if(localStorage.getItem('rk-grain')==='off')d.setAttribute('data-grain','off');}catch(e){}})();</script>
+  <script>(function(){try{var d=document.documentElement;if(localStorage.getItem('rk-theme')==='sumi')d.setAttribute('data-theme','sumi');if(localStorage.getItem('rk-lang')==='zh'){d.setAttribute('data-lang','zh');d.setAttribute('lang','zh-Hant');}}catch(e){}})();</script>
 </head>
 <body class="bg-paper text-ink font-sans">
 
@@ -99,19 +99,28 @@
       <span class="font-mono text-[13px] tracking-[0.14em]">RikaiDev</span>
     </a>
     <nav class="hidden md:flex gap-[26px] font-mono text-[11px] tracking-[0.16em] uppercase text-sub">
-      <a href="#logo" class="hover:text-accent">標誌</a>
-      <a href="#color" class="hover:text-accent">色彩</a>
-      <a href="#type" class="hover:text-accent">字體</a>
-      <a href="#naming" class="hover:text-accent">命名</a>
-      <a href="#voice" class="hover:text-accent">語調</a>
+      <a data-t lang="en" href="#logo" class="hover:text-accent">Logo</a>
+      <a data-t lang="zh" href="#logo" class="hover:text-accent">標誌</a>
+      <a data-t lang="en" href="#color" class="hover:text-accent">Color</a>
+      <a data-t lang="zh" href="#color" class="hover:text-accent">色彩</a>
+      <a data-t lang="en" href="#type" class="hover:text-accent">Type</a>
+      <a data-t lang="zh" href="#type" class="hover:text-accent">字體</a>
+      <a data-t lang="en" href="#naming" class="hover:text-accent">Naming</a>
+      <a data-t lang="zh" href="#naming" class="hover:text-accent">命名</a>
+      <a data-t lang="en" href="#voice" class="hover:text-accent">Voice</a>
+      <a data-t lang="zh" href="#voice" class="hover:text-accent">語調</a>
     </nav>
-    <span class="font-mono text-[11px] tracking-[0.16em] uppercase text-sub">Brand System v1.0</span>
+    <div class="flex items-center gap-4">
+      <span class="hidden sm:inline font-mono text-[11px] tracking-[0.16em] uppercase text-sub">Brand System v1.0</span>
+      <span class="rk-controls" aria-label="Site controls"></span>
+    </div>
   </header>
 
   <main>
   <!-- ============ HERO ============ -->
   <section class="mx-auto max-w-[1120px] px-6 md:px-10 pt-20 md:pt-[120px] pb-[100px]">
-    <div class="font-mono text-[12px] tracking-[0.3em] uppercase text-sub mb-12 md:mb-16">Corporate Identity System — 視覺識別規範</div>
+    <div data-t lang="en" class="font-mono text-[12px] tracking-[0.3em] uppercase text-sub mb-12 md:mb-16">Corporate Identity System</div>
+    <div data-t lang="zh" class="font-mono text-[12px] tracking-[0.3em] uppercase text-sub mb-12 md:mb-16">視覺識別規範</div>
 
     <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-14 items-start">
       <div class="w-[150px] h-[150px] md:w-[190px] md:h-[190px] rounded-[12px] flex items-center justify-center rotate-[-1.5deg] shadow-[inset_0_0_0_3px_rgba(244,240,231,0.92),0_2px_0_rgba(31,28,23,0.16)] shrink-0">
@@ -119,53 +128,74 @@
       </div>
       <div class="pt-1.5">
         <div class="font-mincho text-[15px] tracking-[0.5em] text-accent mb-[14px]">り　か　い</div>
-        <h1 class="font-serif font-medium text-[clamp(44px,7vw,92px)] leading-[1.02] tracking-[0.01em] mb-7">理解，<br>是一切工具的起點。</h1>
-        <p class="font-sans font-light text-[17px] md:text-[19px] leading-[1.9] max-w-[560px] mb-9">
+        <h1 data-t lang="en" class="font-serif font-medium text-[clamp(44px,7vw,92px)] leading-[1.02] tracking-[0.01em] mb-7">Understanding is<br>where every tool begins.</h1>
+        <h1 data-t lang="zh" class="font-serif font-medium text-[clamp(44px,7vw,92px)] leading-[1.02] tracking-[0.01em] mb-7">理解，<br>是一切工具的起點。</h1>
+        <p data-t lang="en" class="font-sans font-light text-[17px] md:text-[19px] leading-[1.9] max-w-[560px] mb-9">
+          RikaiDev (Rikai) builds open-source tools — human-led, AI-powered.<br>
+          <span class="text-sub">Humans own insight and judgment; AI handles execution and scale — together building what no one person could.</span>
+        </p>
+        <p data-t lang="zh" class="font-sans font-light text-[17px] md:text-[19px] leading-[1.9] max-w-[560px] mb-9">
           RikaiDev（理解）打造以人為本、AI 為力的開源工具。<br>
           <span class="text-sub">人負責洞察與判斷，AI 負責執行與規模，一起做出一個人做不出的東西。</span>
         </p>
         <div class="flex gap-[14px] flex-wrap font-mono text-[12px] tracking-[0.12em] text-sub">
-          <span class="px-[14px] py-2 border border-line rounded-full">Human vision</span>
-          <span class="px-[14px] py-2 border border-line rounded-full">AI execution</span>
-          <span class="px-[14px] py-2 border border-line rounded-full">Real products</span>
+          <span data-t lang="en" class="px-[14px] py-2 border border-line rounded-full">Human vision</span>
+          <span data-t lang="zh" class="px-[14px] py-2 border border-line rounded-full">人的洞察</span>
+          <span data-t lang="en" class="px-[14px] py-2 border border-line rounded-full">AI execution</span>
+          <span data-t lang="zh" class="px-[14px] py-2 border border-line rounded-full">AI 執行</span>
+          <span data-t lang="en" class="px-[14px] py-2 border border-line rounded-full">Real products</span>
+          <span data-t lang="zh" class="px-[14px] py-2 border border-line rounded-full">真實產品</span>
         </div>
       </div>
     </div>
 
     <div class="mt-20 pt-[22px] border-t border-line flex justify-between flex-wrap gap-3 font-mono text-[11px] tracking-[0.14em] uppercase text-sub">
-      <span>Building in public · Shipping in production</span>
-      <span>↓ Scroll</span>
+      <span data-t lang="en">Building in public · Shipping in production</span>
+      <span data-t lang="zh">公開建造 · 生產環境出貨</span>
+      <span data-t lang="en">↓ Scroll</span>
+      <span data-t lang="zh">↓ 向下捲動</span>
     </div>
   </section>
 
   <!-- ============ 01 PHILOSOPHY ============ -->
   <section class="border-t border-line" aria-labelledby="s01">
     <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[120px]">
-      <div id="s01" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-14">01 — Philosophy / 理念</div>
-      <h2 class="font-serif font-medium text-[clamp(30px,4.4vw,56px)] leading-[1.28] max-w-[900px] mb-[14px]">我們不是用 AI 把程式碼寫得更快，<br>而是用 AI 做出一個人做不出的東西。</h2>
-      <p class="font-mono text-[13px] tracking-[0.06em] text-sub mb-[72px]">We don't use AI to write code faster. We use AI to build what one person couldn't build alone.</p>
+      <div id="s01" data-t lang="en" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-14">01 — Philosophy</div>
+      <div data-t lang="zh" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-14">01 — 理念</div>
+      <h2 data-t lang="en" class="font-serif font-medium text-[clamp(30px,4.4vw,56px)] leading-[1.28] max-w-[900px] mb-[14px]">We don't use AI to write code faster —<br>we use AI to build what one person couldn't.</h2>
+      <h2 data-t lang="zh" class="font-serif font-medium text-[clamp(30px,4.4vw,56px)] leading-[1.28] max-w-[900px] mb-[14px]">我們不是用 AI 把程式碼寫得更快，<br>而是用 AI 做出一個人做不出的東西。</h2>
+      <p data-t lang="en" class="font-mono text-[13px] tracking-[0.06em] text-sub mb-[72px]">We don't use AI to write code faster. We use AI to build what one person couldn't build alone.</p>
+      <p data-t lang="zh" class="font-mono text-[13px] tracking-[0.06em] text-sub mb-[72px]">我們不是用 AI 把程式碼寫得更快，而是用 AI 做出一個人做不出的東西。</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 border-t border-line divide-y md:divide-y-0 md:divide-x divide-line">
         <div class="py-[38px] md:pr-8">
           <div class="font-mincho text-[40px] text-accent mb-5">人</div>
-          <div class="font-serif text-[21px] mb-[10px]">Human — 洞察</div>
-          <p class="font-sans font-light text-[15px] leading-[1.85] text-sub">願景、品味，以及真正重要的決定。方向由人來定。</p>
+          <div data-t lang="en" class="font-serif text-[21px] mb-[10px]">Human — Insight</div>
+          <div data-t lang="zh" class="font-serif text-[21px] mb-[10px]">Human — 洞察</div>
+          <p data-t lang="en" class="font-sans font-light text-[15px] leading-[1.85] text-sub">Vision, taste, and the decisions that truly matter. Humans set the direction.</p>
+          <p data-t lang="zh" class="font-sans font-light text-[15px] leading-[1.85] text-sub">願景、品味，以及真正重要的決定。方向由人來定。</p>
         </div>
         <div class="py-[38px] md:px-8">
           <div class="font-mincho text-[40px] text-accent mb-5">技</div>
-          <div class="font-serif text-[21px] mb-[10px]">AI — 執行</div>
-          <p class="font-sans font-light text-[15px] leading-[1.85] text-sub">迭代、規模，以及所有可以被放大的事。力量交給 AI。</p>
+          <div data-t lang="en" class="font-serif text-[21px] mb-[10px]">AI — Execution</div>
+          <div data-t lang="zh" class="font-serif text-[21px] mb-[10px]">AI — 執行</div>
+          <p data-t lang="en" class="font-sans font-light text-[15px] leading-[1.85] text-sub">Iteration, scale, and everything that can be amplified. The power goes to AI.</p>
+          <p data-t lang="zh" class="font-sans font-light text-[15px] leading-[1.85] text-sub">迭代、規模，以及所有可以被放大的事。力量交給 AI。</p>
         </div>
         <div class="py-[38px] md:pl-8">
           <div class="font-mincho text-[40px] text-accent mb-5">實</div>
-          <div class="font-serif text-[21px] mb-[10px]">Together — 成品</div>
-          <p class="font-sans font-light text-[15px] leading-[1.85] text-sub">一個開發者，現在能出貨的東西。這不是取代人，是解放人。</p>
+          <div data-t lang="en" class="font-serif text-[21px] mb-[10px]">Together — Shipped</div>
+          <div data-t lang="zh" class="font-serif text-[21px] mb-[10px]">Together — 成品</div>
+          <p data-t lang="en" class="font-sans font-light text-[15px] leading-[1.85] text-sub">What a single developer can ship today. This doesn't replace people — it frees them.</p>
+          <p data-t lang="zh" class="font-sans font-light text-[15px] leading-[1.85] text-sub">一個開發者，現在能出貨的東西。這不是取代人，是解放人。</p>
         </div>
       </div>
 
       <div class="mt-16 flex items-baseline gap-[22px] flex-wrap">
-        <span class="font-serif text-[clamp(26px,3vw,38px)]">程式碼，即證明。</span>
-        <span class="font-mono text-[13px] tracking-[0.08em] text-sub">The code is the proof. Clone it. Read it. Run it. Break it.</span>
+        <span data-t lang="en" class="font-serif text-[clamp(26px,3vw,38px)]">Code is the proof.</span>
+        <span data-t lang="zh" class="font-serif text-[clamp(26px,3vw,38px)]">程式碼，即證明。</span>
+        <span data-t lang="en" class="font-mono text-[13px] tracking-[0.08em] text-sub">The code is the proof. Clone it. Read it. Run it. Break it.</span>
+        <span data-t lang="zh" class="font-mono text-[13px] tracking-[0.08em] text-sub">程式碼即證明。下載、閱讀、執行、把它弄壞。</span>
       </div>
     </div>
   </section>
@@ -173,9 +203,12 @@
   <!-- ============ 02 LOGO ============ -->
   <section id="logo" class="border-t border-line bg-paper2" aria-labelledby="s02">
     <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[120px]">
-      <div id="s02" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">02 — Logo / 標誌系統</div>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-5">以爻為標。陰陽，也是 0 與 1。</h2>
-      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-[72px]">標誌是一枚以易經「爻」構成的記號——離卦（火／明）＝清晰、覺照，正合「理解」。陽爻是人的判斷，陰爻是 AI 的迭代，疊成一卦；同時也是二進位（程式碼）與「易＝變化、通達」。頂爻為朱色且會眨——既是動爻，也是終端機游標；純幾何、縮到 16px 仍清楚，也呼應我們的信念：程式碼即證明。</p>
+      <div id="s02" data-t lang="en" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">02 — Logo</div>
+      <div data-t lang="zh" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">02 — 標誌系統</div>
+      <h2 data-t lang="en" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-5">A mark made of yao lines. Yin and yang — also 0 and 1.</h2>
+      <h2 data-t lang="zh" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-5">以爻為標。陰陽，也是 0 與 1。</h2>
+      <p data-t lang="en" class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-[72px]">The mark is a sign built from the yao lines of the I Ching — the Li trigram (fire / light) means clarity and awareness, exactly what "Rikai" is. The solid line is human judgment, the broken line is AI iteration, stacked into one trigram; it is also binary (code) and "yi" — change, fluency. The top line is vermilion and blinks — at once a moving line and a terminal cursor. Purely geometric, still legible down to 16px, and true to our belief: the code is the proof.</p>
+      <p data-t lang="zh" class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-[72px]">標誌是一枚以易經「爻」構成的記號——離卦（火／明）＝清晰、覺照，正合「理解」。陽爻是人的判斷，陰爻是 AI 的迭代，疊成一卦；同時也是二進位（程式碼）與「易＝變化、通達」。頂爻為朱色且會眨——既是動爻，也是終端機游標；純幾何、縮到 16px 仍清楚，也呼應我們的信念：程式碼即證明。</p>
 
       <!-- primary lockups -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-line border border-line mb-14">
@@ -193,19 +226,23 @@
       </div>
 
       <!-- variants -->
-      <div class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-5">Variants / 変体</div>
+      <div data-t lang="en" class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-5">Variants</div>
+      <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-5">変体</div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-line border border-line mb-14">
         <div class="bg-card aspect-square flex flex-col items-center justify-center gap-4">
           <span class="w-[64px] h-[64px] rounded-[6px] flex items-center justify-center rotate-[-1.5deg] shadow-[inset_0_0_0_2px_rgba(244,240,231,0.9)]"><svg viewBox="0 0 100 100" width="64" height="64" class="mark" aria-hidden="true"><use href="#m-li"/></svg></span>
-          <span class="font-mono text-[10px] tracking-[0.1em] text-sub">主標 · 離卦</span>
+          <span data-t lang="en" class="font-mono text-[10px] tracking-[0.1em] text-sub">Primary · Li trigram</span>
+          <span data-t lang="zh" class="font-mono text-[10px] tracking-[0.1em] text-sub">主標 · 離卦</span>
         </div>
         <div class="aspect-square flex flex-col items-center justify-center gap-4" style="background:#1F1C17;">
           <span class="w-[64px] h-[64px] rounded-[6px] flex items-center justify-center rotate-[-1.5deg] shadow-[inset_0_0_0_2px_rgba(31,28,23,0.35)]"><svg viewBox="0 0 100 100" width="64" height="64" class="mark" aria-hidden="true"><use href="#m-li-lite"/></svg></span>
-          <span class="font-mono text-[10px] tracking-[0.1em]" style="color:#9C9382;">深底 · 反白</span>
+          <span data-t lang="en" class="font-mono text-[10px] tracking-[0.1em]" style="color:#9C9382;">Dark ground · Reversed</span>
+          <span data-t lang="zh" class="font-mono text-[10px] tracking-[0.1em]" style="color:#9C9382;">深底 · 反白</span>
         </div>
         <div class="bg-card aspect-square flex flex-col items-center justify-center gap-4">
           <span class="w-[64px] h-[64px] rounded-[6px] flex items-center justify-center rotate-[-1.5deg] shadow-[inset_0_0_0_2px_var(--color-ink,#1F1C17)]"><svg viewBox="0 0 100 100" width="64" height="64" class="mark" aria-hidden="true"><use href="#m-li-mono"/></svg></span>
-          <span class="font-mono text-[10px] tracking-[0.1em] text-sub">單色 · 墨線</span>
+          <span data-t lang="en" class="font-mono text-[10px] tracking-[0.1em] text-sub">Monochrome · Ink line</span>
+          <span data-t lang="zh" class="font-mono text-[10px] tracking-[0.1em] text-sub">單色 · 墨線</span>
         </div>
         <div class="bg-card aspect-square flex flex-col items-center justify-center gap-4">
           <span class="w-[34px] h-[34px] rounded-[4px] flex items-center justify-center shadow-[inset_0_0_0_1.5px_rgba(244,240,231,0.9)]"><svg viewBox="0 0 100 100" width="34" height="34" class="mark" aria-hidden="true"><use href="#m-li"/></svg></span>
@@ -216,22 +253,25 @@
       <!-- clearspace + misuse -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-11">
         <div>
-          <div class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-[18px]">留白 / Clear space</div>
+          <div data-t lang="en" class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-[18px]">Clear space</div>
+          <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-[18px]">留白</div>
           <div class="bg-card border border-line p-10 flex items-center justify-center">
             <div class="relative p-9">
               <div class="absolute inset-0 border border-dashed border-accent opacity-50"></div>
               <span class="w-[72px] h-[72px] rounded-[6px] flex items-center justify-center rotate-[-1.5deg] shadow-[inset_0_0_0_2px_rgba(244,240,231,0.9)]"><svg viewBox="0 0 100 100" width="72" height="72" class="mark" aria-hidden="true"><use href="#m-li"/></svg></span>
             </div>
           </div>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub mt-[14px]">四周留白最小為印章邊長的 ½。印面不得被其他元素觸碰。</p>
+          <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub mt-[14px]">Minimum clear space on every side is half the seal's edge length. Nothing else may touch the seal face.</p>
+          <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub mt-[14px]">四周留白最小為印章邊長的 ½。印面不得被其他元素觸碰。</p>
         </div>
         <div>
-          <div class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-[18px]">禁止 / Misuse</div>
+          <div data-t lang="en" class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-[18px]">Misuse</div>
+          <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-[18px]">禁止</div>
           <div class="grid grid-cols-2 gap-3">
-            <div class="bg-card border border-line aspect-[1.4] flex items-center justify-center relative"><div class="w-11 h-11 rounded-[6px]" style="background:linear-gradient(45deg,#5b8f4f,#c9a13a);"></div><span class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ 換色 / 漸層</span></div>
-            <div class="bg-card border border-line aspect-[1.4] flex items-center justify-center relative"><svg viewBox="0 0 100 100" width="56" height="30" class="mark" aria-hidden="true"><use href="#m-li"/></svg><span class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ 拉伸變形</span></div>
-            <div class="bg-card border border-line aspect-[1.4] flex items-center justify-center relative"><div class="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center"><svg viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><use href="#m-li"/></svg></div><span class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ 改形狀</span></div>
-            <div class="bg-card border border-line aspect-[1.4] flex items-center justify-center relative"><span class="w-11 h-11 rounded-[6px] flex items-center justify-center shadow-[0_6px_12px_rgba(178,58,40,0.6)]"><svg viewBox="0 0 100 100" width="44" height="44" class="mark" aria-hidden="true"><use href="#m-li"/></svg></span><span class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ 加陰影特效</span></div>
+            <div class="bg-card border border-line aspect-[1.4] flex items-center justify-center relative"><div class="w-11 h-11 rounded-[6px]" style="background:linear-gradient(45deg,#5b8f4f,#c9a13a);"></div><span data-t lang="en" class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ Recolor / gradient</span><span data-t lang="zh" class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ 換色 / 漸層</span></div>
+            <div class="bg-card border border-line aspect-[1.4] flex items-center justify-center relative"><svg viewBox="0 0 100 100" width="56" height="30" class="mark" aria-hidden="true"><use href="#m-li"/></svg><span data-t lang="en" class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ Stretch / distort</span><span data-t lang="zh" class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ 拉伸變形</span></div>
+            <div class="bg-card border border-line aspect-[1.4] flex items-center justify-center relative"><div class="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center"><svg viewBox="0 0 100 100" width="44" height="44" aria-hidden="true"><use href="#m-li"/></svg></div><span data-t lang="en" class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ Alter the shape</span><span data-t lang="zh" class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ 改形狀</span></div>
+            <div class="bg-card border border-line aspect-[1.4] flex items-center justify-center relative"><span class="w-11 h-11 rounded-[6px] flex items-center justify-center shadow-[0_6px_12px_rgba(178,58,40,0.6)]"><svg viewBox="0 0 100 100" width="44" height="44" class="mark" aria-hidden="true"><use href="#m-li"/></svg></span><span data-t lang="en" class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ Add shadow / effects</span><span data-t lang="zh" class="absolute bottom-2 left-2.5 font-mono text-[9.5px] text-sub">✕ 加陰影特效</span></div>
           </div>
         </div>
       </div>
@@ -241,50 +281,90 @@
   <!-- ============ 03 COLOR ============ -->
   <section id="color" class="border-t border-line" aria-labelledby="s03">
     <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[120px]">
-      <div id="s03" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">03 — Color / 色彩系統</div>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-5">紙、墨，與唯一的一點朱。</h2>
-      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-[72px]">色彩克制到近乎黑白：溫潤的紙白為底、墨黑承載一切結構與文字。彩色只保留給「朱」——像落款印上唯一的一抹紅，因為稀少而有力量。</p>
+      <div id="s03" data-t lang="en" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">03 — Color</div>
+      <div data-t lang="zh" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">03 — 色彩系統</div>
+      <h2 data-t lang="en" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-5">Paper, ink, and a single touch of vermilion.</h2>
+      <h2 data-t lang="zh" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-5">紙、墨，與唯一的一點朱。</h2>
+      <p data-t lang="en" class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-[72px]">The palette is restrained almost to black and white: warm paper-white as ground, ink-black carrying all structure and text. Color is reserved for "shu" alone — like the single red of a signature seal, powerful because it is rare.</p>
+      <p data-t lang="zh" class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[640px] mb-[72px]">色彩克制到近乎黑白：溫潤的紙白為底、墨黑承載一切結構與文字。彩色只保留給「朱」——像落款印上唯一的一抹紅，因為稀少而有力量。</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-        <div class="md:col-span-2 border border-line rounded-[6px] p-[34px] min-h-[200px] flex flex-col justify-between" style="background:#F2EEE5;">
+        <div data-t lang="en" class="md:col-span-2 border border-line rounded-[6px] p-[34px] min-h-[200px] flex flex-col justify-between" style="background:#F2EEE5;">
+          <span class="font-mincho text-[34px]" style="color:#1F1C17;">紙 <span class="text-[15px] tracking-[0.3em]" style="color:#6B655A;">washi</span></span>
+          <div class="font-mono text-[12px] leading-[1.9]" style="color:#6B655A;">#F2EEE5 · Base background<br>Warm off-white with a paper grain. Holds all the whitespace.</div>
+        </div>
+        <div data-t lang="zh" class="md:col-span-2 border border-line rounded-[6px] p-[34px] min-h-[200px] flex flex-col justify-between" style="background:#F2EEE5;">
           <span class="font-mincho text-[34px]" style="color:#1F1C17;">紙 <span class="text-[15px] tracking-[0.3em]" style="color:#6B655A;">washi</span></span>
           <div class="font-mono text-[12px] leading-[1.9]" style="color:#6B655A;">#F2EEE5 · 基底背景<br>溫白微暖，帶紙的質感。承載一切留白。</div>
         </div>
-        <div class="rounded-[6px] p-[34px] min-h-[200px] flex flex-col justify-between" style="background:#1F1C17;">
+        <div data-t lang="en" class="rounded-[6px] p-[34px] min-h-[200px] flex flex-col justify-between" style="background:#1F1C17;">
+          <span class="font-mincho text-[34px]" style="color:#F2EEE5;">墨 <span class="text-[15px] tracking-[0.3em]" style="color:#9C9382;">sumi</span></span>
+          <div class="font-mono text-[12px] leading-[1.9]" style="color:#9C9382;">#1F1C17 · Text / structure<br>Near-black, not pure black. Deep and settled.</div>
+        </div>
+        <div data-t lang="zh" class="rounded-[6px] p-[34px] min-h-[200px] flex flex-col justify-between" style="background:#1F1C17;">
           <span class="font-mincho text-[34px]" style="color:#F2EEE5;">墨 <span class="text-[15px] tracking-[0.3em]" style="color:#9C9382;">sumi</span></span>
           <div class="font-mono text-[12px] leading-[1.9]" style="color:#9C9382;">#1F1C17 · 文字 / 結構<br>近黑而非純黑。深沉、安定。</div>
         </div>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-16">
-        <div class="rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between" style="background:#6B655A;">
+        <div data-t lang="en" class="rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between" style="background:#6B655A;">
+          <span class="font-mincho text-[26px]" style="color:#F2EEE5;">鼠</span>
+          <div class="font-mono text-[11px] leading-[1.7]" style="color:rgba(242,238,229,0.85);">nezumi<br>#6B655A · Secondary text</div>
+        </div>
+        <div data-t lang="zh" class="rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between" style="background:#6B655A;">
           <span class="font-mincho text-[26px]" style="color:#F2EEE5;">鼠</span>
           <div class="font-mono text-[11px] leading-[1.7]" style="color:rgba(242,238,229,0.85);">nezumi<br>#6B655A · 次要文字</div>
         </div>
-        <div class="rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between" style="background:#C9C2B2;">
+        <div data-t lang="en" class="rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between" style="background:#C9C2B2;">
+          <span class="font-mincho text-[26px]" style="color:#1F1C17;">淡墨</span>
+          <div class="font-mono text-[11px] leading-[1.7]" style="color:#4a463d;">usuzumi<br>#C9C2B2 · Dividers / grid</div>
+        </div>
+        <div data-t lang="zh" class="rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between" style="background:#C9C2B2;">
           <span class="font-mincho text-[26px]" style="color:#1F1C17;">淡墨</span>
           <div class="font-mono text-[11px] leading-[1.7]" style="color:#4a463d;">usuzumi<br>#C9C2B2 · 分隔線 / 網格</div>
         </div>
-        <div class="rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between shadow-[inset_0_0_0_2px_rgba(244,240,231,0.4)]" style="background:#B23A28;">
+        <div data-t lang="en" class="rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between shadow-[inset_0_0_0_2px_rgba(244,240,231,0.4)]" style="background:#B23A28;">
+          <span class="font-mincho text-[26px]" style="color:#F4F0E7;">朱</span>
+          <div class="font-mono text-[11px] leading-[1.7]" style="color:rgba(244,240,231,0.9);">shu<br>#B23A28 · Accent / emphasis</div>
+        </div>
+        <div data-t lang="zh" class="rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between shadow-[inset_0_0_0_2px_rgba(244,240,231,0.4)]" style="background:#B23A28;">
           <span class="font-mincho text-[26px]" style="color:#F4F0E7;">朱</span>
           <div class="font-mono text-[11px] leading-[1.7]" style="color:rgba(244,240,231,0.9);">shu<br>#B23A28 · 點睛 / 強調</div>
         </div>
-        <div class="border border-line rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between" style="background:#EAE4D8;">
+        <div data-t lang="en" class="border border-line rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between" style="background:#EAE4D8;">
+          <span class="font-mincho text-[26px]" style="color:#1F1C17;">生成</span>
+          <div class="font-mono text-[11px] leading-[1.7]" style="color:#6B655A;">kinari<br>#EAE4D8 · Card / light block</div>
+        </div>
+        <div data-t lang="zh" class="border border-line rounded-[6px] p-[26px] min-h-[150px] flex flex-col justify-between" style="background:#EAE4D8;">
           <span class="font-mincho text-[26px]" style="color:#1F1C17;">生成</span>
           <div class="font-mono text-[11px] leading-[1.7]" style="color:#6B655A;">kinari<br>#EAE4D8 · 卡面 / 淺區塊</div>
         </div>
       </div>
 
-      <div class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-5">語意色 / Semantic — 全數低彩度，克制使用</div>
+      <div data-t lang="en" class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-5">Semantic — all low-chroma, used sparingly</div>
+      <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-5">語意色 — 全數低彩度，克制使用</div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-        <div class="flex items-center gap-4 p-[22px] border border-line rounded-[6px]">
+        <div data-t lang="en" class="flex items-center gap-4 p-[22px] border border-line rounded-[6px]">
+          <div class="w-11 h-11 rounded-[5px] shrink-0" style="background:#5B7355;"></div>
+          <div><div class="font-serif text-[17px]">苔 · Success</div><div class="font-mono text-[11px] text-sub">#5B7355 koke</div></div>
+        </div>
+        <div data-t lang="zh" class="flex items-center gap-4 p-[22px] border border-line rounded-[6px]">
           <div class="w-11 h-11 rounded-[5px] shrink-0" style="background:#5B7355;"></div>
           <div><div class="font-serif text-[17px]">苔 · 成功</div><div class="font-mono text-[11px] text-sub">#5B7355 koke</div></div>
         </div>
-        <div class="flex items-center gap-4 p-[22px] border border-line rounded-[6px]">
+        <div data-t lang="en" class="flex items-center gap-4 p-[22px] border border-line rounded-[6px]">
+          <div class="w-11 h-11 rounded-[5px] shrink-0" style="background:#B5892F;"></div>
+          <div><div class="font-serif text-[17px]">山吹 · Warning</div><div class="font-mono text-[11px] text-sub">#B5892F yamabuki</div></div>
+        </div>
+        <div data-t lang="zh" class="flex items-center gap-4 p-[22px] border border-line rounded-[6px]">
           <div class="w-11 h-11 rounded-[5px] shrink-0" style="background:#B5892F;"></div>
           <div><div class="font-serif text-[17px]">山吹 · 提醒</div><div class="font-mono text-[11px] text-sub">#B5892F yamabuki</div></div>
         </div>
-        <div class="flex items-center gap-4 p-[22px] border border-line rounded-[6px]">
+        <div data-t lang="en" class="flex items-center gap-4 p-[22px] border border-line rounded-[6px]">
+          <div class="w-11 h-11 rounded-[5px] shrink-0" style="background:#8E2E20;"></div>
+          <div><div class="font-serif text-[17px]">緋 · Danger</div><div class="font-mono text-[11px] text-sub">#8E2E20 ake</div></div>
+        </div>
+        <div data-t lang="zh" class="flex items-center gap-4 p-[22px] border border-line rounded-[6px]">
           <div class="w-11 h-11 rounded-[5px] shrink-0" style="background:#8E2E20;"></div>
           <div><div class="font-serif text-[17px]">緋 · 危險</div><div class="font-mono text-[11px] text-sub">#8E2E20 ake</div></div>
         </div>
@@ -295,47 +375,60 @@
   <!-- ============ 04 TYPOGRAPHY ============ -->
   <section id="type" class="border-t border-line bg-paper2" aria-labelledby="s04">
     <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[120px]">
-      <div id="s04" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">04 — Typography / 字體排印</div>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">明體的骨、和文的韻、等寬的誠實。</h2>
+      <div id="s04" data-t lang="en" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">04 — Typography</div>
+      <div data-t lang="zh" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">04 — 字體排印</div>
+      <h2 data-t lang="en" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">The bones of Mincho, the cadence of kana, the honesty of monospace.</h2>
+      <h2 data-t lang="zh" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">明體的骨、和文的韻、等寬的誠實。</h2>
 
       <div class="flex flex-col gap-px bg-line border border-line">
         <div class="bg-card px-6 md:px-9 py-10 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-8 md:items-baseline">
           <div>
-            <div class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">DISPLAY · 標題</div>
+            <div data-t lang="en" class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">DISPLAY · Headline</div>
+            <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">DISPLAY · 標題</div>
             <div class="font-serif text-[19px]">Noto Serif TC</div>
-            <div class="font-mono text-[11px] text-sub">明體 · 300/500</div>
+            <div data-t lang="en" class="font-mono text-[11px] text-sub">Mincho · 300/500</div>
+            <div data-t lang="zh" class="font-mono text-[11px] text-sub">明體 · 300/500</div>
           </div>
           <div class="font-serif font-medium text-[32px] md:text-[40px] leading-[1.2]">理解，是一切工具的起點</div>
         </div>
         <div class="bg-card px-6 md:px-9 py-10 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-8 md:items-baseline">
           <div>
-            <div class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">WAMEI · 和名</div>
+            <div data-t lang="en" class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">WAMEI · Japanese names</div>
+            <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">WAMEI · 和名</div>
             <div class="font-mincho text-[19px]">Zen Old Mincho</div>
-            <div class="font-mono text-[11px] text-sub">日文明朝 · 700/900</div>
+            <div data-t lang="en" class="font-mono text-[11px] text-sub">Japanese Mincho · 700/900</div>
+            <div data-t lang="zh" class="font-mono text-[11px] text-sub">日文明朝 · 700/900</div>
           </div>
           <div class="font-mincho font-bold text-[30px] md:text-[40px] leading-[1.15] tracking-[0.08em]">読み　時　目線　海道　見守り　実り</div>
         </div>
         <div class="bg-card px-6 md:px-9 py-10 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-8 md:items-baseline">
           <div>
-            <div class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">BODY · 內文</div>
+            <div data-t lang="en" class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">BODY · Body text</div>
+            <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">BODY · 內文</div>
             <div class="font-sans text-[19px]">Noto Sans TC</div>
-            <div class="font-mono text-[11px] text-sub">黑體 · 300/400/500</div>
+            <div data-t lang="en" class="font-mono text-[11px] text-sub">Gothic · 300/400/500</div>
+            <div data-t lang="zh" class="font-mono text-[11px] text-sub">黑體 · 300/400/500</div>
           </div>
           <div class="font-sans font-light text-[18px] leading-[1.9]">人負責洞察與判斷，AI 負責執行與規模。工具應該理解人，而不是逼人去學工具。</div>
         </div>
         <div class="bg-card px-6 md:px-9 py-10 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-8 md:items-baseline">
           <div>
-            <div class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">MONO · code / CLI</div>
+            <div data-t lang="en" class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">MONO · code / CLI</div>
+            <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">MONO · 程式碼 / CLI</div>
             <div class="font-mono text-[19px]">JetBrains Mono</div>
-            <div class="font-mono text-[11px] text-sub">等寬 · 400/500/700</div>
+            <div data-t lang="en" class="font-mono text-[11px] text-sub">Monospace · 400/500/700</div>
+            <div data-t lang="zh" class="font-mono text-[11px] text-sub">等寬 · 400/500/700</div>
           </div>
           <div class="font-mono text-[18px] leading-[1.7] break-words">$ brew install RikaiDev/tap/toki<br><span class="text-accent">→</span> Track your work without thinking about it.</div>
         </div>
         <div class="bg-card px-6 md:px-9 py-10 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-8 md:items-center">
           <div>
-            <div class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">MARK · 記號 / 家族</div>
-            <div class="font-serif text-[19px]">離卦 · 爻線家族</div>
-            <div class="font-mono text-[11px] text-sub">共用線條與朱點</div>
+            <div data-t lang="en" class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">MARK · Sign / family</div>
+            <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.14em] text-sub mb-1.5">MARK · 記號 / 家族</div>
+            <div data-t lang="en" class="font-serif text-[19px]">Li trigram · yao-line family</div>
+            <div data-t lang="zh" class="font-serif text-[19px]">離卦 · 爻線家族</div>
+            <div data-t lang="en" class="font-mono text-[11px] text-sub">Shared strokes and vermilion dot</div>
+            <div data-t lang="zh" class="font-mono text-[11px] text-sub">共用線條與朱點</div>
           </div>
           <div class="flex gap-2.5 flex-wrap">
             <span class="w-[52px] h-[52px] rounded-[6px] flex items-center justify-center rotate-[-1.5deg] shadow-[inset_0_0_0_2px_rgba(244,240,231,0.9)]"><svg viewBox="0 0 100 100" width="52" height="52" class="mark" aria-hidden="true"><use href="#m-li"/></svg></span>
@@ -355,7 +448,8 @@
         <span class="text-[28px]">理 28</span>
         <span class="text-[19px]">理 19</span>
         <span class="text-[15px]">理 15</span>
-        <span class="font-mono text-[12px] text-sub">Type scale · 1.4 ratio</span>
+        <span data-t lang="en" class="font-mono text-[12px] text-sub">Type scale · 1.4 ratio</span>
+        <span data-t lang="zh" class="font-mono text-[12px] text-sub">字級 · 1.4 比例</span>
       </div>
     </div>
   </section>
@@ -363,21 +457,30 @@
   <!-- ============ 05 NAMING ============ -->
   <section id="naming" class="border-t border-line" aria-labelledby="s05">
     <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[120px]">
-      <div id="s05" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">05 — Naming System / 命名系統</div>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[820px] mb-5">每個名字，都是一個人類知覺的動作。</h2>
-      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[680px] mb-[72px]">RikaiDev 最強的識別資產，是它的命名法。每個產品都取一個日文和語、以漢字承載多層詩意，並讓「詞的本義」直接對應工具在做的事。在 agent 遍地、模型會被換掉的時代，名字描述的永遠是人的動作——讀、看、守望——而非當下的技術。技術會過時，理解不會。</p>
+      <div id="s05" data-t lang="en" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">05 — Naming System</div>
+      <div data-t lang="zh" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">05 — 命名系統</div>
+      <h2 data-t lang="en" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[820px] mb-5">Every name is an act of human perception.</h2>
+      <h2 data-t lang="zh" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[820px] mb-5">每個名字，都是一個人類知覺的動作。</h2>
+      <p data-t lang="en" class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[680px] mb-[72px]">RikaiDev's strongest identity asset is its naming. Each product takes a native Japanese word, carries layered poetry through its kanji, and lets the word's literal sense map directly to what the tool does. In an age where agents are everywhere and models get swapped out, the name always describes a human act — reading, seeing, watching over — not the technology of the moment. Technology ages; understanding does not.</p>
+      <p data-t lang="zh" class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[680px] mb-[72px]">RikaiDev 最強的識別資產，是它的命名法。每個產品都取一個日文和語、以漢字承載多層詩意，並讓「詞的本義」直接對應工具在做的事。在 agent 遍地、模型會被換掉的時代，名字描述的永遠是人的動作——讀、看、守望——而非當下的技術。技術會過時，理解不會。</p>
 
       <!-- five laws -->
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-line border border-line mb-[72px]">
-        <div class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">一</div><div class="font-serif text-[17px] mb-2">和語為名</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">取一個真實的日文詞，以小寫羅馬字作為產品標記。</p></div>
-        <div class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">二</div><div class="font-serif text-[17px] mb-2">漢字為體</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">名字皆有漢字，且往往一字多義（読み＝讀／詠／黄泉）。</p></div>
-        <div class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">三</div><div class="font-serif text-[17px] mb-2">意象即功能</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">詞的本義直接對應工具在做的事（目線→視角）。</p></div>
-        <div class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">四</div><div class="font-serif text-[17px] mb-2">以人為主詞</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">名字描述人的知覺與關懷；AI 是執行，名字是人。</p></div>
-        <div class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">五</div><div class="font-serif text-[17px] mb-2">克制字形</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">標記一律小寫無襯線；漢字只在印章與 emblem 出現。</p></div>
+        <div data-t lang="en" class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">一</div><div class="font-serif text-[17px] mb-2">Name in native Japanese</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">Take a real Japanese word; its lowercase romaji becomes the product mark.</p></div>
+        <div data-t lang="zh" class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">一</div><div class="font-serif text-[17px] mb-2">和語為名</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">取一個真實的日文詞，以小寫羅馬字作為產品標記。</p></div>
+        <div data-t lang="en" class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">二</div><div class="font-serif text-[17px] mb-2">Kanji as body</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">Every name carries kanji, often with layered meanings (読み ＝ 讀／詠／黄泉).</p></div>
+        <div data-t lang="zh" class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">二</div><div class="font-serif text-[17px] mb-2">漢字為體</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">名字皆有漢字，且往往一字多義（読み＝讀／詠／黄泉）。</p></div>
+        <div data-t lang="en" class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">三</div><div class="font-serif text-[17px] mb-2">Image is function</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">The word's literal sense maps directly to what the tool does (目線 → point of view).</p></div>
+        <div data-t lang="zh" class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">三</div><div class="font-serif text-[17px] mb-2">意象即功能</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">詞的本義直接對應工具在做的事（目線→視角）。</p></div>
+        <div data-t lang="en" class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">四</div><div class="font-serif text-[17px] mb-2">The human is the subject</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">Names describe human perception and care; AI executes, the name is human.</p></div>
+        <div data-t lang="zh" class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">四</div><div class="font-serif text-[17px] mb-2">以人為主詞</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">名字描述人的知覺與關懷；AI 是執行，名字是人。</p></div>
+        <div data-t lang="en" class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">五</div><div class="font-serif text-[17px] mb-2">Restrained letterforms</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">Marks are always lowercase sans-serif; kanji appear only in the seal and emblem.</p></div>
+        <div data-t lang="zh" class="bg-card p-6"><div class="font-mincho text-[30px] text-accent mb-[14px]">五</div><div class="font-serif text-[17px] mb-2">克制字形</div><p class="font-sans font-light text-[13px] leading-[1.75] text-sub">標記一律小寫無襯線；漢字只在印章與 emblem 出現。</p></div>
       </div>
 
       <!-- product registry -->
-      <div class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-6">產品名錄 / Registry</div>
+      <div data-t lang="en" class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-6">Product Registry</div>
+      <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.2em] uppercase text-sub mb-6">產品名錄</div>
       <div class="flex flex-col gap-[14px]">
         <article class="grid grid-cols-[76px_1fr] sm:grid-cols-[104px_200px_1fr] gap-4 sm:gap-7 items-center p-6 border border-line rounded-[8px] bg-card">
           <span class="w-[76px] h-[76px] rounded-[7px] flex items-center justify-center rotate-[-1.5deg] shadow-[inset_0_0_0_2px_rgba(244,240,231,0.9)]"><svg viewBox="0 0 100 100" width="76" height="76" class="mark" aria-hidden="true"><use href="#m-yomi"/></svg></span>
@@ -386,8 +489,10 @@
             <div class="font-mincho text-[14px] tracking-[0.16em] text-sub mt-1">読み · よみ · 讀／詠／黄泉</div>
           </div>
           <div class="col-span-2 sm:col-span-1">
-            <div class="font-sans text-[15px] mb-1">從任何 AI agent 讀寫你的 LINE</div>
-            <div class="font-sans font-light text-[13px] text-sub">不只讀訊息，更讀懂情境——像你一樣。</div>
+            <div data-t lang="en" class="font-sans text-[15px] mb-1">Read and write your LINE from any AI agent</div>
+            <div data-t lang="zh" class="font-sans text-[15px] mb-1">從任何 AI agent 讀寫你的 LINE</div>
+            <div data-t lang="en" class="font-sans font-light text-[13px] text-sub">Not just reading messages — reading the context, the way you would.</div>
+            <div data-t lang="zh" class="font-sans font-light text-[13px] text-sub">不只讀訊息，更讀懂情境——像你一樣。</div>
           </div>
         </article>
         <article class="grid grid-cols-[76px_1fr] sm:grid-cols-[104px_200px_1fr] gap-4 sm:gap-7 items-center p-6 border border-line rounded-[8px] bg-card">
@@ -397,8 +502,10 @@
             <div class="font-mincho text-[14px] tracking-[0.16em] text-sub mt-1">時 · とき · 時間／時刻</div>
           </div>
           <div class="col-span-2 sm:col-span-1">
-            <div class="font-sans text-[15px] mb-1">開發者自動時間追蹤</div>
-            <div class="font-sans font-light text-[13px] text-sub">不需按下計時，時間自己被理解。</div>
+            <div data-t lang="en" class="font-sans text-[15px] mb-1">Automatic time tracking for developers</div>
+            <div data-t lang="zh" class="font-sans text-[15px] mb-1">開發者自動時間追蹤</div>
+            <div data-t lang="en" class="font-sans font-light text-[13px] text-sub">No timer to press; time simply understands itself.</div>
+            <div data-t lang="zh" class="font-sans font-light text-[13px] text-sub">不需按下計時，時間自己被理解。</div>
           </div>
         </article>
         <article class="grid grid-cols-[76px_1fr] sm:grid-cols-[104px_200px_1fr] gap-4 sm:gap-7 items-center p-6 border border-line rounded-[8px] bg-card">
@@ -408,8 +515,10 @@
             <div class="font-mincho text-[14px] tracking-[0.16em] text-sub mt-1">目線 · めせん · 視線／視角</div>
           </div>
           <div class="col-span-2 sm:col-span-1">
-            <div class="font-sans text-[15px] mb-1">以模擬使用者視角做 UX 測試</div>
-            <div class="font-sans font-light text-[13px] text-sub">用「別人的眼睛」看你的介面。</div>
+            <div data-t lang="en" class="font-sans text-[15px] mb-1">UX testing from a simulated user's point of view</div>
+            <div data-t lang="zh" class="font-sans text-[15px] mb-1">以模擬使用者視角做 UX 測試</div>
+            <div data-t lang="en" class="font-sans font-light text-[13px] text-sub">See your interface through someone else's eyes.</div>
+            <div data-t lang="zh" class="font-sans font-light text-[13px] text-sub">用「別人的眼睛」看你的介面。</div>
           </div>
         </article>
         <article class="grid grid-cols-[76px_1fr] sm:grid-cols-[104px_200px_1fr] gap-4 sm:gap-7 items-center p-6 border border-line rounded-[8px] bg-card">
@@ -419,8 +528,10 @@
             <div class="font-mincho text-[14px] tracking-[0.16em] text-sub mt-1">海道 · かいどう · 通海的路</div>
           </div>
           <div class="col-span-2 sm:col-span-1">
-            <div class="font-sans text-[15px] mb-1">AI Ops 教練，邊診斷邊教學</div>
-            <div class="font-sans font-light text-[13px] text-sub">通往精通維運的航道——學為什麼，不只是怎麼做。</div>
+            <div data-t lang="en" class="font-sans text-[15px] mb-1">An AI Ops coach that diagnoses while it teaches</div>
+            <div data-t lang="zh" class="font-sans text-[15px] mb-1">AI Ops 教練，邊診斷邊教學</div>
+            <div data-t lang="en" class="font-sans font-light text-[13px] text-sub">A sea route to operational mastery — learn why, not just how.</div>
+            <div data-t lang="zh" class="font-sans font-light text-[13px] text-sub">通往精通維運的航道——學為什麼，不只是怎麼做。</div>
           </div>
         </article>
         <article class="grid grid-cols-[76px_1fr] sm:grid-cols-[104px_200px_1fr] gap-4 sm:gap-7 items-center p-6 border border-line rounded-[8px] bg-card">
@@ -430,8 +541,10 @@
             <div class="font-mincho text-[14px] tracking-[0.16em] text-sub mt-1">見守り · みまもり · 守望／守護</div>
           </div>
           <div class="col-span-2 sm:col-span-1">
-            <div class="font-sans text-[15px] mb-1">守護團隊溝通氛圍的 Discord bot</div>
-            <div class="font-sans font-light text-[13px] text-sub">溫柔地看顧，而非監控。</div>
+            <div data-t lang="en" class="font-sans text-[15px] mb-1">A Discord bot that guards your team's communication climate</div>
+            <div data-t lang="zh" class="font-sans text-[15px] mb-1">守護團隊溝通氛圍的 Discord bot</div>
+            <div data-t lang="en" class="font-sans font-light text-[13px] text-sub">Watching over, gently — not surveilling.</div>
+            <div data-t lang="zh" class="font-sans font-light text-[13px] text-sub">溫柔地看顧，而非監控。</div>
           </div>
         </article>
         <article class="grid grid-cols-[76px_1fr] sm:grid-cols-[104px_200px_1fr] gap-4 sm:gap-7 items-center p-6 border border-line rounded-[8px] bg-card">
@@ -441,8 +554,10 @@
             <div class="font-mincho text-[14px] tracking-[0.16em] text-sub mt-1">実り · みのり · 結果／收成</div>
           </div>
           <div class="col-span-2 sm:col-span-1">
-            <div class="font-sans text-[15px] mb-1">AI 農業協作，語音記錄與收成預測</div>
-            <div class="font-sans font-light text-[13px] text-sub">讓耕耘，有結果。</div>
+            <div data-t lang="en" class="font-sans text-[15px] mb-1">AI farming companion with voice logging and harvest forecasts</div>
+            <div data-t lang="zh" class="font-sans text-[15px] mb-1">AI 農業協作，語音記錄與收成預測</div>
+            <div data-t lang="en" class="font-sans font-light text-[13px] text-sub">So that tending the field bears fruit.</div>
+            <div data-t lang="zh" class="font-sans font-light text-[13px] text-sub">讓耕耘，有結果。</div>
           </div>
         </article>
       </div>
@@ -450,21 +565,33 @@
       <!-- special: AII + cortex -->
       <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
         <div class="p-6 border border-dashed border-linestrong rounded-[8px]">
-          <div class="font-mono text-[11px] tracking-[0.14em] uppercase text-sub mb-2">理念層 · 例外</div>
+          <div data-t lang="en" class="font-mono text-[11px] tracking-[0.14em] uppercase text-sub mb-2">Philosophy layer · Exception</div>
+          <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.14em] uppercase text-sub mb-2">理念層 · 例外</div>
           <div class="font-mono font-medium text-[20px]">AII</div>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub mt-1.5">AI Interactive——不是產品，是理念層與宣言，可用縮寫而非和名。介面應理解人，而非逼人學介面。</p>
+          <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub mt-1.5">AI Interactive — not a product but a philosophy layer and manifesto, allowed an acronym instead of a Japanese name. Interfaces should understand people, not force people to learn interfaces.</p>
+          <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub mt-1.5">AI Interactive——不是產品，是理念層與宣言，可用縮寫而非和名。介面應理解人，而非逼人學介面。</p>
         </div>
         <div class="p-6 border border-dashed border-linestrong rounded-[8px]">
-          <div class="font-mono text-[11px] tracking-[0.14em] uppercase text-sub mb-2">先行者 · 已封存</div>
+          <div data-t lang="en" class="font-mono text-[11px] tracking-[0.14em] uppercase text-sub mb-2">Forerunner · Archived</div>
+          <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.14em] uppercase text-sub mb-2">先行者 · 已封存</div>
           <div class="font-mono font-medium text-[20px]">cortex</div>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub mt-1.5">早期以英文命名的先行專案，今已封存。它提醒我們：命名法則於此後才確立，往後一律和名。</p>
+          <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub mt-1.5">An early, English-named forerunner, now archived. It reminds us that the naming law was set only afterward — from here on, always a Japanese name.</p>
+          <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub mt-1.5">早期以英文命名的先行專案，今已封存。它提醒我們：命名法則於此後才確立，往後一律和名。</p>
         </div>
       </div>
 
       <!-- recipe -->
       <div class="mt-12 px-8 md:px-9 py-[34px] rounded-[8px]" style="background:#1F1C17;">
-        <div class="font-mono text-[11px] tracking-[0.2em] uppercase mb-5" style="color:#9C9382;">命名配方 / How to name a new product</div>
-        <div class="font-mono text-[14px] leading-[2]" style="color:#EDE7DA;">
+        <div data-t lang="en" class="font-mono text-[11px] tracking-[0.2em] uppercase mb-5" style="color:#9C9382;">How to name a new product</div>
+        <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.2em] uppercase mb-5" style="color:#9C9382;">命名配方</div>
+        <div data-t lang="en" class="font-mono text-[14px] leading-[2]" style="color:#EDE7DA;">
+          <span style="color:#9C9382;">1 →</span> Which single act of perception or care does this tool perform for a person? (read, see, watch over, harvest…)<br>
+          <span style="color:#9C9382;">2 →</span> Find the Japanese word that carries that act; take its kanji.<br>
+          <span style="color:#9C9382;">3 →</span> Make sure the kanji holds a second layer of imagery (the more poetic, the better).<br>
+          <span style="color:#9C9382;">4 →</span> Fix a lowercase romaji as the product mark; the kanji goes into the vermilion seal.<br>
+          <span class="text-accent">✓</span> <span style="color:#F4F0E7;">The name speaks of the person; the tool only makes that act real.</span>
+        </div>
+        <div data-t lang="zh" class="font-mono text-[14px] leading-[2]" style="color:#EDE7DA;">
           <span style="color:#9C9382;">1 →</span> 這個工具幫人做的，是哪一個「知覺或關懷的動作」？（讀、看、守望、收成…）<br>
           <span style="color:#9C9382;">2 →</span> 找出承載那個動作的日文和語，取其漢字。<br>
           <span style="color:#9C9382;">3 →</span> 確認漢字有第二層意象可延伸（越詩意越好）。<br>
@@ -478,8 +605,10 @@
   <!-- ============ 06 GRAPHIC LANGUAGE ============ -->
   <section class="border-t border-line bg-paper2" aria-labelledby="s06">
     <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[120px]">
-      <div id="s06" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">06 — Graphic Language / 圖形語言</div>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">細線、方印、與一筆的餘白。</h2>
+      <div id="s06" data-t lang="en" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">06 — Graphic Language</div>
+      <div data-t lang="zh" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">06 — 圖形語言</div>
+      <h2 data-t lang="en" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">Thin lines, a square seal, and the breathing room of one stroke.</h2>
+      <h2 data-t lang="zh" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">細線、方印、與一筆的餘白。</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div class="bg-card border border-line rounded-[8px] p-9 min-h-[220px] flex flex-col justify-between">
@@ -489,8 +618,10 @@
             <div class="w-[38px] h-[38px] rounded-[5px] rotate-45" style="border:1.5px solid var(--color-ink);"></div>
           </div>
           <div>
-            <div class="font-serif text-[19px] mb-1.5">線圖標</div>
-            <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">1.5px 等粗細墨線、圓角 2px、方形收邊。單色，不填色，不加陰影。</p>
+            <div data-t lang="en" class="font-serif text-[19px] mb-1.5">Line icons</div>
+            <div data-t lang="zh" class="font-serif text-[19px] mb-1.5">線圖標</div>
+            <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">1.5px even-weight ink strokes, 2px rounded corners, square terminals. Monochrome, unfilled, no shadow.</p>
+            <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">1.5px 等粗細墨線、圓角 2px、方形收邊。單色，不填色，不加陰影。</p>
           </div>
         </div>
         <div class="bg-card border border-line rounded-[8px] p-9 min-h-[220px] flex flex-col justify-between">
@@ -500,15 +631,19 @@
             <div class="w-11 h-11 rounded-[5px] rotate-[-1deg] shadow-[inset_0_0_0_1.5px_rgba(244,240,231,0.9)]" style="background:#B23A28;"></div>
           </div>
           <div>
-            <div class="font-serif text-[19px] mb-1.5">方印母題</div>
-            <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">朱色方印可作為重複母題，微幅隨機旋轉（±3°）帶來手作的不完美。</p>
+            <div data-t lang="en" class="font-serif text-[19px] mb-1.5">Square-seal motif</div>
+            <div data-t lang="zh" class="font-serif text-[19px] mb-1.5">方印母題</div>
+            <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">The vermilion square seal works as a repeating motif, with slight random rotation (±3°) for a handmade imperfection.</p>
+            <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">朱色方印可作為重複母題，微幅隨機旋轉（±3°）帶來手作的不完美。</p>
           </div>
         </div>
         <div class="bg-card border border-line rounded-[8px] p-9 min-h-[220px] flex flex-col justify-between">
           <div class="h-[60px]" style="background:repeating-linear-gradient(0deg, transparent, transparent 11px, rgba(31,28,23,0.16) 11px, rgba(31,28,23,0.16) 12px);"></div>
           <div>
-            <div class="font-serif text-[19px] mb-1.5">細線網格</div>
-            <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">以髮絲級細線分割版面，取代填色卡片。留白為主，線為輔。</p>
+            <div data-t lang="en" class="font-serif text-[19px] mb-1.5">Hairline grid</div>
+            <div data-t lang="zh" class="font-serif text-[19px] mb-1.5">細線網格</div>
+            <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">Divide the layout with hairline rules instead of filled cards. Whitespace leads, lines support.</p>
+            <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">以髮絲級細線分割版面，取代填色卡片。留白為主，線為輔。</p>
           </div>
         </div>
       </div>
@@ -518,37 +653,47 @@
   <!-- ============ 07 VOICE & TONE ============ -->
   <section id="voice" class="border-t border-line" aria-labelledby="s07">
     <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[120px]">
-      <div id="s07" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">07 — Voice &amp; Tone / 語調</div>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">誠實、克制，像一位好教練。</h2>
+      <div id="s07" data-t lang="en" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">07 — Voice &amp; Tone</div>
+      <div data-t lang="zh" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">07 — 語調</div>
+      <h2 data-t lang="en" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">Honest, restrained, like a good coach.</h2>
+      <h2 data-t lang="zh" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">誠實、克制，像一位好教練。</h2>
 
       <div class="flex flex-col gap-px bg-line border border-line">
         <div class="bg-card p-6 md:p-9 grid grid-cols-1 md:grid-cols-[260px_1fr] gap-4 md:gap-9">
           <div>
-            <div class="font-serif text-[23px]">誠實的錯誤</div>
+            <div data-t lang="en" class="font-serif text-[23px]">Honest failure</div>
+            <div data-t lang="zh" class="font-serif text-[23px]">誠實的錯誤</div>
             <div class="font-mono text-[11px] text-sub mt-1">Honest error</div>
           </div>
-          <div class="font-sans font-light text-[15px] leading-[1.9]">寧可誠實地失敗，也不偽造成功。<br><span class="font-mono text-[12.5px] text-sub">EN　Silence is honest; a fabricated result is not.<br>JA　正直な沈黙、偽りの成功なし。</span></div>
+          <div data-t lang="en" class="font-sans font-light text-[15px] leading-[1.9]">Better to fail honestly than to fake success.<br><span class="font-mono text-[12.5px] text-sub">EN　Silence is honest; a fabricated result is not.<br>JA　正直な沈黙、偽りの成功なし。</span></div>
+          <div data-t lang="zh" class="font-sans font-light text-[15px] leading-[1.9]">寧可誠實地失敗，也不偽造成功。<br><span class="font-mono text-[12.5px] text-sub">EN　Silence is honest; a fabricated result is not.<br>JA　正直な沈黙、偽りの成功なし。</span></div>
         </div>
         <div class="bg-card p-6 md:p-9 grid grid-cols-1 md:grid-cols-[260px_1fr] gap-4 md:gap-9">
           <div>
-            <div class="font-serif text-[23px]">教練，而非取代</div>
+            <div data-t lang="en" class="font-serif text-[23px]">Coach, not replacement</div>
+            <div data-t lang="zh" class="font-serif text-[23px]">教練，而非取代</div>
             <div class="font-mono text-[11px] text-sub mt-1">Coach, not replacement</div>
           </div>
-          <div class="font-sans font-light text-[15px] leading-[1.9]">教你為什麼，而不只是怎麼做。<br><span class="font-mono text-[12.5px] text-sub">EN　Learn why, not what.<br>JA　答えより、理由を。</span></div>
+          <div data-t lang="en" class="font-sans font-light text-[15px] leading-[1.9]">Teach the why, not just the how.<br><span class="font-mono text-[12.5px] text-sub">EN　Learn why, not what.<br>JA　答えより、理由を。</span></div>
+          <div data-t lang="zh" class="font-sans font-light text-[15px] leading-[1.9]">教你為什麼，而不只是怎麼做。<br><span class="font-mono text-[12.5px] text-sub">EN　Learn why, not what.<br>JA　答えより、理由を。</span></div>
         </div>
         <div class="bg-card p-6 md:p-9 grid grid-cols-1 md:grid-cols-[260px_1fr] gap-4 md:gap-9">
           <div>
-            <div class="font-serif text-[23px]">在公開場合建造</div>
+            <div data-t lang="en" class="font-serif text-[23px]">Build in the open</div>
+            <div data-t lang="zh" class="font-serif text-[23px]">在公開場合建造</div>
             <div class="font-mono text-[11px] text-sub mt-1">Building in public</div>
           </div>
-          <div class="font-sans font-light text-[15px] leading-[1.9]">程式碼即證明，不是投影片，不是 Twitter thread。<br><span class="font-mono text-[12.5px] text-sub">EN　The code is the proof. Not slides.<br>JA　コードが証明。</span></div>
+          <div data-t lang="en" class="font-sans font-light text-[15px] leading-[1.9]">The code is the proof — not slides, not a Twitter thread.<br><span class="font-mono text-[12.5px] text-sub">EN　The code is the proof. Not slides.<br>JA　コードが証明。</span></div>
+          <div data-t lang="zh" class="font-sans font-light text-[15px] leading-[1.9]">程式碼即證明，不是投影片，不是 Twitter thread。<br><span class="font-mono text-[12.5px] text-sub">EN　The code is the proof. Not slides.<br>JA　コードが証明。</span></div>
         </div>
         <div class="bg-card p-6 md:p-9 grid grid-cols-1 md:grid-cols-[260px_1fr] gap-4 md:gap-9">
           <div>
-            <div class="font-serif text-[23px]">克制</div>
+            <div data-t lang="en" class="font-serif text-[23px]">Restraint</div>
+            <div data-t lang="zh" class="font-serif text-[23px]">克制</div>
             <div class="font-mono text-[11px] text-sub mt-1">Restraint</div>
           </div>
-          <div class="font-sans font-light text-[15px] leading-[1.9]">少即是多；每一個「是」，背後有一千個「不」。<br><span class="font-mono text-[12.5px] text-sub">EN　Less, but better.<br>JA　引き算の美学。</span></div>
+          <div data-t lang="en" class="font-sans font-light text-[15px] leading-[1.9]">Less is more; behind every "yes" are a thousand "no"s.<br><span class="font-mono text-[12.5px] text-sub">EN　Less, but better.<br>JA　引き算の美学。</span></div>
+          <div data-t lang="zh" class="font-sans font-light text-[15px] leading-[1.9]">少即是多；每一個「是」，背後有一千個「不」。<br><span class="font-mono text-[12.5px] text-sub">EN　Less, but better.<br>JA　引き算の美学。</span></div>
         </div>
       </div>
     </div>
@@ -557,8 +702,10 @@
   <!-- ============ 08 APPLICATIONS ============ -->
   <section class="border-t border-line bg-paper2" aria-labelledby="s08">
     <div class="mx-auto max-w-[1120px] px-6 md:px-10 py-20 md:py-[120px]">
-      <div id="s08" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">08 — Applications / 應用範例</div>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">落地在開發者每天看見的地方。</h2>
+      <div id="s08" data-t lang="en" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">08 — Applications</div>
+      <div data-t lang="zh" class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6">08 — 應用範例</div>
+      <h2 data-t lang="en" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">Landing where developers look every day.</h2>
+      <h2 data-t lang="zh" class="font-serif font-medium text-[clamp(28px,4vw,48px)] leading-[1.3] max-w-[760px] mb-[72px]">落地在開發者每天看見的地方。</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="rounded-[10px] overflow-hidden shadow-[0_1px_0_rgba(31,28,23,0.12)]" style="background:#17150F;">
@@ -581,10 +728,12 @@
             <span class="w-[56px] h-[56px] rounded-[7px] flex items-center justify-center rotate-[-1.5deg] shadow-[inset_0_0_0_2px_rgba(244,240,231,0.9)]"><svg viewBox="0 0 100 100" width="56" height="56" class="mark" aria-hidden="true"><use href="#m-li"/></svg></span>
             <div>
               <div class="font-mono font-medium text-[18px]">RikaiDev</div>
-              <div class="font-sans text-[12.5px] text-sub">Human vision. AI execution.</div>
+              <div data-t lang="en" class="font-sans text-[12.5px] text-sub">Human vision. AI execution.</div>
+              <div data-t lang="zh" class="font-sans text-[12.5px] text-sub">人的洞察。AI 執行。</div>
             </div>
           </div>
-          <p class="font-sans font-light text-[13.5px] leading-[1.8] mb-4">理解 (Rikai) — Understanding. Building in public, shipping in production.</p>
+          <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.8] mb-4">理解 (Rikai) — Understanding. Building in public, shipping in production.</p>
+          <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.8] mb-4">理解 (Rikai) — 理解。公開建造，在生產環境出貨。</p>
           <div class="flex gap-2 flex-wrap">
             <span class="font-mono text-[11px] px-2.5 py-[5px] border border-line rounded-full text-sub">yomi</span>
             <span class="font-mono text-[11px] px-2.5 py-[5px] border border-line rounded-full text-sub">toki</span>
@@ -613,7 +762,8 @@
           </div>
         </div>
         <div class="bg-card border border-line rounded-[10px] p-7">
-          <div class="font-mono text-[11px] tracking-[0.16em] uppercase text-sub mb-[18px]">貼紙 / Stickers</div>
+          <div data-t lang="en" class="font-mono text-[11px] tracking-[0.16em] uppercase text-sub mb-[18px]">Stickers</div>
+          <div data-t lang="zh" class="font-mono text-[11px] tracking-[0.16em] uppercase text-sub mb-[18px]">貼紙</div>
           <div class="flex gap-[14px] flex-wrap">
             <span class="w-[58px] h-[58px] rounded-[6px] flex items-center justify-center rotate-[-4deg] shadow-[inset_0_0_0_2px_rgba(244,240,231,0.9)]"><svg viewBox="0 0 100 100" width="58" height="58" class="mark" aria-hidden="true"><use href="#m-yomi"/></svg></span>
             <span class="w-[58px] h-[58px] rounded-[6px] flex items-center justify-center rotate-3 shadow-[inset_0_0_0_2px_rgba(244,240,231,0.9)]"><svg viewBox="0 0 100 100" width="58" height="58" class="mark" aria-hidden="true"><use href="#m-toki"/></svg></span>
@@ -636,7 +786,13 @@
           <div class="font-mincho text-[13px] tracking-[0.4em] mt-1" style="color:#9C9382;">理解 · りかい</div>
         </div>
       </div>
-      <div class="font-mono text-[11.5px] leading-[1.9] text-left sm:text-right" style="color:#9C9382;">
+      <div data-t lang="en" class="font-mono text-[11.5px] leading-[1.9] text-left sm:text-right" style="color:#9C9382;">
+        Brand System v1.0 · Corporate Identity System<br>
+        Type: Noto Serif / Sans TC · Zen Old Mincho · JetBrains Mono<br>
+        Mark family: built from I Ching yao lines, sharp corners, solid / hollow circles and a vermilion dot · parent mark = the Li trigram; every product shares the stroke weight and vermilion accent<br>
+        Human vision. AI execution. Real products. · <a href="https://github.com/RikaiDev" target="_blank" rel="noopener" class="hover:text-accent">github.com/RikaiDev</a> · MIT
+      </div>
+      <div data-t lang="zh" class="font-mono text-[11.5px] leading-[1.9] text-left sm:text-right" style="color:#9C9382;">
         Brand System v1.0 · 視覺識別規範<br>
         字體 Noto Serif / Sans TC · Zen Old Mincho · JetBrains Mono<br>
         記號家族：以易經爻線、尖角、實虛圓與朱點構成 · 母標＝離卦，各產品共用線條粗細與朱色點睛<br>
@@ -645,6 +801,6 @@
     </div>
   </footer>
 
-  <script src="/assets/theme.js" defer></script>
+  <script src="/assets/ui.js" defer></script>
 </body>
 </html>

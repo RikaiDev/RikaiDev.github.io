@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,11 +76,11 @@
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Zen+Old+Mincho:wght@500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Zen+Old+Mincho:wght@500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/app.css">
 
   <!-- no-flash theme restore -->
-  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('rk-theme');if(t==='sumi')d.setAttribute('data-theme','sumi');var a=localStorage.getItem('rk-accent');if(a)d.style.setProperty('--color-accent',a);if(localStorage.getItem('rk-grain')==='off')d.setAttribute('data-grain','off');}catch(e){}})();</script>
+  <script>(function(){try{var d=document.documentElement;if(localStorage.getItem('rk-theme')==='sumi')d.setAttribute('data-theme','sumi');if(localStorage.getItem('rk-lang')==='zh'){d.setAttribute('data-lang','zh');d.setAttribute('lang','zh-Hant');}}catch(e){}})();</script>
 </head>
 <body class="bg-paper text-ink font-sans">
 
@@ -109,10 +109,15 @@
       <span class="font-mono font-bold text-[15px] tracking-[0.02em]">RikaiDev</span>
     </a>
     <nav class="flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.08em] text-sub">
-      <a href="#products" class="hidden sm:inline hover:text-ink transition-colors">Products</a>
-      <a href="#why" class="hidden sm:inline hover:text-ink transition-colors">Open Source</a>
-      <a href="/brand/" class="hidden sm:inline hover:text-ink transition-colors">Brand</a>
-      <a href="https://github.com/RikaiDev" target="_blank" rel="noopener" class="inline-flex items-center gap-[7px] bg-ink text-paper px-[13px] py-[7px] rounded-[5px] hover:opacity-90 transition-opacity">★ <span class="hidden xs:inline">Star on GitHub</span><span class="xs:hidden">GitHub</span></a>
+      <span class="rk-controls" aria-label="Site controls"></span>
+      <a data-t lang="en" href="#products" class="hidden sm:inline hover:text-ink transition-colors">Products</a>
+      <a data-t lang="zh" href="#products" class="hidden sm:inline hover:text-ink transition-colors">產品</a>
+      <a data-t lang="en" href="#why" class="hidden sm:inline hover:text-ink transition-colors">Open Source</a>
+      <a data-t lang="zh" href="#why" class="hidden sm:inline hover:text-ink transition-colors">開源</a>
+      <a data-t lang="en" href="/brand/" class="hidden sm:inline hover:text-ink transition-colors">Brand</a>
+      <a data-t lang="zh" href="/brand/" class="hidden sm:inline hover:text-ink transition-colors">品牌</a>
+      <a data-t lang="en" href="https://github.com/RikaiDev" target="_blank" rel="noopener" class="inline-flex items-center gap-[7px] bg-ink text-paper px-[13px] py-[7px] rounded-[5px] hover:opacity-90 transition-opacity">★ <span class="hidden xs:inline">Star on GitHub</span><span class="xs:hidden">GitHub</span></a>
+      <a data-t lang="zh" href="https://github.com/RikaiDev" target="_blank" rel="noopener" class="inline-flex items-center gap-[7px] bg-ink text-paper px-[13px] py-[7px] rounded-[5px] hover:opacity-90 transition-opacity">★ <span class="hidden xs:inline">在 GitHub 加星</span><span class="xs:hidden">GitHub</span></a>
     </nav>
   </header>
 
@@ -128,15 +133,22 @@
       </svg>
     </div>
     <p class="font-mincho text-[15px] tracking-[0.55em] text-accent mb-[18px]">理　解</p>
-    <h1 class="font-serif font-medium text-[clamp(38px,6vw,72px)] leading-[1.08] tracking-[0.01em] mb-6">Human vision.<br>AI execution.<br>Real products.</h1>
-    <p class="font-sans font-light text-[clamp(16px,2.2vw,20px)] leading-[1.85] text-inksoft max-w-[600px] mx-auto mb-[14px]">RikaiDev（理解）打造開源工具——人負責洞察與判斷，AI 負責執行與規模，一起做出一個人做不出的東西。</p>
+    <h1 data-t lang="en" class="font-serif font-medium text-[clamp(38px,6vw,72px)] leading-[1.08] tracking-[0.01em] mb-6">Human vision.<br>AI execution.<br>Real products.</h1>
+    <h1 data-t lang="zh" class="font-serif font-medium text-[clamp(38px,6vw,72px)] leading-[1.08] tracking-[0.01em] mb-6">人的洞見。<br>AI 的執行。<br>真實的產品。</h1>
+    <p data-t lang="en" class="font-sans font-light text-[clamp(16px,2.2vw,20px)] leading-[1.85] text-inksoft max-w-[600px] mx-auto mb-[14px]">RikaiDev (理解) builds open-source tools — humans own the insight and judgement, AI owns the execution and scale, and together they make something no one could build alone.</p>
+    <p data-t lang="zh" class="font-sans font-light text-[clamp(16px,2.2vw,20px)] leading-[1.85] text-inksoft max-w-[600px] mx-auto mb-[14px]">RikaiDev（理解）打造開源工具——人負責洞察與判斷，AI 負責執行與規模，一起做出一個人做不出的東西。</p>
     <p class="font-mono text-[13px] tracking-[0.04em] text-sub mb-[38px]">We don't use AI to write code faster. We use AI to build what one person couldn't build alone.</p>
     <div class="flex gap-[14px] justify-center flex-wrap">
-      <a href="https://github.com/RikaiDev" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-ink text-paper px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity">Explore on GitHub ↗</a>
-      <a href="#products" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors">See the tools</a>
+      <a data-t lang="en" href="https://github.com/RikaiDev" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-ink text-paper px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity">Explore on GitHub ↗</a>
+      <a data-t lang="zh" href="https://github.com/RikaiDev" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-ink text-paper px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity">到 GitHub 探索 ↗</a>
+      <a data-t lang="en" href="#products" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors">See the tools</a>
+      <a data-t lang="zh" href="#products" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors">看看這些工具</a>
     </div>
-    <div class="flex gap-5 justify-center flex-wrap mt-[34px] font-mono text-[11.5px] tracking-[0.1em] text-sub2">
+    <div data-t lang="en" class="flex gap-5 justify-center flex-wrap mt-[34px] font-mono text-[11.5px] tracking-[0.1em] text-sub2">
       <span>MIT LICENSED</span><span aria-hidden="true" class="opacity-50">·</span><span>BUILDING IN PUBLIC</span><span aria-hidden="true" class="opacity-50">·</span><span>THE CODE IS THE PROOF</span>
+    </div>
+    <div data-t lang="zh" class="flex gap-5 justify-center flex-wrap mt-[34px] font-mono text-[11.5px] tracking-[0.1em] text-sub2">
+      <span>MIT 授權</span><span aria-hidden="true" class="opacity-50">·</span><span>公開開發</span><span aria-hidden="true" class="opacity-50">·</span><span>程式碼即證明</span>
     </div>
   </section>
 
@@ -145,18 +157,24 @@
     <div class="mx-auto max-w-[1080px] px-6 md:px-8 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-line">
       <div class="py-11 md:pr-[30px]">
         <div class="font-mincho text-[34px] text-accent mb-[14px]">人</div>
-        <h2 class="font-serif text-[18px] mb-[6px]">Human — 洞察</h2>
-        <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">願景、品味，真正重要的決定。方向由人來定。</p>
+        <h2 data-t lang="en" class="font-serif text-[18px] mb-[6px]">Human — Insight</h2>
+        <h2 data-t lang="zh" class="font-serif text-[18px] mb-[6px]">人 — 洞察</h2>
+        <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">Vision, taste, the decisions that truly matter. Humans set the direction.</p>
+        <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">願景、品味，真正重要的決定。方向由人來定。</p>
       </div>
       <div class="py-11 md:px-[30px]">
         <div class="font-mincho text-[34px] text-accent mb-[14px]">技</div>
-        <h2 class="font-serif text-[18px] mb-[6px]">AI — 執行</h2>
-        <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">迭代、規模，所有能被放大的事。力量交給 AI。</p>
+        <h2 data-t lang="en" class="font-serif text-[18px] mb-[6px]">AI — Execution</h2>
+        <h2 data-t lang="zh" class="font-serif text-[18px] mb-[6px]">AI — 執行</h2>
+        <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">Iteration, scale, everything that can be amplified. Hand the power to AI.</p>
+        <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">迭代、規模，所有能被放大的事。力量交給 AI。</p>
       </div>
       <div class="py-11 md:pl-[30px]">
         <div class="font-mincho text-[34px] text-accent mb-[14px]">実</div>
-        <h2 class="font-serif text-[18px] mb-[6px]">Together — 成品</h2>
-        <p class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">在生產環境出貨。不是取代人，是解放人。</p>
+        <h2 data-t lang="en" class="font-serif text-[18px] mb-[6px]">Together — The product</h2>
+        <h2 data-t lang="zh" class="font-serif text-[18px] mb-[6px]">共創 — 成品</h2>
+        <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">Shipped in production. Not replacing people — freeing them.</p>
+        <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.8] text-sub">在生產環境出貨。不是取代人，是解放人。</p>
       </div>
     </div>
   </section>
@@ -164,10 +182,12 @@
   <!-- ============ products ============ -->
   <section id="products" class="mx-auto max-w-[1080px] px-6 md:px-8 pt-[84px] pb-10">
     <div class="flex items-baseline justify-between flex-wrap gap-3 mb-2">
-      <h2 class="font-serif font-medium text-[clamp(26px,3.4vw,38px)]">六個工具，一套理念</h2>
+      <h2 data-t lang="en" class="font-serif font-medium text-[clamp(26px,3.4vw,38px)]">Six tools, one philosophy</h2>
+      <h2 data-t lang="zh" class="font-serif font-medium text-[clamp(26px,3.4vw,38px)]">六個工具，一套理念</h2>
       <span class="font-mono text-[12px] text-sub">clone it · read it · run it</span>
     </div>
-    <p class="font-sans font-light text-[15px] leading-[1.8] text-sub max-w-[640px] mb-11">每個名字都是一個日文和語、以漢字承載多層意象，描述的永遠是人的知覺與關懷。當 AI agent 與 MCP 成為日常，這些工具選擇站在人這邊——全部 MIT 開源、本機優先、隱私優先。</p>
+    <p data-t lang="en" class="font-sans font-light text-[15px] leading-[1.8] text-sub max-w-[640px] mb-11">Every name is a native Japanese word that carries layers of meaning through kanji, and what it describes is always human perception and care. As AI agents and MCP become everyday, these tools choose the human side — all MIT open source, local-first, privacy-first.</p>
+    <p data-t lang="zh" class="font-sans font-light text-[15px] leading-[1.8] text-sub max-w-[640px] mb-11">每個名字都是一個日文和語、以漢字承載多層意象，描述的永遠是人的知覺與關懷。當 AI agent 與 MCP 成為日常，這些工具選擇站在人這邊——全部 MIT 開源、本機優先、隱私優先。</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
 
@@ -176,7 +196,8 @@
           <svg width="42" height="42" viewBox="0 0 100 100" class="mark shrink-0" aria-hidden="true"><use href="#m-yomi"/></svg>
           <div><div class="font-mono font-bold text-[19px]">yomi</div><div class="font-mincho text-[12.5px] tracking-[0.14em] text-sub">読み · 讀／詠／黄泉</div></div>
         </div>
-        <p class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">從任何 AI agent 讀寫你的 LINE——讀訊息，也讀懂情境。E2EE 本機解密的 MCP server。</p>
+        <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">Read and write your LINE from any AI agent — read the messages, and read the context too. An MCP server with E2EE, decrypted locally.</p>
+        <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">從任何 AI agent 讀寫你的 LINE——讀訊息，也讀懂情境。E2EE 本機解密的 MCP server。</p>
         <code class="block font-mono text-[11.5px] text-accent bg-codebg px-3 py-[9px] rounded-[5px] overflow-auto whitespace-nowrap">claude mcp add yomi -- bunx @rikaidev/yomi</code>
       </a>
 
@@ -185,7 +206,8 @@
           <svg width="42" height="42" viewBox="0 0 100 100" class="mark shrink-0" aria-hidden="true"><use href="#m-toki"/></svg>
           <div><div class="font-mono font-bold text-[19px]">toki</div><div class="font-mincho text-[12.5px] tracking-[0.14em] text-sub">時 · 時間／時刻</div></div>
         </div>
-        <p class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">開發者自動時間追蹤，不需按下計時。從 IDE 與 git 讀出脈絡，時間自己被理解。</p>
+        <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">Automatic time tracking for developers — no timer to press. It reads the context from your IDE and git, so time understands itself.</p>
+        <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">開發者自動時間追蹤，不需按下計時。從 IDE 與 git 讀出脈絡，時間自己被理解。</p>
         <code class="block font-mono text-[11.5px] text-accent bg-codebg px-3 py-[9px] rounded-[5px] overflow-auto whitespace-nowrap">brew install RikaiDev/tap/toki</code>
       </a>
 
@@ -194,7 +216,8 @@
           <svg width="42" height="42" viewBox="0 0 100 100" class="mark shrink-0" aria-hidden="true"><use href="#m-me"/></svg>
           <div><div class="font-mono font-bold text-[19px]">mesen</div><div class="font-mincho text-[12.5px] tracking-[0.14em] text-sub">目線 · 視線／視角</div></div>
         </div>
-        <p class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">以模擬使用者視角做 UX 測試——用別人的眼睛看你的介面。persona 驅動、有據可依。</p>
+        <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">UX testing through simulated user perspectives — see your interface through someone else's eyes. Persona-driven and grounded in evidence.</p>
+        <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">以模擬使用者視角做 UX 測試——用別人的眼睛看你的介面。persona 驅動、有據可依。</p>
         <code class="block font-mono text-[11.5px] text-accent bg-codebg px-3 py-[9px] rounded-[5px] overflow-auto whitespace-nowrap">npm install -D mesen</code>
       </a>
 
@@ -203,7 +226,8 @@
           <svg width="42" height="42" viewBox="0 0 100 100" class="mark shrink-0" aria-hidden="true"><path d="M30 30 L50 50 L30 70" fill="none" stroke="var(--color-ink,#1F1C17)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="34" width="9" height="32" rx="1.5" fill="var(--color-accent,#B23A28)" class="blink"/></svg>
           <div><div class="font-mono font-bold text-[19px]">kaido</div><div class="font-mincho text-[12.5px] tracking-[0.14em] text-sub">海道 · 通海的路</div></div>
         </div>
-        <p class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">你的終端機 AI 教練——邊診斷邊教學，學為什麼，不只是怎麼做。本機 LLM 可離線。</p>
+        <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">Your AI coach in the terminal — it diagnoses and teaches at once, so you learn why, not just how. Runs on a local LLM, offline-capable.</p>
+        <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">你的終端機 AI 教練——邊診斷邊教學，學為什麼，不只是怎麼做。本機 LLM 可離線。</p>
         <code class="block font-mono text-[11.5px] text-accent bg-codebg px-3 py-[9px] rounded-[5px] overflow-auto whitespace-nowrap">cargo install --git https://github.com/RikaiDev/kaido</code>
       </a>
 
@@ -212,7 +236,8 @@
           <svg width="42" height="42" viewBox="0 0 100 100" class="mark shrink-0" aria-hidden="true"><use href="#m-mori"/></svg>
           <div><div class="font-mono font-bold text-[19px]">mimamori</div><div class="font-mincho text-[12.5px] tracking-[0.14em] text-sub">見守り · 守望／守護</div></div>
         </div>
-        <p class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">守護團隊溝通氛圍的 Discord bot——溫柔地看顧，而非監控。跨頻道理解語境。</p>
+        <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">A Discord bot that watches over your team's mood — gentle attention, not surveillance. It understands context across channels.</p>
+        <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">守護團隊溝通氛圍的 Discord bot——溫柔地看顧，而非監控。跨頻道理解語境。</p>
         <code class="block font-mono text-[11.5px] text-accent bg-codebg px-3 py-[9px] rounded-[5px] overflow-auto whitespace-nowrap">git clone https://github.com/RikaiDev/mimamori</code>
       </a>
 
@@ -221,15 +246,18 @@
           <svg width="42" height="42" viewBox="0 0 100 100" class="mark shrink-0" aria-hidden="true"><use href="#m-minori"/></svg>
           <div><div class="font-mono font-bold text-[19px]">minori</div><div class="font-mincho text-[12.5px] tracking-[0.14em] text-sub">実り · 結果／收成</div></div>
         </div>
-        <p class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">AI 農業協作平台——語音記錄田間、預測收成，透過 LINE 連結農戶與買家。讓耕耘有結果。</p>
+        <p data-t lang="en" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">An AI collaboration platform for farming — log the fields by voice, forecast the harvest, and connect farmers with buyers over LINE. So the work bears fruit.</p>
+        <p data-t lang="zh" class="font-sans font-light text-[13.5px] leading-[1.75] text-inksoft mb-4">AI 農業協作平台——語音記錄田間、預測收成，透過 LINE 連結農戶與買家。讓耕耘有結果。</p>
         <code class="block font-mono text-[11.5px] text-accent bg-codebg px-3 py-[9px] rounded-[5px] overflow-auto whitespace-nowrap">bun install · bun run dev</code>
       </a>
 
     </div>
 
     <div class="mt-[22px] flex gap-[14px] flex-wrap items-center font-mono text-[12px] text-sub">
-      <span class="px-3 py-[6px] border border-dashed border-linestrong rounded-full">AII — 理念層 · 人 ⇄ AI 的互動宣言</span>
-      <span class="px-3 py-[6px] border border-dashed border-linestrong rounded-full">cortex — 已封存的先行者</span>
+      <span data-t lang="en" class="px-3 py-[6px] border border-dashed border-linestrong rounded-full">AII — the philosophy layer · a manifesto for human ⇄ AI interaction</span>
+      <span data-t lang="zh" class="px-3 py-[6px] border border-dashed border-linestrong rounded-full">AII — 理念層 · 人 ⇄ AI 的互動宣言</span>
+      <span data-t lang="en" class="px-3 py-[6px] border border-dashed border-linestrong rounded-full">cortex — the archived forerunner</span>
+      <span data-t lang="zh" class="px-3 py-[6px] border border-dashed border-linestrong rounded-full">cortex — 已封存的先行者</span>
     </div>
   </section>
 
@@ -237,17 +265,20 @@
   <section id="why" class="border-t border-line bg-deep text-ondark">
     <div class="mx-auto max-w-[1080px] px-6 md:px-8 py-20">
       <div class="font-mono text-[12px] tracking-[0.28em] uppercase text-ondarksub mb-[26px]">Why open source</div>
-      <h2 class="font-serif font-medium text-[clamp(28px,4vw,46px)] leading-[1.25] max-w-[820px] mb-4">程式碼，即證明。<br>不是投影片，不是 demo，不是 Twitter thread。</h2>
-      <p class="font-mono text-[13px] tracking-[0.05em] text-ondarksub mb-[52px]">如今人人都用 AI 出貨；差別只在於，你的能不能被 clone、被讀、被驗證。<br>If AI-native development works, you should be able to see it in the commits.</p>
+      <h2 data-t lang="en" class="font-serif font-medium text-[clamp(28px,4vw,46px)] leading-[1.25] max-w-[820px] mb-4">The code is the proof.<br>Not slides, not a demo, not a Twitter thread.</h2>
+      <h2 data-t lang="zh" class="font-serif font-medium text-[clamp(28px,4vw,46px)] leading-[1.25] max-w-[820px] mb-4">程式碼，即證明。<br>不是投影片，不是 demo，不是 Twitter thread。</h2>
+      <p data-t lang="en" class="font-mono text-[13px] tracking-[0.05em] text-ondarksub mb-[52px]">Everyone ships with AI now; the only difference is whether yours can be cloned, read, and verified.<br>If AI-native development works, you should be able to see it in the commits.</p>
+      <p data-t lang="zh" class="font-mono text-[13px] tracking-[0.05em] text-ondarksub mb-[52px]">如今人人都用 AI 出貨；差別只在於，你的能不能被 clone、被讀、被驗證。<br>If AI-native development works, you should be able to see it in the commits.</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(237,231,218,0.14)] border border-[rgba(237,231,218,0.14)]">
-        <div class="bg-deep px-[26px] py-[30px]"><div class="font-mono text-[22px] text-accent mb-[10px]">clone</div><p class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">全部 MIT。抓下來就是你的。</p></div>
-        <div class="bg-deep px-[26px] py-[30px]"><div class="font-mono text-[22px] text-accent mb-[10px]">read</div><p class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">每個決定都在 commit 裡，攤開給你看。</p></div>
-        <div class="bg-deep px-[26px] py-[30px]"><div class="font-mono text-[22px] text-accent mb-[10px]">run</div><p class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">本機優先、隱私優先，資料留在你機器上。</p></div>
-        <div class="bg-deep px-[26px] py-[30px]"><div class="font-mono text-[22px] text-accent mb-[10px]">break</div><p class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">開 issue、送 PR。誠實的錯誤，勝過偽造的成功。</p></div>
+        <div class="bg-deep px-[26px] py-[30px]"><div class="font-mono text-[22px] text-accent mb-[10px]">clone</div><p data-t lang="en" class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">All MIT. Clone it and it's yours.</p><p data-t lang="zh" class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">全部 MIT。抓下來就是你的。</p></div>
+        <div class="bg-deep px-[26px] py-[30px]"><div class="font-mono text-[22px] text-accent mb-[10px]">read</div><p data-t lang="en" class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">Every decision lives in the commits, laid open for you to see.</p><p data-t lang="zh" class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">每個決定都在 commit 裡，攤開給你看。</p></div>
+        <div class="bg-deep px-[26px] py-[30px]"><div class="font-mono text-[22px] text-accent mb-[10px]">run</div><p data-t lang="en" class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">Local-first, privacy-first — your data stays on your machine.</p><p data-t lang="zh" class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">本機優先、隱私優先，資料留在你機器上。</p></div>
+        <div class="bg-deep px-[26px] py-[30px]"><div class="font-mono text-[22px] text-accent mb-[10px]">break</div><p data-t lang="en" class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">Open an issue, send a PR. An honest failure beats a faked success.</p><p data-t lang="zh" class="font-sans font-light text-[13px] leading-[1.7] text-ondarksub">開 issue、送 PR。誠實的錯誤，勝過偽造的成功。</p></div>
       </div>
       <div class="mt-10 flex gap-[14px] flex-wrap">
         <a href="https://github.com/RikaiDev" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-accent text-hi px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity">github.com/RikaiDev ↗</a>
-        <a href="https://github.com/RikaiDev/AII" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] text-ondark px-6 py-[13px] rounded-[6px] border border-[rgba(237,231,218,0.3)] hover:border-accent transition-colors">讀 AII 宣言</a>
+        <a data-t lang="en" href="https://github.com/RikaiDev/AII" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] text-ondark px-6 py-[13px] rounded-[6px] border border-[rgba(237,231,218,0.3)] hover:border-accent transition-colors">Read the AII manifesto</a>
+        <a data-t lang="zh" href="https://github.com/RikaiDev/AII" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] text-ondark px-6 py-[13px] rounded-[6px] border border-[rgba(237,231,218,0.3)] hover:border-accent transition-colors">讀 AII 宣言</a>
       </div>
     </div>
   </section>
@@ -263,14 +294,19 @@
           <div class="font-mincho text-[12px] tracking-[0.4em] mt-1">理解 · りかい</div>
         </div>
       </div>
-      <div class="font-mono text-[11.5px] leading-[1.9] text-left sm:text-right">
+      <div data-t lang="en" class="font-mono text-[11.5px] leading-[1.9] text-left sm:text-right">
         Human vision. AI execution. Real products.<br>
         Building in public · Shipping in production<br>
         <a href="https://github.com/RikaiDev" target="_blank" rel="noopener" class="hover:text-accent">github.com/RikaiDev</a> · MIT · <a href="/brand/" class="hover:text-accent">Brand System</a>
       </div>
+      <div data-t lang="zh" class="font-mono text-[11.5px] leading-[1.9] text-left sm:text-right">
+        人的洞見。AI 的執行。真實的產品。<br>
+        公開開發 · 生產環境出貨<br>
+        <a href="https://github.com/RikaiDev" target="_blank" rel="noopener" class="hover:text-accent">github.com/RikaiDev</a> · MIT · <a href="/brand/" class="hover:text-accent">品牌系統</a>
+      </div>
     </div>
   </footer>
 
-  <script src="/assets/theme.js" defer></script>
+  <script src="/assets/ui.js" defer></script>
 </body>
 </html>
