@@ -1,0 +1,46 @@
+.site-header {
+  background: color-mix(in srgb, var(--color-paper) 80%, transparent);
+}
+
+.brand-mark-rise {
+  animation: riselite 0.6s ease both;
+}
+
+.yomi-console {
+  background: #17150f;
+  color: #ede7da;
+}
+
+.yomi-console__bar {
+  border-bottom: 1px solid rgb(237 231 218 / 10%);
+}
+
+.yomi-console__dot--red { background: #8e2e20; }
+.yomi-console__dot--amber { background: #b5892f; }
+.yomi-console__dot--green { background: #5b7355; }
+.yomi-console__muted { color: #9c9382; }
+.yomi-console__key { color: #b5892f; }
+.yomi-console__success { color: #5b7355; }
+
+.yomi-marquee {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.yomi-cta {
+  background: var(--color-accent);
+  color: #f4f0e7;
+}
+
+.yomi-cta__command { background: rgb(23 21 15 / 90%); }
+.yomi-cta__version {
+  color: #9c9382;
+  border-color: rgb(237 231 218 / 15%);
+}
+.yomi-cta__primary { background: #f4f0e7; color: #1f1c17; }
+.yomi-cta__secondary { background: #1f1c17; color: #f4f0e7; }
+.yomi-cta__tertiary {
+  color: #f4f0e7;
+  border-color: rgb(244 240 231 / 50%);
+}
+
