@@ -27,6 +27,53 @@
   color: var(--color-paper);
 }
 
+.yomi-cli {
+  max-width: 760px;
+  margin: 2rem auto 0;
+  font-family: var(--font-mono);
+}
+
+.yomi-cli__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-ink);
+  font-size: 0.78rem;
+}
+
+.yomi-cli__badge {
+  padding: 0.22rem 0.48rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.yomi-cli__command {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
+  background: var(--color-codebg);
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.yomi-cli__prompt { color: var(--color-sub2); }
+
+.yomi-cli__note {
+  margin-top: 0.65rem;
+  color: var(--color-sub);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+}
+
 .yomi-cta {
   background: var(--color-accent);
   color: #f4f0e7;
@@ -43,4 +90,3 @@
   color: #f4f0e7;
   border-color: rgb(244 240 231 / 50%);
 }
-

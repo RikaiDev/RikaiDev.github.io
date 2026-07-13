@@ -180,12 +180,16 @@
           <div class="font-mono text-[12px] text-accent mb-3">X64</div><div class="font-serif text-[22px] mb-2">Linux</div><div class="font-mono text-[12px] text-sub">Download 26 MB →</div>
         </a>
       </div>
-      <div class="border border-line bg-card rounded-[8px] p-6 md:p-7 font-mono text-[12.5px] text-sub">
-        <div class="text-ink mb-3" data-t lang="en">Claude Code or another MCP client?</div><div class="text-ink mb-3" data-t lang="zh">使用 Claude Code 或其他 MCP client？</div>
-        <div class="rk-xscroll rounded-[6px] bg-codebg border border-line px-4 py-3 mb-3">
-          <code class="block text-accent whitespace-nowrap">claude mcp add yomi -- npx @rikaidev/yomi</code>
+      <div class="yomi-cli">
+        <div class="yomi-cli__heading">
+          <span class="yomi-cli__badge">CLI</span>
+          <span data-t lang="en">Using Claude Code or another MCP client?</span><span data-t lang="zh">使用 Claude Code 或其他 MCP client？</span>
         </div>
-        <div class="leading-[1.7]" data-t lang="en">This CLI path requires Node.js 24+. Bun is not required.</div><div class="leading-[1.7]" data-t lang="zh">CLI 安裝需要 Node.js 24+，不需要 Bun。</div>
+        <div class="yomi-cli__command rk-xscroll">
+          <span class="yomi-cli__prompt" aria-hidden="true">$</span>
+          <code>claude mcp add yomi -- npx @rikaidev/yomi</code>
+        </div>
+        <p class="yomi-cli__note" data-t lang="en">Requires Node.js 24+ · Bun is not required</p><p class="yomi-cli__note" data-t lang="zh">需要 Node.js 24+ · 不需要 Bun</p>
       </div>
     </div>
   </section>
