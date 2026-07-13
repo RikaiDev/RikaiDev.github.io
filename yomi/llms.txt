@@ -1,0 +1,48 @@
+# Yomi (読み)
+
+> Yomi is an unofficial, open-source local MCP server that lets Claude Desktop,
+> Claude Cowork through the desktop app, Claude Code, and other AI agents access
+> the user's own LINE account. It reads and replies to messages, sends encrypted
+> images, handles real mentions and read receipts, and searches conversations
+> through a local hybrid index.
+
+Canonical product page: https://rikaidev.github.io/yomi/
+Source: https://github.com/RikaiDev/yomi
+Current release: https://github.com/RikaiDev/yomi/releases/tag/v0.1.4
+License: MIT
+Platforms: macOS Apple Silicon, Windows x64, Linux x64
+
+## Installation
+
+Claude Desktop users download the platform-specific `.mcpb` Desktop Extension
+from the v0.1.4 release, open it with Claude Desktop, review permissions, and
+install. Claude Desktop supplies the runtime, so Node.js and Bun are not required.
+
+Claude Code users run:
+
+    claude mcp add yomi -- npx @rikaidev/yomi
+
+The npm path requires Node.js 24 or newer. Bun is not required.
+
+## Product facts
+
+- Yomi exposes 19 MCP tools.
+- It logs into LINE as a secondary device on the user's own account.
+- It speaks LINE's TCompact-over-HTTPS protocol directly; it uses no browser,
+  bot account, official LINE API, or webhook.
+- Letter Sealing messages and media are decrypted locally.
+- Reading messages does not mark them read. `mark_read` is an explicit action.
+- `send_message` and `send_image` send immediately; they do not create drafts.
+- Cross-conversation search uses local SQLite FTS5 plus optional local embedding
+  inference. The first semantic search downloads model weights from Hugging Face,
+  but sends no LINE message content there.
+
+## Limits and risk
+
+Yomi is not affiliated with or endorsed by LINE. Its use may conflict with LINE's
+Terms of Service and may carry rate-limiting or account-suspension risk.
+
+Because Yomi is a secondary device, LINE may not provide older one-to-one history
+or superseded group Letter Sealing keys. Yomi reports missing decryption material
+instead of fabricating results.
+

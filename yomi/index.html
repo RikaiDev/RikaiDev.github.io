@@ -4,28 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>yomi (読み) — Read your LINE from any AI agent · RikaiDev</title>
-  <meta name="description" content="yomi (読み) — read, reply, send images and search your entire LINE history from any AI agent. A local-first, end-to-end-encrypted MCP server. No browser, no bot account, no webhook. MIT, by RikaiDev.">
-  <meta name="keywords" content="yomi, 読み, LINE, MCP, Model Context Protocol, AI agent, Claude, E2EE, Letter Sealing, local-first, RikaiDev, open source">
+  <title>Yomi (読み) — Local LINE MCP server for Claude and AI agents</title>
+  <meta name="description" content="Yomi is an open-source local LINE MCP server for Claude Desktop, Cowork, Claude Code, and other AI agents. Read, reply, send images, and search locally. Download the v0.1.4 Desktop Extension for macOS, Windows, or Linux.">
+  <meta name="keywords" content="Yomi, 読み, LINE MCP server, Claude Desktop extension, Claude Cowork, Claude Code MCP, Model Context Protocol, LINE AI agent, LINE E2EE, Letter Sealing, local-first, open source">
   <meta name="author" content="RikaiDev">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#F2EEE5" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#17150F" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://rikaidev.github.io/yomi/">
+  <link rel="alternate" type="text/plain" href="https://rikaidev.github.io/yomi/llms.txt" title="Yomi facts for AI agents">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="/site.webmanifest">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="RikaiDev">
-  <meta property="og:title" content="yomi (読み) — Read your LINE from any AI agent">
-  <meta property="og:description" content="A local-first, end-to-end-encrypted MCP server that lets any AI agent read, reply, and search your LINE. No browser, no bot account.">
+  <meta property="og:title" content="Yomi (読み) — Your LINE, available to your AI agent">
+  <meta property="og:description" content="One-file Claude Desktop install. Read, reply, send images, and search your own LINE with a local-first MCP server.">
   <meta property="og:url" content="https://rikaidev.github.io/yomi/">
   <meta property="og:image" content="https://rikaidev.github.io/assets/og.svg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="yomi (読み) — Read your LINE from any AI agent">
-  <meta name="twitter:description" content="A local-first, E2EE MCP server for your LINE. No browser, no bot account. MIT.">
+  <meta name="twitter:title" content="Yomi (読み) — A local LINE MCP server">
+  <meta name="twitter:description" content="One-file Claude Desktop install. Read, reply, send images, and search your own LINE from an AI agent. Open source and local-first.">
   <meta name="twitter:image" content="https://rikaidev.github.io/assets/og.svg">
 
   <script type="application/ld+json">
@@ -34,14 +35,20 @@
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "name": "yomi", "alternateName": "読み",
+        "name": "Yomi", "alternateName": ["読み", "@rikaidev/yomi"],
         "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Model Context Protocol server",
         "operatingSystem": "macOS, Linux, Windows",
-        "description": "A local-first, end-to-end-encrypted MCP server that lets any AI agent read, reply to, and search your LINE.",
+        "softwareVersion": "0.1.4",
+        "description": "An open-source local MCP server that lets Claude Desktop, Cowork, Claude Code, and other AI agents read, reply to, send images to, and search a user's own LINE account.",
         "url": "https://rikaidev.github.io/yomi/",
-        "downloadUrl": "https://github.com/RikaiDev/yomi",
+        "downloadUrl": "https://github.com/RikaiDev/yomi/releases/tag/v0.1.4",
+        "installUrl": "https://github.com/RikaiDev/yomi/releases/tag/v0.1.4",
+        "codeRepository": "https://github.com/RikaiDev/yomi",
+        "releaseNotes": "https://github.com/RikaiDev/yomi/releases/tag/v0.1.4",
         "license": "https://opensource.org/licenses/MIT",
         "isAccessibleForFree": true,
+        "featureList": ["Read unread LINE messages", "Reply and send encrypted images", "Search messages locally", "Decrypt LINE Letter Sealing on device", "Install as a Claude Desktop MCPB extension"],
         "author": { "@type": "Organization", "name": "RikaiDev", "url": "https://github.com/RikaiDev" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
       },
@@ -50,9 +57,10 @@
         "mainEntity": [
           { "@type": "Question", "name": "Is yomi free and open source?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. yomi is MIT-licensed and available on GitHub. It's free to use." } },
           { "@type": "Question", "name": "Do I need a bot account or LINE's official API?", "acceptedAnswer": { "@type": "Answer", "text": "No. yomi logs in as a secondary device on your own account and speaks LINE's protocol directly — no bot account, no official API, no webhook." } },
-          { "@type": "Question", "name": "Is my data uploaded anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Letter Sealing (E2EE) messages and media are decrypted on your machine. Nothing leaves your device." } },
-          { "@type": "Question", "name": "Which agents work with yomi?", "acceptedAnswer": { "@type": "Answer", "text": "Any MCP client — Claude Desktop, Claude Code, or anything that speaks the Model Context Protocol." } },
-          { "@type": "Question", "name": "What do I need to run it?", "acceptedAnswer": { "@type": "Answer", "text": "bun and a LINE account. yomi runs straight from npm via bunx — no clone, no build step." } }
+          { "@type": "Question", "name": "Where does Yomi process my LINE data?", "acceptedAnswer": { "@type": "Answer", "text": "Yomi decrypts messages and media and builds its search index locally. It communicates with LINE to access your account. On first semantic search it downloads an embedding model from Hugging Face, but no LINE message content is sent there." } },
+          { "@type": "Question", "name": "Which AI agents work with Yomi?", "acceptedAnswer": { "@type": "Answer", "text": "Yomi works with Claude Desktop, Claude Cowork through the desktop app, Claude Code, and other local clients that support stdio MCP servers." } },
+          { "@type": "Question", "name": "How do I install Yomi?", "acceptedAnswer": { "@type": "Answer", "text": "For Claude Desktop, download the v0.1.4 MCPB file for macOS, Windows, or Linux and install it as a Desktop Extension. No separate Node.js or Bun installation is required. Claude Code users can add Yomi from npm with npx." } },
+          { "@type": "Question", "name": "Can Yomi read my complete LINE history?", "acceptedAnswer": { "@type": "Answer", "text": "Not always. LINE may not provide a secondary device with older one-to-one history or superseded group encryption keys. Yomi reports missing decryption material instead of inventing content." } }
         ]
       }
     ]
@@ -87,7 +95,7 @@
     </div>
     <nav class="flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub">
       <span class="rk-controls" aria-label="Site controls"></span>
-      <a href="#kit" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">The kit</a><a href="#kit" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">功能</a>
+      <a href="#install" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">Install</a><a href="#install" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">安裝</a>
       <a href="#how" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">How it works</a><a href="#how" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">運作</a>
       <a href="#faq" class="hidden sm:inline hover:text-ink transition-colors" data-t lang="en">FAQ</a><a href="#faq" class="hidden sm:inline hover:text-ink transition-colors" data-t lang="zh">問答</a>
       <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-ink text-paper px-[13px] py-[7px] rounded-[5px] hover:opacity-90 transition-opacity">★ GitHub</a>
@@ -104,16 +112,16 @@
         </div>
         <h1 class="font-serif font-semibold text-[clamp(44px,7vw,88px)] leading-[0.98] tracking-[-0.01em] mb-6" data-t lang="en">Read your LINE from&nbsp;any AI agent.</h1>
         <h1 class="font-serif font-semibold text-[clamp(44px,7vw,88px)] leading-[1.02] tracking-[0.01em] mb-6" data-t lang="zh" style="line-height:1.18">讓任何 AI agent 讀你的&nbsp;LINE。</h1>
-        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="en">Read, reply, send images, mention someone, and search every conversation — <b class="font-medium text-accent">end-to-end encrypted</b>, <b class="font-medium text-accent">local-first</b>, from <b class="font-medium text-accent">any MCP agent</b>. No browser. No bot account.</p>
-        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="zh">讀訊息、回覆、傳圖、標註某人、搜尋每一段對話——<b class="font-medium text-accent">端對端加密</b>、<b class="font-medium text-accent">本機優先</b>，來自<b class="font-medium text-accent">任何 MCP agent</b>。沒有瀏覽器、沒有 bot 帳號。</p>
+        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="en">Read, reply, send images, mention someone, and search across conversations — <b class="font-medium text-accent">end-to-end encrypted</b>, <b class="font-medium text-accent">local-first</b>, from <b class="font-medium text-accent">any MCP agent</b>. No browser. No bot account.</p>
+        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="zh">讀訊息、回覆、傳圖、標註某人、跨對話搜尋——<b class="font-medium text-accent">端對端加密</b>、<b class="font-medium text-accent">本機優先</b>，來自<b class="font-medium text-accent">任何 MCP agent</b>。沒有瀏覽器、沒有 bot 帳號。</p>
 
         <div class="flex items-stretch rounded-[8px] overflow-hidden border border-line bg-card max-w-[520px] mb-4">
-          <span class="font-mono text-[13px] text-sub2 px-3 py-3 border-r border-line select-none">$</span>
-          <code class="rk-xscroll flex-1 font-mono text-[13px] text-accent px-4 py-3 whitespace-nowrap">claude mcp add yomi -- bunx @rikaidev/yomi</code>
+          <span class="font-mono text-[12px] text-sub2 px-3 py-3 border-r border-line select-none">v0.1.4</span>
+          <span class="flex-1 font-mono text-[13px] text-accent px-4 py-3">One file. Drag in. Install.</span>
         </div>
         <div class="flex gap-3 flex-wrap">
-          <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-accent text-hi px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity" data-t lang="en">Get yomi →</a>
-          <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-accent text-hi px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity" data-t lang="zh">取得 yomi →</a>
+          <a href="https://github.com/RikaiDev/yomi/releases/tag/v0.1.4" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-accent text-hi px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity" data-t lang="en">Download extension →</a>
+          <a href="https://github.com/RikaiDev/yomi/releases/tag/v0.1.4" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-accent text-hi px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity" data-t lang="zh">下載擴充套件 →</a>
           <a href="#how" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors" data-t lang="en">How it works</a>
           <a href="#how" class="font-mono font-medium text-[14px] text-ink px-6 py-[13px] rounded-[6px] border border-linestrong hover:border-accent transition-colors" data-t lang="zh">運作方式</a>
         </div>
@@ -125,18 +133,18 @@
           <div class="w-[11px] h-[11px] rounded-full" style="background:#8E2E20;"></div>
           <div class="w-[11px] h-[11px] rounded-full" style="background:#B5892F;"></div>
           <div class="w-[11px] h-[11px] rounded-full" style="background:#5B7355;"></div>
-          <span class="font-mono text-[11px] ml-2" style="color:#9C9382;">yomi — claude</span>
+          <span class="font-mono text-[11px] ml-2" style="color:#9C9382;">yomi — desktop extension</span>
         </div>
         <div class="rk-xscroll p-[22px] font-mono text-[12.5px] leading-[1.95]" style="color:#EDE7DA;">
-          <span style="color:#5B7355;">$</span> claude mcp add yomi -- bunx @rikaidev/yomi<br>
-          <span style="color:#9C9382;">✓ paired as device · 7 tools · E2EE ready</span><br><br>
-          <span style="color:#9C9382;">you ›</span> what did I miss in the design channel?<br>
-          <span class="text-accent">yomi ›</span> read_chat("Design", since:"09:00")<br>
-          <span style="color:#9C9382;">// 3 threads · 41 messages · 2 images — decrypted locally</span><br>
-          <span style="color:#B5892F;">summary ›</span> Aya shipped the new mark; Ken wants<br>
-          &nbsp;&nbsp;the 88px lockup; nothing needs you tonight.<br>
-          <span style="color:#9C9382;">you ›</span> reply "love it — ship it 🚀"<br>
-          <span class="text-accent">yomi ›</span> send_message("Design", "love it — ship it 🚀") <span style="color:#5B7355;">✓</span>
+          <span style="color:#B5892F;">01</span> Download the file for your operating system<br>
+          <span style="color:#B5892F;">02</span> Open it with Claude Desktop<br>
+          <span style="color:#B5892F;">03</span> Review permissions, then select Install<br>
+          <span style="color:#5B7355;">✓</span> 19 Yomi tools available to Claude<br><br>
+          <span style="color:#9C9382;">you ›</span> summarize my unread LINE messages<br>
+          <span class="text-accent">yomi ›</span> get_unread_digest()<br>
+          <span style="color:#9C9382;">// read locally · does not mark messages read</span><br>
+          <span style="color:#B5892F;">summary ›</span> Three conversations need attention.<br>
+          &nbsp;&nbsp;Aya is waiting for approval on the new mark.
         </div>
       </div>
     </div>
@@ -151,6 +159,35 @@
       <span class="px-6">Read</span><span class="text-accent">★</span><span class="px-6">Reply</span><span class="text-accent">★</span><span class="px-6">Send images</span><span class="text-accent">★</span><span class="px-6">Mention</span><span class="text-accent">★</span><span class="px-6">Search history</span><span class="text-accent">★</span><span class="px-6">E2EE local</span><span class="text-accent">★</span><span class="px-6">MCP · stdio</span><span class="text-accent">★</span><span class="px-6">No bot account</span><span class="text-accent">★</span><span class="px-6">MIT</span><span class="text-accent">★</span>
     </div>
   </div>
+
+  <!-- ===== install ===== -->
+  <section id="install" class="border-b border-line bg-paper2">
+    <div class="mx-auto max-w-[1200px] px-6 md:px-10 py-20 md:py-[104px]">
+      <div class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6" data-reveal>[ install · v0.1.4 ]</div>
+      <h2 class="font-serif font-medium text-[clamp(28px,4.4vw,52px)] leading-[1.22] max-w-[820px] mb-4" data-reveal data-t lang="en">No terminal. No Node. One local extension.</h2>
+      <h2 class="font-serif font-medium text-[clamp(28px,4.4vw,52px)] leading-[1.3] max-w-[820px] mb-4" data-reveal data-t lang="zh">不用終端機、不用 Node，一個本機擴充套件。</h2>
+      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[760px] mb-12" data-reveal data-t lang="en">Choose your operating system, download the <code>.mcpb</code> file, and open it with Claude Desktop. Review the permissions and select Install. Claude Desktop provides the runtime.</p>
+      <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[760px] mb-12" data-reveal data-t lang="zh">選擇作業系統、下載 <code>.mcpb</code>，再用 Claude Desktop 開啟。確認權限後按下安裝；執行環境由 Claude Desktop 提供。</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-line border border-line mb-8">
+        <a href="https://github.com/RikaiDev/yomi/releases/download/v0.1.4/yomi-darwin-arm64.mcpb" class="bg-card p-7 hover:bg-paper transition-colors" aria-label="Download Yomi v0.1.4 for macOS Apple Silicon">
+          <div class="font-mono text-[12px] text-accent mb-3">APPLE SILICON</div><div class="font-serif text-[22px] mb-2">macOS</div><div class="font-mono text-[12px] text-sub">Download 23 MB →</div>
+        </a>
+        <a href="https://github.com/RikaiDev/yomi/releases/download/v0.1.4/yomi-win32-x64.mcpb" class="bg-card p-7 hover:bg-paper transition-colors" aria-label="Download Yomi v0.1.4 for Windows x64">
+          <div class="font-mono text-[12px] text-accent mb-3">X64</div><div class="font-serif text-[22px] mb-2">Windows</div><div class="font-mono text-[12px] text-sub">Download 40 MB →</div>
+        </a>
+        <a href="https://github.com/RikaiDev/yomi/releases/download/v0.1.4/yomi-linux-x64.mcpb" class="bg-card p-7 hover:bg-paper transition-colors" aria-label="Download Yomi v0.1.4 for Linux x64">
+          <div class="font-mono text-[12px] text-accent mb-3">X64</div><div class="font-serif text-[22px] mb-2">Linux</div><div class="font-mono text-[12px] text-sub">Download 26 MB →</div>
+        </a>
+      </div>
+      <div class="border border-line bg-card rounded-[8px] p-6 md:p-7 font-mono text-[12.5px] text-sub">
+        <div class="text-ink mb-3" data-t lang="en">Claude Code or another MCP client?</div><div class="text-ink mb-3" data-t lang="zh">使用 Claude Code 或其他 MCP client？</div>
+        <div class="rk-xscroll rounded-[6px] bg-codebg border border-line px-4 py-3 mb-3">
+          <code class="block text-accent whitespace-nowrap">claude mcp add yomi -- npx @rikaidev/yomi</code>
+        </div>
+        <div class="leading-[1.7]" data-t lang="en">This CLI path requires Node.js 24+. Bun is not required.</div><div class="leading-[1.7]" data-t lang="zh">CLI 安裝需要 Node.js 24+，不需要 Bun。</div>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== the name ===== -->
   <section id="name" class="border-b border-line">
@@ -219,14 +256,14 @@
           <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">◲</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Write</h3></div>
           <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
             <li><span class="text-accent">→</span> <span data-t lang="en">Reply, send images, mention people</span><span data-t lang="zh">回覆、傳圖、標註成員</span></li>
-            <li><span class="text-accent">→</span> <span data-t lang="en">Your agent drafts; you stay in control</span><span data-t lang="zh">agent 草擬；主導權在你</span></li>
-            <li><span class="text-accent">→</span> <span data-t lang="en">The full loop, from the terminal</span><span data-t lang="zh">從終端機完成整個循環</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Explicit tools send now — not drafts</span><span data-t lang="zh">明確呼叫即送出——不是草稿</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Read receipts are a separate explicit action</span><span data-t lang="zh">已讀回條是另一個明確動作</span></li>
           </ul>
         </div>
         <div data-reveal>
           <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">⌕</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Search</h3></div>
           <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
-            <li><span class="text-accent">→</span> <span data-t lang="en">Search across your whole history</span><span data-t lang="zh">跨你的全部歷史搜尋</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Search across available, indexed conversations</span><span data-t lang="zh">跨可取得、已索引的對話搜尋</span></li>
             <li><span class="text-accent">→</span> <span data-t lang="en">Local &amp; instant — nothing indexed remotely</span><span data-t lang="zh">本機、瞬間——不在遠端建索引</span></li>
             <li><span class="text-accent">→</span> <span data-t lang="en">Ask in natural language via your agent</span><span data-t lang="zh">透過 agent 用自然語言問</span></li>
           </ul>
@@ -235,22 +272,22 @@
           <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">⚿</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Security</h3></div>
           <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
             <li><span class="text-accent">→</span> <span data-t lang="en">Letter Sealing (E2EE) decrypted on-device</span><span data-t lang="zh">Letter Sealing（E2EE）在裝置上解密</span></li>
-            <li><span class="text-accent">→</span> <span data-t lang="en">Local-first — your data never leaves</span><span data-t lang="zh">本機優先——資料不外流</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Local search index and embedding inference</span><span data-t lang="zh">搜尋索引與 embedding inference 都在本機</span></li>
             <li><span class="text-accent">→</span> <span data-t lang="en">Reads your own account only</span><span data-t lang="zh">只讀你自己的帳號</span></li>
           </ul>
         </div>
         <div data-reveal>
           <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">◈</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Runtime</h3></div>
           <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
-            <li><span class="text-accent">→</span> <span data-t lang="en">Runs from npm via <code class="text-accent">bunx</code> — no build</span><span data-t lang="zh">透過 <code class="text-accent">bunx</code> 從 npm 執行——免 build</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Desktop Extension — no separate runtime</span><span data-t lang="zh">Desktop Extension——不用另裝 runtime</span></li>
             <li><span class="text-accent">→</span> <span data-t lang="en">macOS, Linux, Windows</span><span data-t lang="zh">macOS、Linux、Windows</span></li>
-            <li><span class="text-accent">→</span> <span data-t lang="en">One line to install</span><span data-t lang="zh">一行安裝</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Also available from npm via <code class="text-accent">npx</code></span><span data-t lang="zh">也可透過 npm 的 <code class="text-accent">npx</code> 執行</span></li>
           </ul>
         </div>
         <div data-reveal>
           <div class="flex items-center gap-3 mb-4"><span class="font-mono text-[13px] text-accent">◇</span><h3 class="font-mono font-bold text-[15px] tracking-[0.08em] uppercase">Integration</h3></div>
           <ul class="font-mono text-[13px] leading-[2] text-sub space-y-1">
-            <li><span class="text-accent">→</span> <span data-t lang="en">Any MCP client: Claude Desktop / Code</span><span data-t lang="zh">任何 MCP client：Claude Desktop／Code</span></li>
+            <li><span class="text-accent">→</span> <span data-t lang="en">Claude Desktop, Cowork, Code, and MCP clients</span><span data-t lang="zh">Claude Desktop、Cowork、Code 與 MCP clients</span></li>
             <li><span class="text-accent">→</span> <span data-t lang="en">stdio server — no port, no host</span><span data-t lang="zh">stdio server——不用埠、不用架站</span></li>
             <li><span class="text-accent">→</span> <span data-t lang="en">MIT-licensed, open on GitHub</span><span data-t lang="zh">MIT 授權，GitHub 開源</span></li>
           </ul>
@@ -281,19 +318,33 @@
         <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-line" data-reveal>
           <div class="font-mono text-[13px] text-accent">03</div>
           <div>
-            <h3 class="font-serif text-[20px] mb-2" data-t lang="en">Is my data uploaded anywhere?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">我的資料會被上傳嗎？</h3>
-            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">No. E2EE messages and media are decrypted on your machine. Nothing leaves your device.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">不會。E2EE 訊息與媒體都在你的機器上解密。沒有東西離開你的裝置。</p>
+            <h3 class="font-serif text-[20px] mb-2" data-t lang="en">Where does Yomi process my LINE data?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">Yomi 在哪裡處理我的 LINE 資料？</h3>
+            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Messages and media are decrypted locally, and the search index stays on your device. Yomi communicates with LINE to access your account. The first semantic search downloads an embedding model from Hugging Face, but sends no LINE content there.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">訊息與媒體在本機解密，搜尋索引也留在裝置上。Yomi 仍會與 LINE 通訊以存取你的帳號；第一次語意搜尋會從 Hugging Face 下載 embedding 模型，但不會傳送 LINE 內容過去。</p>
           </div>
         </div>
         <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-line" data-reveal>
           <div class="font-mono text-[13px] text-accent">04</div>
           <div>
             <h3 class="font-serif text-[20px] mb-2" data-t lang="en">Which agents work with yomi?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">哪些 agent 可以用 yomi？</h3>
-            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Any MCP client — Claude Desktop, Claude Code, or anything that speaks the Model Context Protocol.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">任何 MCP client——Claude Desktop、Claude Code，或任何會講 Model Context Protocol 的工具。</p>
+            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Claude Desktop, Cowork through the desktop app, Claude Code, and other local clients that support stdio MCP servers.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">Claude Desktop、透過桌面 App 使用的 Cowork、Claude Code，以及其他支援 stdio MCP server 的本機 client。</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-line" data-reveal>
+          <div class="font-mono text-[13px] text-accent">05</div>
+          <div>
+            <h3 class="font-serif text-[20px] mb-2" data-t lang="en">How do I install Yomi?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">如何安裝 Yomi？</h3>
+            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">For Claude Desktop, download the v0.1.4 <code>.mcpb</code> for your operating system and open it with Desktop. No separate Node.js or Bun install is required. Claude Code users can add the npm package with <code>npx</code>.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">Claude Desktop 使用者只要下載作業系統對應的 v0.1.4 <code>.mcpb</code> 並用 Desktop 開啟，不必另裝 Node.js 或 Bun。Claude Code 使用者可透過 <code>npx</code> 加入 npm 套件。</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-line" data-reveal>
+          <div class="font-mono text-[13px] text-accent">06</div>
+          <div>
+            <h3 class="font-serif text-[20px] mb-2" data-t lang="en">Can Yomi read my complete LINE history?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">Yomi 能讀取完整 LINE 歷史嗎？</h3>
+            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Not always. LINE may not give a secondary device older one-to-one history or superseded group encryption keys. Yomi returns an explicit missing-decryption error instead of inventing content.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">不一定。LINE 可能不會把較舊的一對一歷史或已輪替的群組加密金鑰交給次要裝置。Yomi 會明確回報缺少解密材料，不會捏造內容。</p>
           </div>
         </div>
         <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-b border-line" data-reveal>
-          <div class="font-mono text-[13px] text-accent">05</div>
+          <div class="font-mono text-[13px] text-accent">07</div>
           <div>
             <h3 class="font-serif text-[20px] mb-2" data-t lang="en">Is this official, and is it allowed?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">這是官方的嗎？可以用嗎？</h3>
             <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">Unofficial. yomi isn't affiliated with LINE. Using it may be against LINE's Terms of Service and carries a risk of rate-limiting or suspension. It's for reading your own account, at your own risk.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">非官方。yomi 與 LINE 無關聯。使用它可能違反 LINE 服務條款，並有被限流或停權的風險。它是用來讀你自己的帳號，請自行承擔風險。</p>
@@ -311,10 +362,12 @@
       <h2 class="font-serif font-semibold text-[clamp(36px,6.5vw,80px)] leading-[1.08] mb-8" style="color:#F4F0E7;" data-t lang="zh">讓你的 agent，<br>替你讀一次。</h2>
       <div class="max-w-[520px] mx-auto">
         <div class="flex items-stretch rounded-[8px] overflow-hidden mb-5" style="background:rgba(23,21,15,0.9);">
-          <span class="font-mono text-[13px] px-3 py-3 border-r select-none" style="color:#9C9382;border-color:rgba(237,231,218,0.15);">$</span>
-          <code class="rk-xscroll flex-1 font-mono text-[13px] px-4 py-3 whitespace-nowrap text-left" style="color:#F4F0E7;">claude mcp add yomi -- bunx @rikaidev/yomi</code>
+          <span class="font-mono text-[12px] px-3 py-3 border-r select-none" style="color:#9C9382;border-color:rgba(237,231,218,0.15);">v0.1.4</span>
+          <span class="flex-1 font-mono text-[13px] px-4 py-3 text-left" style="color:#F4F0E7;">Download · open · install</span>
         </div>
         <div class="flex gap-3 justify-center flex-wrap">
+          <a href="https://github.com/RikaiDev/yomi/releases/tag/v0.1.4" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px] transition-opacity hover:opacity-90" style="background:#F4F0E7;color:#1F1C17;" data-t lang="en">Download extension →</a>
+          <a href="https://github.com/RikaiDev/yomi/releases/tag/v0.1.4" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px] transition-opacity hover:opacity-90" style="background:#F4F0E7;color:#1F1C17;" data-t lang="zh">下載擴充套件 →</a>
           <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px] transition-opacity hover:opacity-90" style="background:#1F1C17;color:#F4F0E7;">★ Star yomi on GitHub ↗</a>
           <a href="/" class="font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px] border transition-colors" style="color:#F4F0E7;border-color:rgba(244,240,231,0.5);" data-t lang="en">All RikaiDev tools</a>
           <a href="/" class="font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px] border transition-colors" style="color:#F4F0E7;border-color:rgba(244,240,231,0.5);" data-t lang="zh">所有 RikaiDev 工具</a>
