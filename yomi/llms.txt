@@ -3,19 +3,20 @@
 > Yomi is an unofficial, open-source local MCP server that lets Claude Desktop,
 > Claude Cowork through the desktop app, Claude Code, and other AI agents access
 > the user's own LINE account. It reads and replies to messages, sends encrypted
-> images, handles real mentions and read receipts, and searches conversations
-> through a local hybrid index.
+> images, handles real mentions and read receipts, searches conversations
+> through a local hybrid index, and surfaces which conversations are waiting on a
+> reply as a compact relationship network.
 
 Canonical product page: https://rikaidev.github.io/yomi/
 Source: https://github.com/RikaiDev/yomi
-Current release: https://github.com/RikaiDev/yomi/releases/tag/v0.1.4
+Latest release: https://github.com/RikaiDev/yomi/releases/latest
 License: MIT
 Platforms: macOS Apple Silicon, Windows x64, Linux x64
 
 ## Installation
 
 Claude Desktop users download the platform-specific `.mcpb` Desktop Extension
-from the v0.1.4 release, open it with Claude Desktop, review permissions, and
+from the latest release, open it with Claude Desktop, review permissions, and
 install. Claude Desktop supplies the runtime, so Node.js and Bun are not required.
 
 Claude Code users run:
@@ -26,7 +27,12 @@ The npm path requires Node.js 24 or newer. Bun is not required.
 
 ## Product facts
 
-- Yomi exposes 19 MCP tools.
+- Yomi exposes 20 MCP tools.
+- `get_insight` returns a compact context network (encoded as TOON) — cross-chat
+  connectors and their bridges, per-conversation reply rhythm, and the
+  conversations whose latest message is not the user's, ranked by how overdue
+  they are relative to that rhythm. It computes only structure and statistics;
+  judging a message's addressee and intent is left to the agent.
 - It logs into LINE as a secondary device on the user's own account.
 - It speaks LINE's TCompact-over-HTTPS protocol directly; it uses no browser,
   bot account, official LINE API, or webhook.
