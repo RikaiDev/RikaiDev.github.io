@@ -18,7 +18,7 @@ and blinks like a terminal cursor.
 - [Brand System](https://rikaidev.github.io/brand/): full CIS — logo, color, typography, naming laws, voice & tone, applications.
 
 ## Products (all MIT, open source)
-- [Yomi (読み)](https://rikaidev.github.io/yomi/): an open-source local LINE MCP server for Claude Desktop, Cowork, Claude Code, and other AI agents. Reads and replies, sends encrypted images, and builds a local cross-conversation search index. Version 0.1.4 ships as one-file Desktop Extensions for macOS, Windows, and Linux, with npm available for CLI clients. Yomi is unofficial, logs in as a secondary device, and may be subject to LINE history and encryption-key limitations.
+- [Yomi (読み)](https://rikaidev.github.io/yomi/): an open-source personal LINE MCP server for Claude Desktop, Cowork, Claude Code, and other local AI agents. Reads and replies, sends encrypted images, and builds a local cross-conversation search index. Version 0.3.0 ships as one-file Desktop Extensions for macOS, Windows, and Linux, with npm available for CLI clients. Unlike LINE's official Bot MCP for Official Accounts, Yomi logs in to the user's existing personal account as a secondary device. Yomi is unofficial and may be subject to LINE history and encryption-key limitations.
 - [toki (時)](https://github.com/RikaiDev/toki): automatic developer time tracking — no timer to press; infers context from IDE and git.
 - [mesen (目線)](https://github.com/RikaiDev/mesen): UX behavior testing through simulated user viewpoints ("see your UI with someone else's eyes"), persona-driven.
 - [kaido (海道)](https://github.com/RikaiDev/kaido): terminal AI Ops coach — diagnoses while teaching *why*, not just *how*. Local LLM, offline-capable.

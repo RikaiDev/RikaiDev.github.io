@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Yomi (読み) — Local LINE MCP server for Claude and AI agents</title>
-  <meta name="description" content="Yomi is an open-source local LINE MCP server for Claude Desktop, Cowork, Claude Code, and other AI agents. Read, reply, send images, and search locally. Download the v0.3.0 Desktop Extension for macOS, Windows, or Linux.">
+  <title>LINE MCP Server for Personal Chats — Yomi by RikaiDev</title>
+  <meta name="description" content="Yomi is the open-source personal LINE MCP server for Claude and local AI agents. Read, reply, send images, and search existing LINE conversations with local E2EE decryption.">
   <meta name="keywords" content="Yomi, 読み, LINE MCP server, Claude Desktop extension, Claude Cowork, Claude Code MCP, Model Context Protocol, LINE AI agent, LINE E2EE, Letter Sealing, local-first, open source">
   <meta name="author" content="RikaiDev">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -18,14 +18,14 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="RikaiDev">
-  <meta property="og:title" content="Yomi (読み) — Your LINE, available to your AI agent">
-  <meta property="og:description" content="One-file Claude Desktop install. Read, reply, send images, and search your own LINE with a local-first MCP server.">
+  <meta property="og:title" content="Yomi — the personal LINE MCP server">
+  <meta property="og:description" content="Connect Claude or another local AI agent to your personal LINE chats. Read, reply, send images, and search conversations locally.">
   <meta property="og:url" content="https://rikaidev.github.io/yomi/">
   <meta property="og:image" content="https://rikaidev.github.io/assets/og.svg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Yomi (読み) — A local LINE MCP server">
+  <meta name="twitter:title" content="Yomi — the personal LINE MCP server">
   <meta name="twitter:description" content="One-file Claude Desktop install. Read, reply, send images, and search your own LINE from an AI agent. Open source and local-first.">
   <meta name="twitter:image" content="https://rikaidev.github.io/assets/og.svg">
 
@@ -35,12 +35,13 @@
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "name": "Yomi", "alternateName": ["読み", "@rikaidev/yomi"],
+        "@id": "https://rikaidev.github.io/yomi/#software",
+        "name": "Yomi — Personal LINE MCP Server", "alternateName": ["Yomi", "読み", "@rikaidev/yomi", "LINE MCP for personal chats"],
         "applicationCategory": "DeveloperApplication",
         "applicationSubCategory": "Model Context Protocol server",
         "operatingSystem": "macOS, Linux, Windows",
         "softwareVersion": "0.3.0",
-        "description": "An open-source local MCP server that lets Claude Desktop, Cowork, Claude Code, and other AI agents read, reply to, send images to, and search a user's own LINE account.",
+        "description": "An open-source personal LINE MCP server that lets Claude Desktop, Cowork, Claude Code, and other local AI agents read, reply to, send images to, and search a user's existing LINE conversations.",
         "url": "https://rikaidev.github.io/yomi/",
         "downloadUrl": "https://github.com/RikaiDev/yomi/releases/latest",
         "installUrl": "https://github.com/RikaiDev/yomi/releases/latest",
@@ -55,7 +56,8 @@
       {
         "@type": "FAQPage",
         "mainEntity": [
-          { "@type": "Question", "name": "Is yomi free and open source?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. yomi is MIT-licensed and available on GitHub. It's free to use." } },
+          { "@type": "Question", "name": "What is a LINE MCP server?", "acceptedAnswer": { "@type": "Answer", "text": "A LINE MCP server connects an MCP-compatible AI agent to LINE capabilities. Yomi is designed for an existing personal LINE account and conversations; LINE's official Bot MCP server is designed for LINE Official Accounts through the Messaging API." } },
+          { "@type": "Question", "name": "Is Yomi free and open source?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Yomi is MIT-licensed and available on GitHub. It's free to use." } },
           { "@type": "Question", "name": "Do I need a bot account or LINE's official API?", "acceptedAnswer": { "@type": "Answer", "text": "No. yomi logs in as a secondary device on your own account and speaks LINE's protocol directly — no bot account, no official API, no webhook." } },
           { "@type": "Question", "name": "Where does Yomi process my LINE data?", "acceptedAnswer": { "@type": "Answer", "text": "Yomi decrypts messages and media and builds its search index locally. It communicates with LINE to access your account. On first semantic search it downloads an embedding model from Hugging Face, but no LINE message content is sent there." } },
           { "@type": "Question", "name": "Which AI agents work with Yomi?", "acceptedAnswer": { "@type": "Answer", "text": "Yomi works with Claude Desktop, Claude Cowork through the desktop app, Claude Code, and other local clients that support stdio MCP servers." } },
@@ -111,10 +113,10 @@
         <div class="inline-flex items-center gap-2.5 font-mono text-[11.5px] tracking-[0.16em] uppercase text-sub border border-line rounded-full px-3.5 py-1.5 mb-7">
           <span class="w-[7px] h-[7px] rounded-full bg-accent pulse"></span>読み · <span data-t lang="en">read your LINE, out loud</span><span data-t lang="zh">把你的 LINE 讀出來</span>
         </div>
-        <h1 class="font-serif font-semibold text-[clamp(44px,7vw,88px)] leading-[0.98] tracking-[-0.01em] mb-6" data-t lang="en">Read your LINE from&nbsp;any AI agent.</h1>
-        <h1 class="font-serif font-semibold text-[clamp(44px,7vw,88px)] leading-[1.02] tracking-[0.01em] mb-6" data-t lang="zh">讓任何 AI agent 讀你的&nbsp;LINE。</h1>
-        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="en">Read, reply, send images, mention someone, and search across conversations — <b class="font-medium text-accent">end-to-end encrypted</b>, <b class="font-medium text-accent">local-first</b>, from <b class="font-medium text-accent">any MCP agent</b>. No browser. No bot account.</p>
-        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="zh">讀訊息、回覆、傳圖、標註某人、跨對話搜尋——<b class="font-medium text-accent">端對端加密</b>、<b class="font-medium text-accent">本機優先</b>，來自<b class="font-medium text-accent">任何 MCP agent</b>。沒有瀏覽器、沒有 bot 帳號。</p>
+        <h1 class="font-serif font-semibold text-[clamp(44px,7vw,88px)] leading-[0.98] tracking-[-0.01em] mb-6" data-t lang="en">The LINE MCP server for your personal chats.</h1>
+        <h1 class="font-serif font-semibold text-[clamp(44px,7vw,88px)] leading-[1.02] tracking-[0.01em] mb-6" data-t lang="zh">你的個人 LINE MCP server。</h1>
+        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="en">Connect Claude or any local AI agent to your existing LINE account. Read, reply, send images, mention someone, and search conversations — <b class="font-medium text-accent">E2EE decrypted locally</b>. No browser. No bot account.</p>
+        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="zh">把 Claude 或任何本機 AI agent 接上你現有的 LINE 個人帳號。讀訊息、回覆、傳圖、標註與跨對話搜尋；<b class="font-medium text-accent">E2EE 全在本機解密</b>。不用瀏覽器，也不用 bot 帳號。</p>
 
         <div class="flex items-stretch rounded-[8px] overflow-hidden border border-line bg-card max-w-[520px] mb-4">
           <span class="font-mono text-[12px] text-sub2 px-3 py-3 border-r border-line select-none">v0.3.0</span>

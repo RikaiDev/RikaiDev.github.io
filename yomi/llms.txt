@@ -1,6 +1,6 @@
 # Yomi (読み)
 
-> Yomi is an unofficial, open-source local MCP server that lets Claude Desktop,
+> Yomi is an unofficial, open-source personal LINE MCP server that lets Claude Desktop,
 > Claude Cowork through the desktop app, Claude Code, and other AI agents access
 > the user's own LINE account. It reads and replies to messages, sends encrypted
 > images, handles real mentions and read receipts, searches conversations
@@ -27,6 +27,8 @@ The npm path requires Node.js 24 or newer. Bun is not required.
 
 ## Product facts
 
+- Yomi targets personal LINE accounts and existing conversations. LINE's
+  official Bot MCP server targets LINE Official Accounts through the Messaging API.
 - Yomi exposes 20 MCP tools.
 - `get_insight` returns a compact context network (encoded as TOON) — cross-chat
   connectors and their bridges, per-conversation reply rhythm, and the
@@ -51,4 +53,3 @@ Terms of Service and may carry rate-limiting or account-suspension risk.
 Because Yomi is a secondary device, LINE may not provide older one-to-one history
 or superseded group Letter Sealing keys. Yomi reports missing decryption material
 instead of fabricating results.
-
