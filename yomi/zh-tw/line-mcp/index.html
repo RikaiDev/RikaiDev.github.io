@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="/assets/app.css">
   <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body class="bg-paper text-ink font-sans">
+<body class="guide-page bg-paper text-ink font-sans">
   <div class="grain"></div>
   <header class="site-header sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 py-[15px] backdrop-blur-md border-b border-line">
     <a href="/yomi/" class="flex items-center gap-3" aria-label="回到 Yomi 首頁">
@@ -81,24 +81,24 @@
 
   <main>
     <article>
-      <section class="mx-auto max-w-[960px] px-6 md:px-10 pt-16 md:pt-24 pb-16">
+      <section class="guide-hero mx-auto max-w-[960px] px-6 md:px-10 pt-16 md:pt-24 pb-16">
         <nav class="font-mono text-[11px] text-sub tracking-[0.08em] mb-8" aria-label="麵包屑">
           <a href="/">RikaiDev</a> / <a href="/yomi/">Yomi</a> / LINE MCP 指南
         </nav>
         <p class="font-mono text-[12px] tracking-[0.22em] uppercase text-accent mb-5">LINE × Model Context Protocol</p>
         <h1 class="font-serif font-semibold text-[clamp(40px,7vw,76px)] leading-[1.08] tracking-[-0.01em] mb-7">LINE MCP 是什麼？<br>讓 AI 讀取與回覆個人 LINE</h1>
         <p class="font-sans text-[clamp(17px,2vw,21px)] leading-[1.85] text-inksoft max-w-[780px] mb-8">LINE MCP server 把 Claude 等 AI agent 連接到 LINE，但「連到哪一種 LINE」非常重要：官方帳號、桌面 App，或你正在使用的個人帳號，是三種不同問題。</p>
-        <div class="border-l-4 border-accent bg-paper2 px-6 py-5 font-sans leading-[1.85] text-sub">
+        <div class="guide-answer border-l-4 border-accent bg-paper2 px-6 py-5 font-sans leading-[1.85] text-sub">
           <strong class="text-ink">先講結論：</strong>如果你要操作 LINE Official Account，選官方 Bot MCP；如果你要讓本機 AI 讀取、搜尋並回覆自己既有的個人 LINE 對話，Yomi 才是針對這個需求設計。
         </div>
       </section>
 
       <section id="compare" class="border-y border-line bg-paper2">
-        <div class="mx-auto max-w-[1100px] px-6 md:px-10 py-16 md:py-20">
+        <div class="guide-section guide-section--wide mx-auto max-w-[1100px] px-6 md:px-10 py-16 md:py-20">
           <p class="font-mono text-[12px] tracking-[0.22em] uppercase text-accent mb-4">比較</p>
           <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-10">LINE MCP 的三種做法</h2>
-          <div class="overflow-x-auto border border-line bg-card">
-            <table class="w-full min-w-[760px] border-collapse text-left">
+          <div class="guide-table-wrap overflow-x-auto border border-line bg-card">
+            <table class="guide-table w-full min-w-[760px] border-collapse text-left">
               <thead class="font-mono text-[12px] tracking-[0.06em]">
                 <tr><th class="p-5 border-b border-line">做法</th><th class="p-5 border-b border-line">連接對象</th><th class="p-5 border-b border-line">適合需求</th><th class="p-5 border-b border-line">主要限制</th></tr>
               </thead>
@@ -112,9 +112,9 @@
         </div>
       </section>
 
-      <section class="mx-auto max-w-[960px] px-6 md:px-10 py-16 md:py-20">
+      <section class="guide-section guide-section--article mx-auto max-w-[960px] px-6 md:px-10 py-16 md:py-20">
         <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-8">Yomi 如何連接個人 LINE？</h2>
-        <div class="grid md:grid-cols-2 gap-px bg-line border border-line mb-14">
+        <div class="guide-steps grid md:grid-cols-2 gap-px bg-line border border-line mb-14">
           <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">01 · LOGIN</p><h3 class="font-serif text-[21px] mb-3">以次要裝置登入</h3><p class="text-sub leading-[1.8]">Yomi 登入你自己的 LINE 帳號，不需要建立 bot 帳號、channel access token 或 webhook。</p></div>
           <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">02 · PROTOCOL</p><h3 class="font-serif text-[21px] mb-3">直接處理 LINE 協定</h3><p class="text-sub leading-[1.8]">它不是在螢幕上找按鈕，而是以本機 MCP server 向 AI agent 提供明確工具。</p></div>
           <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">03 · E2EE</p><h3 class="font-serif text-[21px] mb-3">本機解密 Letter Sealing</h3><p class="text-sub leading-[1.8]">可取得的 E2EE 訊息與媒體在你的裝置上解密；搜尋索引也保留在本機。</p></div>
@@ -122,7 +122,7 @@
         </div>
 
         <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-6">什麼情況適合使用 Yomi？</h2>
-        <ul class="font-sans text-[16px] leading-[2] text-sub mb-14">
+        <ul class="guide-list font-sans text-[16px] leading-[2] text-sub mb-14">
           <li>• 想讓 Claude 整理自己 LINE 帳號的未讀訊息。</li>
           <li>• 想跨群組與一對一聊天搜尋過去討論。</li>
           <li>• 想由 AI 協助回覆、傳圖、標註成員或處理已讀。</li>
@@ -134,7 +134,7 @@
         <p class="font-sans text-[16px] leading-[1.95] text-sub">此外，LINE 不一定會把較舊的一對一歷史或已輪替的群組加密金鑰提供給次要裝置。Yomi 會明確回報缺少解密材料，不會捏造無法讀取的內容。</p>
       </section>
 
-      <section id="install" class="yomi-cta">
+      <section id="install" class="guide-cta yomi-cta">
         <div class="mx-auto max-w-[900px] px-6 md:px-10 py-20 text-center">
           <p class="font-mono text-[12px] tracking-[0.22em] mb-4">YOMI v0.3.1 · OPEN SOURCE</p>
           <h2 class="font-serif font-semibold text-[clamp(34px,6vw,64px)] leading-[1.1] mb-6">把個人 LINE 接上你的 AI agent</h2>
@@ -148,7 +148,7 @@
     </article>
   </main>
 
-  <footer class="bg-deep2 text-ondarksub">
+  <footer class="guide-footer bg-deep2 text-ondarksub">
     <div class="mx-auto max-w-[1100px] px-6 md:px-10 py-12 flex justify-between flex-wrap gap-6">
       <p class="font-mono text-[13px] text-ondark">yomi · 読み</p>
       <p class="font-mono text-[11.5px]"><a href="/yomi/" class="hover:text-accent">產品首頁</a> · <a href="https://github.com/RikaiDev/yomi" class="hover:text-accent">GitHub</a> · MIT</p>
