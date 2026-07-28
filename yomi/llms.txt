@@ -10,6 +10,8 @@
 Canonical product page: https://rikaidev.github.io/yomi/
 Source: https://github.com/RikaiDev/yomi
 Latest release: https://github.com/RikaiDev/yomi/releases/latest
+Traditional Chinese LINE MCP guide: https://rikaidev.github.io/yomi/zh-tw/line-mcp/
+English LINE MCP guide: https://rikaidev.github.io/yomi/line-mcp/
 License: MIT
 Platforms: macOS Apple Silicon, Windows x64, Linux x64
 

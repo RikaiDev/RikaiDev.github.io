@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Is a LINE MCP Server? Personal LINE and AI Guide | Yomi</title>
+  <meta name="description" content="A practical guide to LINE MCP servers. Compare LINE's official Bot MCP, desktop automation, and Yomi for personal LINE accounts, local E2EE decryption, search, and replies.">
+  <meta name="author" content="RikaiDev">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#F2EEE5">
+  <link rel="canonical" href="https://rikaidev.github.io/yomi/line-mcp/">
+  <link rel="alternate" hreflang="en" href="https://rikaidev.github.io/yomi/line-mcp/">
+  <link rel="alternate" hreflang="zh-Hant-TW" href="https://rikaidev.github.io/yomi/zh-tw/line-mcp/">
+  <link rel="alternate" hreflang="x-default" href="https://rikaidev.github.io/yomi/line-mcp/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="RikaiDev">
+  <meta property="og:title" content="What Is a LINE MCP Server? A Guide to Personal LINE and AI">
+  <meta property="og:description" content="Compare the official Bot MCP, desktop automation, and Yomi to choose the right way to connect LINE to an AI agent.">
+  <meta property="og:url" content="https://rikaidev.github.io/yomi/line-mcp/">
+  <meta property="og:image" content="https://rikaidev.github.io/assets/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Is a LINE MCP Server? Personal LINE and AI Guide">
+  <meta name="twitter:description" content="Three approaches compared: the official LINE Bot MCP, desktop automation, and Yomi.">
+  <meta name="twitter:image" content="https://rikaidev.github.io/assets/og.svg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://rikaidev.github.io/yomi/line-mcp/#article",
+        "headline": "What Is a LINE MCP Server? A Guide to Personal LINE and AI",
+        "description": "A comparison of LINE's official Bot MCP, desktop automation, and the Yomi personal LINE MCP server.",
+        "inLanguage": "en",
+        "datePublished": "2026-07-29",
+        "dateModified": "2026-07-29",
+        "mainEntityOfPage": "https://rikaidev.github.io/yomi/line-mcp/",
+        "author": {"@type": "Organization", "name": "RikaiDev", "url": "https://rikaidev.github.io/"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "RikaiDev", "item": "https://rikaidev.github.io/"},
+          {"@type": "ListItem", "position": 2, "name": "Yomi", "item": "https://rikaidev.github.io/yomi/"},
+          {"@type": "ListItem", "position": 3, "name": "LINE MCP Guide", "item": "https://rikaidev.github.io/yomi/line-mcp/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "What is a LINE MCP server?", "acceptedAnswer": {"@type": "Answer", "text": "A LINE MCP server connects an AI agent that supports the Model Context Protocol to LINE capabilities. Implementations may operate a LINE Official Account, automate the desktop app, or connect to a user's personal account, as Yomi does."}},
+          {"@type": "Question", "name": "Can the official LINE Bot MCP read my personal chats?", "acceptedAnswer": {"@type": "Answer", "text": "The official Bot MCP is designed around LINE Official Accounts and the Messaging API. A user's existing personal chats require a different connection model."}},
+          {"@type": "Question", "name": "Does Yomi require a LINE bot or the Messaging API?", "acceptedAnswer": {"@type": "Answer", "text": "No. Yomi logs into the user's own LINE account as a secondary device and handles LINE's protocol and Letter Sealing messages directly. Yomi is unofficial, so users should evaluate the account risk."}},
+          {"@type": "Question", "name": "Does Yomi send LINE messages to the cloud?", "acceptedAnswer": {"@type": "Answer", "text": "Yomi decrypts messages and media on the user's device and keeps its search index local. It still communicates with LINE to access the account. The first semantic search downloads an embedding model but sends no LINE message content to the model source."}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body class="bg-paper text-ink font-sans">
+  <div class="grain"></div>
+  <header class="site-header sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 py-[15px] backdrop-blur-md border-b border-line">
+    <a href="/yomi/" class="flex items-center gap-3" aria-label="Back to the Yomi home page">
+      <img src="/logos/yomi.svg" alt="" width="28" height="28">
+      <span class="font-mono font-bold text-[14px]">yomi · 読み</span>
+    </a>
+    <nav class="flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub" aria-label="Primary navigation">
+      <a href="#compare" class="hidden sm:inline hover:text-ink">Compare</a>
+      <a href="#install" class="hidden sm:inline hover:text-ink">Install</a>
+      <a href="/yomi/zh-tw/line-mcp/" hreflang="zh-Hant-TW" class="hidden sm:inline hover:text-ink">繁中</a>
+      <a href="https://github.com/RikaiDev/yomi" class="inline-flex bg-ink text-paper px-[13px] py-[7px] rounded-[5px] hover:opacity-90">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <section class="mx-auto max-w-[960px] px-6 md:px-10 pt-16 md:pt-24 pb-16">
+        <nav class="font-mono text-[11px] text-sub tracking-[0.08em] mb-8" aria-label="Breadcrumb">
+          <a href="/">RikaiDev</a> / <a href="/yomi/">Yomi</a> / LINE MCP Guide
+        </nav>
+        <p class="font-mono text-[12px] tracking-[0.22em] uppercase text-accent mb-5">LINE × Model Context Protocol</p>
+        <h1 class="font-serif font-semibold text-[clamp(40px,7vw,76px)] leading-[1.08] tracking-[-0.01em] mb-7">What is a LINE MCP server?<br>Connect personal LINE to AI</h1>
+        <p class="font-sans text-[clamp(17px,2vw,21px)] leading-[1.85] text-inksoft max-w-[780px] mb-8">A LINE MCP server connects an AI agent such as Claude to LINE. The important question is what kind of LINE it connects to: an Official Account, the desktop app, or the personal account you already use.</p>
+        <div class="border-l-4 border-accent bg-paper2 px-6 py-5 font-sans leading-[1.85] text-sub">
+          <strong class="text-ink">The short answer:</strong> choose the official Bot MCP for a LINE Official Account. Choose Yomi when a local AI agent needs to read, search, and reply to conversations in your existing personal LINE account.
+        </div>
+      </section>
+
+      <section id="compare" class="border-y border-line bg-paper2">
+        <div class="mx-auto max-w-[1100px] px-6 md:px-10 py-16 md:py-20">
+          <p class="font-mono text-[12px] tracking-[0.22em] uppercase text-accent mb-4">Comparison</p>
+          <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-10">Three ways to connect LINE and AI</h2>
+          <div class="overflow-x-auto border border-line bg-card">
+            <table class="w-full min-w-[760px] border-collapse text-left">
+              <thead class="font-mono text-[12px] tracking-[0.06em]">
+                <tr><th class="p-5 border-b border-line">Approach</th><th class="p-5 border-b border-line">Connects to</th><th class="p-5 border-b border-line">Best for</th><th class="p-5 border-b border-line">Main limitation</th></tr>
+              </thead>
+              <tbody class="font-sans text-[14px] leading-[1.75] text-sub">
+                <tr><th class="p-5 border-b border-line text-ink">Official LINE Bot MCP</th><td class="p-5 border-b border-line">LINE Official Account</td><td class="p-5 border-b border-line">Customer service, notifications, brand bots, and Messaging API workflows</td><td class="p-5 border-b border-line">It is not a user's existing personal chat account</td></tr>
+                <tr><th class="p-5 border-b border-line text-ink">LINE Desktop automation</th><td class="p-5 border-b border-line">The LINE desktop interface</td><td class="p-5 border-b border-line">Driving an existing desktop application through its UI</td><td class="p-5 border-b border-line">Depends on window and interface state; implementations vary</td></tr>
+                <tr><th class="p-5 text-ink">Yomi personal LINE MCP</th><td class="p-5">Your own personal LINE account</td><td class="p-5">Reading, replying, searching existing chats, and local E2EE handling</td><td class="p-5">Unofficial; a secondary device may not receive all older history</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-[960px] px-6 md:px-10 py-16 md:py-20">
+        <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-8">How does Yomi connect to personal LINE?</h2>
+        <div class="grid md:grid-cols-2 gap-px bg-line border border-line mb-14">
+          <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">01 · LOGIN</p><h3 class="font-serif text-[21px] mb-3">Log in as a secondary device</h3><p class="text-sub leading-[1.8]">Yomi logs into your own LINE account. There is no bot account, channel access token, or webhook to create.</p></div>
+          <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">02 · PROTOCOL</p><h3 class="font-serif text-[21px] mb-3">Speak LINE's protocol directly</h3><p class="text-sub leading-[1.8]">It does not hunt for buttons on the screen. A local MCP server gives the AI agent explicit tools.</p></div>
+          <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">03 · E2EE</p><h3 class="font-serif text-[21px] mb-3">Decrypt Letter Sealing locally</h3><p class="text-sub leading-[1.8]">Available E2EE messages and media decrypt on your device, and the search index stays local.</p></div>
+          <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">04 · MCP</p><h3 class="font-serif text-[21px] mb-3">Expose tools to Claude or another agent</h3><p class="text-sub leading-[1.8]">The agent can summarize unread chats, search conversations, reply, send media, and surface conversations waiting on you.</p></div>
+        </div>
+
+        <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-6">When is Yomi a good fit?</h2>
+        <ul class="font-sans text-[16px] leading-[2] text-sub mb-14">
+          <li>• You want Claude to organize unread messages from your personal LINE account.</li>
+          <li>• You need to search past discussions across groups and one-to-one chats.</li>
+          <li>• You want AI assistance with replies, images, mentions, or explicit read receipts.</li>
+          <li>• You want message decryption, indexing, and semantic search to stay local.</li>
+        </ul>
+
+        <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-6">Limits and risk you should know</h2>
+        <p class="font-sans text-[16px] leading-[1.95] text-sub mb-4">Yomi is an independent, unofficial open-source project. It is not affiliated with or endorsed by LINE. Running an additional client may conflict with LINE's Terms of Service and can carry rate-limiting or account-suspension risk.</p>
+        <p class="font-sans text-[16px] leading-[1.95] text-sub">LINE may also withhold older one-to-one history or superseded group encryption keys from a secondary device. Yomi reports missing decryption material instead of inventing content it cannot read.</p>
+      </section>
+
+      <section id="install" class="yomi-cta">
+        <div class="mx-auto max-w-[900px] px-6 md:px-10 py-20 text-center">
+          <p class="font-mono text-[12px] tracking-[0.22em] mb-4">YOMI v0.3.1 · OPEN SOURCE</p>
+          <h2 class="font-serif font-semibold text-[clamp(34px,6vw,64px)] leading-[1.1] mb-6">Connect your personal LINE to an AI agent</h2>
+          <p class="font-sans text-[16px] leading-[1.8] max-w-[680px] mx-auto mb-8">Claude Desktop can install the MCPB extension for your operating system. Claude Code and other local MCP clients can run the npm package.</p>
+          <div class="flex gap-3 justify-center flex-wrap">
+            <a href="https://github.com/RikaiDev/yomi/releases/latest" class="yomi-cta__primary font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px]">Download latest release →</a>
+            <a href="https://github.com/RikaiDev/yomi" class="yomi-cta__secondary font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px]">View on GitHub ↗</a>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="bg-deep2 text-ondarksub">
+    <div class="mx-auto max-w-[1100px] px-6 md:px-10 py-12 flex justify-between flex-wrap gap-6">
+      <p class="font-mono text-[13px] text-ondark">yomi · 読み</p>
+      <p class="font-mono text-[11.5px]"><a href="/yomi/" class="hover:text-accent">Product home</a> · <a href="https://github.com/RikaiDev/yomi" class="hover:text-accent">GitHub</a> · MIT</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LINE MCP 是什麼？連接個人 LINE 與 AI 的完整指南｜Yomi</title>
+  <meta name="description" content="LINE MCP 完整繁中指南：比較 LINE 官方 Bot MCP、桌面自動化與 Yomi 個人 LINE MCP server，了解個人帳號、訊息讀取、E2EE、本機搜尋與安裝方式。">
+  <meta name="author" content="RikaiDev">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#F2EEE5">
+  <link rel="canonical" href="https://rikaidev.github.io/yomi/zh-tw/line-mcp/">
+  <link rel="alternate" hreflang="zh-Hant-TW" href="https://rikaidev.github.io/yomi/zh-tw/line-mcp/">
+  <link rel="alternate" hreflang="en" href="https://rikaidev.github.io/yomi/line-mcp/">
+  <link rel="alternate" hreflang="x-default" href="https://rikaidev.github.io/yomi/line-mcp/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="RikaiDev">
+  <meta property="og:title" content="LINE MCP 是什麼？連接個人 LINE 與 AI 的完整指南">
+  <meta property="og:description" content="比較官方 Bot MCP、桌面自動化與 Yomi，找到適合個人 LINE 帳號的 AI 連接方式。">
+  <meta property="og:url" content="https://rikaidev.github.io/yomi/zh-tw/line-mcp/">
+  <meta property="og:image" content="https://rikaidev.github.io/assets/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LINE MCP 是什麼？個人 LINE × AI 完整指南">
+  <meta name="twitter:description" content="LINE MCP 三種做法完整比較：官方 Bot、桌面自動化與 Yomi。">
+  <meta name="twitter:image" content="https://rikaidev.github.io/assets/og.svg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://rikaidev.github.io/yomi/zh-tw/line-mcp/#article",
+        "headline": "LINE MCP 是什麼？連接個人 LINE 與 AI 的完整指南",
+        "description": "比較 LINE 官方 Bot MCP、桌面自動化與 Yomi 個人 LINE MCP server。",
+        "inLanguage": "zh-Hant-TW",
+        "datePublished": "2026-07-29",
+        "dateModified": "2026-07-29",
+        "mainEntityOfPage": "https://rikaidev.github.io/yomi/zh-tw/line-mcp/",
+        "author": {"@type": "Organization", "name": "RikaiDev", "url": "https://rikaidev.github.io/"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "RikaiDev", "item": "https://rikaidev.github.io/"},
+          {"@type": "ListItem", "position": 2, "name": "Yomi", "item": "https://rikaidev.github.io/yomi/"},
+          {"@type": "ListItem", "position": 3, "name": "LINE MCP 指南", "item": "https://rikaidev.github.io/yomi/zh-tw/line-mcp/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "LINE MCP 是什麼？", "acceptedAnswer": {"@type": "Answer", "text": "LINE MCP 是把支援 Model Context Protocol 的 AI agent 連接到 LINE 能力的 MCP server。不同實作可能操作 LINE Official Account、桌面應用程式，或像 Yomi 一樣連接使用者自己的個人帳號。"}},
+          {"@type": "Question", "name": "LINE 官方 Bot MCP 能讀取我的個人聊天嗎？", "acceptedAnswer": {"@type": "Answer", "text": "不能把兩者視為同一件事。官方 Bot MCP 主要透過 Messaging API 操作 LINE Official Account；個人帳號既有聊天需要不同的連接方式。"}},
+          {"@type": "Question", "name": "Yomi 需要 LINE Bot 或 Messaging API 嗎？", "acceptedAnswer": {"@type": "Answer", "text": "不需要。Yomi 以次要裝置登入使用者自己的 LINE 帳號，直接處理協定與 Letter Sealing 訊息。Yomi 是非官方專案，使用者應自行評估帳號風險。"}},
+          {"@type": "Question", "name": "Yomi 的 LINE 訊息會送到雲端嗎？", "acceptedAnswer": {"@type": "Answer", "text": "Yomi 在使用者裝置上解密訊息與媒體，搜尋索引也保留在本機。它仍需與 LINE 通訊以存取帳號。第一次語意搜尋會下載 embedding 模型，但不會把 LINE 訊息內容送到模型來源。"}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body class="bg-paper text-ink font-sans">
+  <div class="grain"></div>
+  <header class="site-header sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 py-[15px] backdrop-blur-md border-b border-line">
+    <a href="/yomi/" class="flex items-center gap-3" aria-label="回到 Yomi 首頁">
+      <img src="/logos/yomi.svg" alt="" width="28" height="28">
+      <span class="font-mono font-bold text-[14px]">yomi · 読み</span>
+    </a>
+    <nav class="flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub" aria-label="主要導覽">
+      <a href="#compare" class="hidden sm:inline hover:text-ink">三種做法</a>
+      <a href="#install" class="hidden sm:inline hover:text-ink">安裝</a>
+      <a href="https://github.com/RikaiDev/yomi" class="inline-flex bg-ink text-paper px-[13px] py-[7px] rounded-[5px] hover:opacity-90">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <section class="mx-auto max-w-[960px] px-6 md:px-10 pt-16 md:pt-24 pb-16">
+        <nav class="font-mono text-[11px] text-sub tracking-[0.08em] mb-8" aria-label="麵包屑">
+          <a href="/">RikaiDev</a> / <a href="/yomi/">Yomi</a> / LINE MCP 指南
+        </nav>
+        <p class="font-mono text-[12px] tracking-[0.22em] uppercase text-accent mb-5">LINE × Model Context Protocol</p>
+        <h1 class="font-serif font-semibold text-[clamp(40px,7vw,76px)] leading-[1.08] tracking-[-0.01em] mb-7">LINE MCP 是什麼？<br>讓 AI 讀取與回覆個人 LINE</h1>
+        <p class="font-sans text-[clamp(17px,2vw,21px)] leading-[1.85] text-inksoft max-w-[780px] mb-8">LINE MCP server 把 Claude 等 AI agent 連接到 LINE，但「連到哪一種 LINE」非常重要：官方帳號、桌面 App，或你正在使用的個人帳號，是三種不同問題。</p>
+        <div class="border-l-4 border-accent bg-paper2 px-6 py-5 font-sans leading-[1.85] text-sub">
+          <strong class="text-ink">先講結論：</strong>如果你要操作 LINE Official Account，選官方 Bot MCP；如果你要讓本機 AI 讀取、搜尋並回覆自己既有的個人 LINE 對話，Yomi 才是針對這個需求設計。
+        </div>
+      </section>
+
+      <section id="compare" class="border-y border-line bg-paper2">
+        <div class="mx-auto max-w-[1100px] px-6 md:px-10 py-16 md:py-20">
+          <p class="font-mono text-[12px] tracking-[0.22em] uppercase text-accent mb-4">比較</p>
+          <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-10">LINE MCP 的三種做法</h2>
+          <div class="overflow-x-auto border border-line bg-card">
+            <table class="w-full min-w-[760px] border-collapse text-left">
+              <thead class="font-mono text-[12px] tracking-[0.06em]">
+                <tr><th class="p-5 border-b border-line">做法</th><th class="p-5 border-b border-line">連接對象</th><th class="p-5 border-b border-line">適合需求</th><th class="p-5 border-b border-line">主要限制</th></tr>
+              </thead>
+              <tbody class="font-sans text-[14px] leading-[1.75] text-sub">
+                <tr><th class="p-5 border-b border-line text-ink">LINE 官方 Bot MCP</th><td class="p-5 border-b border-line">LINE Official Account</td><td class="p-5 border-b border-line">客服、通知、品牌機器人、Messaging API 工作流</td><td class="p-5 border-b border-line">不是使用者個人帳號的既有聊天</td></tr>
+                <tr><th class="p-5 border-b border-line text-ink">LINE Desktop 自動化</th><td class="p-5 border-b border-line">桌面版 LINE 介面</td><td class="p-5 border-b border-line">利用 UI 操作既有桌面應用程式</td><td class="p-5 border-b border-line">依賴視窗與介面狀態，實作品質各異</td></tr>
+                <tr><th class="p-5 text-ink">Yomi 個人 LINE MCP</th><td class="p-5">自己的個人 LINE 帳號</td><td class="p-5">讀取、回覆、搜尋既有對話與本機 E2EE 處理</td><td class="p-5">非官方；次要裝置不保證取得全部舊歷史</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-[960px] px-6 md:px-10 py-16 md:py-20">
+        <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-8">Yomi 如何連接個人 LINE？</h2>
+        <div class="grid md:grid-cols-2 gap-px bg-line border border-line mb-14">
+          <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">01 · LOGIN</p><h3 class="font-serif text-[21px] mb-3">以次要裝置登入</h3><p class="text-sub leading-[1.8]">Yomi 登入你自己的 LINE 帳號，不需要建立 bot 帳號、channel access token 或 webhook。</p></div>
+          <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">02 · PROTOCOL</p><h3 class="font-serif text-[21px] mb-3">直接處理 LINE 協定</h3><p class="text-sub leading-[1.8]">它不是在螢幕上找按鈕，而是以本機 MCP server 向 AI agent 提供明確工具。</p></div>
+          <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">03 · E2EE</p><h3 class="font-serif text-[21px] mb-3">本機解密 Letter Sealing</h3><p class="text-sub leading-[1.8]">可取得的 E2EE 訊息與媒體在你的裝置上解密；搜尋索引也保留在本機。</p></div>
+          <div class="bg-card p-7"><p class="font-mono text-accent text-[12px] mb-3">04 · MCP</p><h3 class="font-serif text-[21px] mb-3">交給 Claude 或其他 agent</h3><p class="text-sub leading-[1.8]">AI 可以讀取未讀摘要、搜尋對話、回覆、傳送媒體，並找出正在等你回覆的對話。</p></div>
+        </div>
+
+        <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-6">什麼情況適合使用 Yomi？</h2>
+        <ul class="font-sans text-[16px] leading-[2] text-sub mb-14">
+          <li>• 想讓 Claude 整理自己 LINE 帳號的未讀訊息。</li>
+          <li>• 想跨群組與一對一聊天搜尋過去討論。</li>
+          <li>• 想由 AI 協助回覆、傳圖、標註成員或處理已讀。</li>
+          <li>• 希望訊息解密、索引與語意搜尋留在本機。</li>
+        </ul>
+
+        <h2 class="font-serif font-medium text-[clamp(30px,4vw,50px)] mb-6">使用前必須知道的限制</h2>
+        <p class="font-sans text-[16px] leading-[1.95] text-sub mb-4">Yomi 是獨立的非官方開源專案，與 LINE 沒有關聯或背書。使用額外用戶端可能違反 LINE 服務條款，並帶來限流或帳號停權風險。</p>
+        <p class="font-sans text-[16px] leading-[1.95] text-sub">此外，LINE 不一定會把較舊的一對一歷史或已輪替的群組加密金鑰提供給次要裝置。Yomi 會明確回報缺少解密材料，不會捏造無法讀取的內容。</p>
+      </section>
+
+      <section id="install" class="yomi-cta">
+        <div class="mx-auto max-w-[900px] px-6 md:px-10 py-20 text-center">
+          <p class="font-mono text-[12px] tracking-[0.22em] mb-4">YOMI v0.3.1 · OPEN SOURCE</p>
+          <h2 class="font-serif font-semibold text-[clamp(34px,6vw,64px)] leading-[1.1] mb-6">把個人 LINE 接上你的 AI agent</h2>
+          <p class="font-sans text-[16px] leading-[1.8] max-w-[680px] mx-auto mb-8">Claude Desktop 可直接安裝對應作業系統的 MCPB 擴充套件；Claude Code 與其他本機 MCP client 可使用 npm 套件。</p>
+          <div class="flex gap-3 justify-center flex-wrap">
+            <a href="https://github.com/RikaiDev/yomi/releases/latest" class="yomi-cta__primary font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px]">下載最新版 →</a>
+            <a href="https://github.com/RikaiDev/yomi" class="yomi-cta__secondary font-mono font-medium text-[14px] px-6 py-[13px] rounded-[6px]">查看 GitHub ↗</a>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="bg-deep2 text-ondarksub">
+    <div class="mx-auto max-w-[1100px] px-6 md:px-10 py-12 flex justify-between flex-wrap gap-6">
+      <p class="font-mono text-[13px] text-ondark">yomi · 読み</p>
+      <p class="font-mono text-[11.5px]"><a href="/yomi/" class="hover:text-accent">產品首頁</a> · <a href="https://github.com/RikaiDev/yomi" class="hover:text-accent">GitHub</a> · MIT</p>
+    </div>
+  </footer>
+</body>
+</html>
