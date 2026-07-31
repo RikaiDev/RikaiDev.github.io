@@ -1,0 +1,37 @@
+name: yomi-site-audit
+
+on:
+  push:
+    paths:
+      - 'yomi/**'
+      - 'assets/site.css'
+      - 'assets/theme-init.js'
+      - 'assets/ui.js'
+      - 'assets/yomi-release.js'
+      - 'scripts/*yomi*.mjs'
+      - '.github/workflows/yomi-site-audit.yml'
+  pull_request:
+    paths:
+      - 'yomi/**'
+      - 'assets/site.css'
+      - 'assets/theme-init.js'
+      - 'assets/ui.js'
+      - 'assets/yomi-release.js'
+      - 'scripts/*yomi*.mjs'
+      - '.github/workflows/yomi-site-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Verify generated shell is current
+        run: node scripts/sync-yomi-shell.mjs --check
+      - name: Audit page architecture
+        run: node scripts/audit-yomi-site.mjs

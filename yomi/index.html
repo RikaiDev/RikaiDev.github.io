@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page-language-mode="toggle">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,7 +74,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/app.css">
   <link rel="stylesheet" href="/assets/site.css">
-  <script>(function(){try{var d=document.documentElement;if(localStorage.getItem('rk-theme')==='sumi')d.setAttribute('data-theme','sumi');if(localStorage.getItem('rk-lang')==='zh'){d.setAttribute('data-lang','zh');d.setAttribute('lang','zh-Hant');}}catch(e){}})();</script>
+  <script src="/assets/theme-init.js"></script>
 </head>
 <body class="bg-paper text-ink font-sans">
 
@@ -87,32 +87,33 @@
   <div class="grain"></div>
 
   <!-- header -->
-  <header class="site-header sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 py-[15px] backdrop-blur-md border-b border-line" data-mobile-nav>
-    <div class="flex items-center gap-4 sm:gap-5">
-      <a href="/" class="flex items-center gap-2.5" aria-label="RikaiDev home">
-        <svg width="24" height="24" viewBox="0 0 100 100" class="mark" aria-hidden="true"><use href="#m-li"/></svg>
-        <span class="font-mono text-[13px] tracking-[0.08em] text-sub">RikaiDev</span>
-      </a>
-      <span class="text-linestrong">/</span>
-      <span class="font-mono font-bold text-[14px]">yomi</span>
-    </div>
-    <nav class="rk-desktop-nav flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub">
+<!-- YOMI_SHELL:HEADER:START -->
+  <header class="site-header sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 py-[15px] backdrop-blur-md border-b border-line" data-mobile-nav data-shell-page="home" data-shell-locale="en">
+    <a href="/yomi/" class="rk-shell-brand flex items-center gap-3" aria-label="Yomi home">
+      <img src="/logos/yomi.svg" alt="" width="28" height="28">
+      <span class="font-mono font-bold text-[14px]">yomi · 読み</span>
+    </a>
+    <nav class="rk-desktop-nav flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub" aria-label="Primary navigation">
       <span class="rk-controls" role="group" aria-label="Site controls"></span>
-      <a href="#install" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">Install</a><a href="#install" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">安裝</a>
-      <a href="#how" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">How it works</a><a href="#how" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">運作</a>
-      <a href="#faq" class="hidden sm:inline hover:text-ink transition-colors" data-t lang="en">FAQ</a><a href="#faq" class="hidden sm:inline hover:text-ink transition-colors" data-t lang="zh">問答</a>
-      <a href="/yomi/line-mcp/" class="hidden lg:inline hover:text-ink transition-colors" hreflang="en" data-t lang="en">LINE MCP guide</a><a href="/yomi/zh-tw/line-mcp/" class="hidden lg:inline hover:text-ink transition-colors" hreflang="zh-Hant-TW" data-t lang="zh">LINE MCP 指南</a>
+      <a href="#install" class="hidden md:inline hover:text-ink transition-colors"><span data-t lang="en">Install</span><span data-t lang="zh">安裝</span></a>
+      <a href="#how" class="hidden md:inline hover:text-ink transition-colors"><span data-t lang="en">How it works</span><span data-t lang="zh">運作</span></a>
+      <a href="#faq" class="hidden sm:inline hover:text-ink transition-colors"><span data-t lang="en">FAQ</span><span data-t lang="zh">問答</span></a>
+      <a href="/yomi/line-mcp/" class="rk-wide-nav hover:text-ink transition-colors" data-t lang="en">LINE MCP guide</a>
+      <a href="/yomi/zh-tw/line-mcp/" class="rk-wide-nav hover:text-ink transition-colors" data-t lang="zh">LINE MCP 指南</a>
       <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-ink text-paper px-[13px] py-[7px] rounded-[5px] hover:opacity-90 transition-opacity">★ GitHub</a>
     </nav>
     <button class="rk-menu-toggle" type="button" aria-expanded="false" aria-controls="yomi-mobile-menu" aria-label="Open navigation menu" data-label-open="Open navigation menu" data-label-close="Close navigation menu"><span class="rk-menu-icon" aria-hidden="true"></span></button>
     <nav class="rk-mobile-menu" id="yomi-mobile-menu" aria-label="Mobile navigation" data-menu-title="Navigate · 導覽" data-menu-note="YOMI · PERSONAL LINE MCP · RIKAIDEV" hidden>
+      <span class="rk-controls rk-mobile-utilities" role="group" aria-label="Site controls"></span>
       <a href="#install"><span data-t lang="en">Install</span><span data-t lang="zh">安裝</span></a>
       <a href="#how"><span data-t lang="en">How it works</span><span data-t lang="zh">運作方式</span></a>
       <a href="#faq"><span data-t lang="en">FAQ</span><span data-t lang="zh">問答</span></a>
-      <a href="/yomi/line-mcp/" data-t lang="en">LINE MCP guide</a><a href="/yomi/zh-tw/line-mcp/" data-t lang="zh">LINE MCP 指南</a>
+      <a href="/yomi/line-mcp/" data-t lang="en">LINE MCP guide</a>
+      <a href="/yomi/zh-tw/line-mcp/" data-t lang="zh">LINE MCP 指南</a>
       <a href="https://github.com/RikaiDev/yomi">GitHub</a>
     </nav>
   </header>
+  <!-- YOMI_SHELL:HEADER:END -->
 
   <main>
   <!-- ===== hero ===== -->
@@ -402,21 +403,17 @@
   </main>
 
   <!-- footer -->
-  <footer class="bg-deep2 text-ondarksub">
-    <div class="mx-auto max-w-[1200px] px-6 md:px-10 py-14 flex justify-between items-end flex-wrap gap-8">
-      <div class="flex items-center gap-4">
-        <svg width="40" height="40" viewBox="0 0 100 100" class="mark" aria-hidden="true"><use href="#m-yomi-lite"/></svg>
-        <div>
-          <div class="font-mono text-[15px] text-ondark">yomi · 読み</div>
-          <div class="font-sans text-[12px] mt-1">A RikaiDev tool · Human vision. AI execution.</div>
-        </div>
+<!-- YOMI_SHELL:FOOTER:START -->
+  <footer class="guide-footer bg-deep2 text-ondarksub">
+    <div class="mx-auto max-w-[1100px] px-6 md:px-10 py-12 flex justify-between flex-wrap gap-6">
+      <div>
+        <p class="font-mono text-[13px] text-ondark">yomi · 読み</p>
+        <p class="font-mono text-[11px] mt-2"><span data-t lang="en">Read your LINE — and the context around it.</span><span data-t lang="zh">讀懂你的 LINE，也讀懂脈絡。</span></p>
       </div>
-      <div class="font-mono text-[11.5px] leading-[1.9] text-left sm:text-right">
-        <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="hover:text-accent">github.com/RikaiDev/yomi</a> · MIT<br>
-        <a href="/" class="hover:text-accent">rikaidev.github.io</a> · <a href="/brand/" class="hover:text-accent">Brand System</a>
-      </div>
+      <p class="font-mono text-[11.5px]"><a href="/yomi/" class="hover:text-accent"><span data-t lang="en">Product home</span><span data-t lang="zh">產品首頁</span></a> · <a href="/yomi/line-mcp/" class="hover:text-accent" data-t lang="en">LINE MCP guide</a><a href="/yomi/zh-tw/line-mcp/" class="hover:text-accent" data-t lang="zh">LINE MCP 指南</a> · <a href="https://github.com/RikaiDev/yomi" class="hover:text-accent">GitHub</a> · MIT</p>
     </div>
   </footer>
+  <!-- YOMI_SHELL:FOOTER:END -->
 
   <script src="/assets/ui.js" defer></script>
   <script src="/assets/yomi-release.js" defer></script>

@@ -30,6 +30,12 @@
     slots.forEach(function (s) {
       s.tb.textContent = theme() === 'sumi' ? '☀' : '☾';
       s.tb.setAttribute('aria-label', theme() === 'sumi' ? 'Switch to light theme' : 'Switch to dark theme');
+      if (!s.lb) return;
+      if (s.languageHref) {
+        s.lb.textContent = s.languageLabel;
+        s.lb.setAttribute('aria-label', 'Switch language to ' + s.languageLabel);
+        return;
+      }
       s.lb.textContent = lang() === 'zh' ? 'EN' : '中';
       s.lb.setAttribute('aria-label', lang() === 'zh' ? 'Switch to English' : '切換為中文');
     });
@@ -38,14 +44,21 @@
   function build() {
     document.querySelectorAll('.rk-controls').forEach(function (slot) {
       slot.innerHTML = '';
-      var lb = document.createElement('button');
-      lb.type = 'button'; lb.className = 'rk-ctrl rk-ctrl-lang';
+      var lb = null;
       var tb = document.createElement('button');
       tb.type = 'button'; tb.className = 'rk-ctrl rk-ctrl-theme';
-      slot.appendChild(lb); slot.appendChild(tb);
-      lb.addEventListener('click', function () { applyLang(lang() === 'zh' ? 'en' : 'zh'); syncAll(); });
+      if (!slot.hasAttribute('data-theme-only')) {
+        lb = document.createElement('button');
+        lb.type = 'button'; lb.className = 'rk-ctrl rk-ctrl-lang';
+        slot.appendChild(lb);
+        lb.addEventListener('click', function () {
+          if (slot.dataset.languageHref) window.location.assign(slot.dataset.languageHref);
+          else { applyLang(lang() === 'zh' ? 'en' : 'zh'); syncAll(); }
+        });
+      }
+      slot.appendChild(tb);
       tb.addEventListener('click', function () { applyTheme(theme() === 'sumi' ? 'washi' : 'sumi'); syncAll(); });
-      slots.push({ tb: tb, lb: lb });
+      slots.push({ tb: tb, lb: lb, languageHref: slot.dataset.languageHref, languageLabel: slot.dataset.languageLabel });
     });
     syncAll();
   }

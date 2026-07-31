@@ -5,6 +5,12 @@
 .rk-menu-toggle,
 .rk-mobile-menu { display: none; }
 
+.rk-wide-nav { display: none; }
+
+@media (min-width: 1024px) {
+  .rk-wide-nav { display: inline; }
+}
+
 .rk-menu-toggle {
   width: 42px;
   height: 42px;
@@ -114,6 +120,17 @@ body.rk-menu-open { overflow: hidden; }
     font-weight: 700;
     letter-spacing: .24em;
     text-transform: uppercase;
+  }
+  .rk-mobile-utilities {
+    position: absolute;
+    top: 22px;
+    right: 78px;
+    z-index: 2;
+  }
+  .rk-mobile-utilities .rk-ctrl {
+    min-width: 36px;
+    min-height: 36px;
+    background: color-mix(in srgb, var(--color-card) 72%, transparent);
   }
   .rk-mobile-menu:not([hidden])::after {
     content: attr(data-menu-note);
