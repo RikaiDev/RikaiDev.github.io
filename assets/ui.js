@@ -60,7 +60,41 @@
     els.forEach(function (e) { io.observe(e); });
   }
 
-  function init() { build(); reveal(); }
+  function mobileNav() {
+    document.querySelectorAll('[data-mobile-nav]').forEach(function (header) {
+      var button = header.querySelector('.rk-menu-toggle');
+      var menu = header.querySelector('.rk-mobile-menu');
+      if (!button || !menu) return;
+
+      function close() {
+        button.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+      }
+      button.addEventListener('click', function () {
+        var open = button.getAttribute('aria-expanded') === 'true';
+        if (open) close();
+        else {
+          button.setAttribute('aria-expanded', 'true');
+          menu.hidden = false;
+          menu.querySelector('a')?.focus();
+        }
+      });
+      menu.addEventListener('click', function (event) {
+        if (event.target.closest('a')) close();
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !menu.hidden) {
+          close();
+          button.focus();
+        }
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) close();
+      });
+    });
+  }
+
+  function init() { build(); reveal(); mobileNav(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

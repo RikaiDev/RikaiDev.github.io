@@ -2,6 +2,73 @@
   background: color-mix(in srgb, var(--color-paper) 80%, transparent);
 }
 
+.rk-menu-toggle,
+.rk-mobile-menu { display: none; }
+
+.rk-menu-toggle {
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
+  background: var(--color-card);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.rk-menu-icon,
+.rk-menu-icon::before,
+.rk-menu-icon::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.rk-menu-icon { position: relative; }
+.rk-menu-icon::before,
+.rk-menu-icon::after { content: ''; position: absolute; left: 0; }
+.rk-menu-icon::before { transform: translateY(-6px); }
+.rk-menu-icon::after { transform: translateY(6px); }
+.rk-menu-toggle[aria-expanded='true'] .rk-menu-icon { background: transparent; }
+.rk-menu-toggle[aria-expanded='true'] .rk-menu-icon::before { transform: rotate(45deg); }
+.rk-menu-toggle[aria-expanded='true'] .rk-menu-icon::after { transform: rotate(-45deg); }
+
+.rk-mobile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  padding: 12px 24px 20px;
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-paper);
+  box-shadow: 0 14px 28px rgb(31 28 23 / 12%);
+}
+
+.rk-mobile-menu[hidden] { display: none; }
+.rk-mobile-menu a {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-line);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.rk-mobile-menu:not([hidden]) a::after { content: '→'; color: var(--color-accent); }
+.rk-mobile-menu a:last-child { border-bottom: 0; }
+
+@media (max-width: 767px) {
+  .site-header { position: sticky; }
+  .site-header .rk-desktop-nav { display: none !important; }
+  .rk-menu-toggle { display: inline-flex; flex: 0 0 auto; }
+  .rk-mobile-menu:not([hidden]) { display: block; }
+}
+
 .brand-mark-rise {
   animation: riselite 0.6s ease both;
 }
@@ -405,7 +472,6 @@
 }
 
 @media (max-width: 720px) {
-  .guide-page .site-header nav a:not(:last-child) { display: none; }
   .guide-hero { padding-block: 56px 72px; }
   .guide-hero nav { margin-bottom: 30px; }
   .guide-hero h1 { font-size: clamp(39px, 12vw, 56px); }

@@ -29,7 +29,7 @@
   <meta name="twitter:description" content="One-file Claude Desktop install. Read, reply, send images, and search your own LINE from an AI agent. Open source and local-first.">
   <meta name="twitter:image" content="https://rikaidev.github.io/assets/og.svg">
 
-  <script type="application/ld+json">
+  <script id="yomi-schema" type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -40,7 +40,7 @@
         "applicationCategory": "DeveloperApplication",
         "applicationSubCategory": "Model Context Protocol server",
         "operatingSystem": "macOS, Linux, Windows",
-        "softwareVersion": "0.3.1",
+        "softwareVersion": "0.4.1",
         "description": "An open-source personal LINE MCP server that lets Claude Desktop, Cowork, Claude Code, and other local AI agents read, reply to, send images to, and search a user's existing LINE conversations.",
         "url": "https://rikaidev.github.io/yomi/",
         "downloadUrl": "https://github.com/RikaiDev/yomi/releases/latest",
@@ -61,7 +61,7 @@
           { "@type": "Question", "name": "Do I need a bot account or LINE's official API?", "acceptedAnswer": { "@type": "Answer", "text": "No. yomi logs in as a secondary device on your own account and speaks LINE's protocol directly — no bot account, no official API, no webhook." } },
           { "@type": "Question", "name": "Where does Yomi process my LINE data?", "acceptedAnswer": { "@type": "Answer", "text": "Yomi decrypts messages and media and builds its search index locally. It communicates with LINE to access your account. On first semantic search it downloads an embedding model from Hugging Face, but no LINE message content is sent there." } },
           { "@type": "Question", "name": "Which AI agents work with Yomi?", "acceptedAnswer": { "@type": "Answer", "text": "Yomi works with Claude Desktop, Claude Cowork through the desktop app, Claude Code, and other local clients that support stdio MCP servers." } },
-          { "@type": "Question", "name": "How do I install Yomi?", "acceptedAnswer": { "@type": "Answer", "text": "For Claude Desktop, download the v0.3.1 MCPB file for macOS, Windows, or Linux and install it as a Desktop Extension. No separate Node.js or Bun installation is required. Claude Code users can add Yomi from npm with npx." } },
+          { "@type": "Question", "name": "How do I install Yomi?", "acceptedAnswer": { "@type": "Answer", "text": "For Claude Desktop, download the latest MCPB file for macOS, Windows, or Linux and install it as a Desktop Extension. No separate Node.js or Bun installation is required. Claude Code users can add Yomi from npm with npx." } },
           { "@type": "Question", "name": "Can Yomi read my complete LINE history?", "acceptedAnswer": { "@type": "Answer", "text": "Not always. LINE may not provide a secondary device with older one-to-one history or superseded group encryption keys. Yomi reports missing decryption material instead of inventing content." } }
         ]
       }
@@ -87,7 +87,7 @@
   <div class="grain"></div>
 
   <!-- header -->
-  <header class="site-header sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 py-[15px] backdrop-blur-md border-b border-line">
+  <header class="site-header sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 py-[15px] backdrop-blur-md border-b border-line" data-mobile-nav>
     <div class="flex items-center gap-4 sm:gap-5">
       <a href="/" class="flex items-center gap-2.5" aria-label="RikaiDev home">
         <svg width="24" height="24" viewBox="0 0 100 100" class="mark" aria-hidden="true"><use href="#m-li"/></svg>
@@ -96,13 +96,21 @@
       <span class="text-linestrong">/</span>
       <span class="font-mono font-bold text-[14px]">yomi</span>
     </div>
-    <nav class="flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub">
+    <nav class="rk-desktop-nav flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub">
       <span class="rk-controls" role="group" aria-label="Site controls"></span>
       <a href="#install" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">Install</a><a href="#install" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">安裝</a>
       <a href="#how" class="hidden md:inline hover:text-ink transition-colors" data-t lang="en">How it works</a><a href="#how" class="hidden md:inline hover:text-ink transition-colors" data-t lang="zh">運作</a>
       <a href="#faq" class="hidden sm:inline hover:text-ink transition-colors" data-t lang="en">FAQ</a><a href="#faq" class="hidden sm:inline hover:text-ink transition-colors" data-t lang="zh">問答</a>
       <a href="/yomi/line-mcp/" class="hidden lg:inline hover:text-ink transition-colors" hreflang="en" data-t lang="en">LINE MCP guide</a><a href="/yomi/zh-tw/line-mcp/" class="hidden lg:inline hover:text-ink transition-colors" hreflang="zh-Hant-TW" data-t lang="zh">LINE MCP 指南</a>
       <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-ink text-paper px-[13px] py-[7px] rounded-[5px] hover:opacity-90 transition-opacity">★ GitHub</a>
+    </nav>
+    <button class="rk-menu-toggle" type="button" aria-expanded="false" aria-controls="yomi-mobile-menu" aria-label="Open navigation menu"><span class="rk-menu-icon" aria-hidden="true"></span></button>
+    <nav class="rk-mobile-menu" id="yomi-mobile-menu" aria-label="Mobile navigation" hidden>
+      <a href="#install"><span data-t lang="en">Install</span><span data-t lang="zh">安裝</span></a>
+      <a href="#how"><span data-t lang="en">How it works</span><span data-t lang="zh">運作方式</span></a>
+      <a href="#faq"><span data-t lang="en">FAQ</span><span data-t lang="zh">問答</span></a>
+      <a href="/yomi/line-mcp/" data-t lang="en">LINE MCP guide</a><a href="/yomi/zh-tw/line-mcp/" data-t lang="zh">LINE MCP 指南</a>
+      <a href="https://github.com/RikaiDev/yomi">GitHub</a>
     </nav>
   </header>
 
@@ -120,7 +128,7 @@
         <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="zh">把 Claude 或任何本機 AI agent 接上你現有的 LINE 個人帳號。讀訊息、回覆、傳圖、標註與跨對話搜尋；<b class="font-medium text-accent">E2EE 全在本機解密</b>。不用瀏覽器，也不用 bot 帳號。</p>
 
         <div class="flex items-stretch rounded-[8px] overflow-hidden border border-line bg-card max-w-[520px] mb-4">
-          <span class="font-mono text-[12px] text-sub2 px-3 py-3 border-r border-line select-none">v0.3.1</span>
+          <span class="font-mono text-[12px] text-sub2 px-3 py-3 border-r border-line select-none">v<span data-yomi-version>0.4.1</span></span>
           <span class="flex-1 font-mono text-[13px] text-accent px-4 py-3">One file. Drag in. Install.</span>
         </div>
         <div class="flex gap-3 flex-wrap">
@@ -143,7 +151,7 @@
           <span class="yomi-console__key">01</span> Download the file for your operating system<br>
           <span class="yomi-console__key">02</span> Open it with Claude Desktop<br>
           <span class="yomi-console__key">03</span> Review permissions, then select Install<br>
-          <span class="yomi-console__success">✓</span> 20 Yomi tools available to Claude<br><br>
+          <span class="yomi-console__success">✓</span> 41 Yomi tools available to Claude<br><br>
           <span class="yomi-console__muted">you ›</span> summarize my unread LINE messages<br>
           <span class="text-accent">yomi ›</span> get_unread_digest()<br>
           <span class="yomi-console__muted">// read locally · does not mark messages read</span><br>
@@ -167,20 +175,20 @@
   <!-- ===== install ===== -->
   <section id="install" class="border-b border-line bg-paper2">
     <div class="mx-auto max-w-[1200px] px-6 md:px-10 py-20 md:py-[104px]">
-      <div class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6" data-reveal>[ install · v0.3.1 ]</div>
+      <div class="font-mono text-[12px] tracking-[0.28em] uppercase text-sub mb-6" data-reveal>[ install · v<span data-yomi-version>0.4.1</span> ]</div>
       <h2 class="font-serif font-medium text-[clamp(28px,4.4vw,52px)] leading-[1.22] max-w-[820px] mb-4" data-reveal data-t lang="en">No terminal. No Node. One local extension.</h2>
       <h2 class="font-serif font-medium text-[clamp(28px,4.4vw,52px)] leading-[1.3] max-w-[820px] mb-4" data-reveal data-t lang="zh">不用終端機、不用 Node，一個本機擴充套件。</h2>
       <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[760px] mb-12" data-reveal data-t lang="en">Choose your operating system, download the <code>.mcpb</code> file, and open it with Claude Desktop. Review the permissions and select Install. Claude Desktop provides the runtime.</p>
       <p class="font-sans font-light text-[16px] leading-[1.9] text-sub max-w-[760px] mb-12" data-reveal data-t lang="zh">選擇作業系統、下載 <code>.mcpb</code>，再用 Claude Desktop 開啟。確認權限後按下安裝；執行環境由 Claude Desktop 提供。</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-line border border-line mb-8">
-        <a href="https://github.com/RikaiDev/yomi/releases/latest/download/yomi-darwin-arm64.mcpb" class="bg-card p-7 hover:bg-paper transition-colors" aria-label="Download Yomi v0.3.1 for macOS Apple Silicon">
-          <div class="font-mono text-[12px] text-accent mb-3">APPLE SILICON</div><div class="font-serif text-[22px] mb-2">macOS</div><div class="font-mono text-[12px] text-sub">Download 23 MB →</div>
+        <a href="https://github.com/RikaiDev/yomi/releases/latest/download/yomi-darwin-arm64.mcpb" class="bg-card p-7 hover:bg-paper transition-colors" data-yomi-download="macOS Apple Silicon">
+          <div class="font-mono text-[12px] text-accent mb-3">APPLE SILICON</div><div class="font-serif text-[22px] mb-2">macOS</div><div class="font-mono text-[12px] text-sub" data-yomi-asset="yomi-darwin-arm64.mcpb">Download 23 MB →</div>
         </a>
-        <a href="https://github.com/RikaiDev/yomi/releases/latest/download/yomi-win32-x64.mcpb" class="bg-card p-7 hover:bg-paper transition-colors" aria-label="Download Yomi v0.3.1 for Windows x64">
-          <div class="font-mono text-[12px] text-accent mb-3">X64</div><div class="font-serif text-[22px] mb-2">Windows</div><div class="font-mono text-[12px] text-sub">Download 40 MB →</div>
+        <a href="https://github.com/RikaiDev/yomi/releases/latest/download/yomi-win32-x64.mcpb" class="bg-card p-7 hover:bg-paper transition-colors" data-yomi-download="Windows x64">
+          <div class="font-mono text-[12px] text-accent mb-3">X64</div><div class="font-serif text-[22px] mb-2">Windows</div><div class="font-mono text-[12px] text-sub" data-yomi-asset="yomi-win32-x64.mcpb">Download 41 MB →</div>
         </a>
-        <a href="https://github.com/RikaiDev/yomi/releases/latest/download/yomi-linux-x64.mcpb" class="bg-card p-7 hover:bg-paper transition-colors" aria-label="Download Yomi v0.3.1 for Linux x64">
-          <div class="font-mono text-[12px] text-accent mb-3">X64</div><div class="font-serif text-[22px] mb-2">Linux</div><div class="font-mono text-[12px] text-sub">Download 26 MB →</div>
+        <a href="https://github.com/RikaiDev/yomi/releases/latest/download/yomi-linux-x64.mcpb" class="bg-card p-7 hover:bg-paper transition-colors" data-yomi-download="Linux x64">
+          <div class="font-mono text-[12px] text-accent mb-3">X64</div><div class="font-serif text-[22px] mb-2">Linux</div><div class="font-mono text-[12px] text-sub" data-yomi-asset="yomi-linux-x64.mcpb">Download 26 MB →</div>
         </a>
       </div>
       <div class="yomi-cli">
@@ -349,7 +357,7 @@
           <div class="font-mono text-[13px] text-accent">05</div>
           <div>
             <h3 class="font-serif text-[20px] mb-2" data-t lang="en">How do I install Yomi?</h3><h3 class="font-serif text-[20px] mb-2" data-t lang="zh">如何安裝 Yomi？</h3>
-            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">For Claude Desktop, download the v0.3.1 <code>.mcpb</code> for your operating system and open it with Desktop. No separate Node.js or Bun install is required. Claude Code users can add the npm package with <code>npx</code>.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">Claude Desktop 使用者只要下載作業系統對應的 v0.3.1 <code>.mcpb</code> 並用 Desktop 開啟，不必另裝 Node.js 或 Bun。Claude Code 使用者可透過 <code>npx</code> 加入 npm 套件。</p>
+            <p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="en">For Claude Desktop, download the latest <code>.mcpb</code> for your operating system and open it with Desktop. No separate Node.js or Bun install is required. Claude Code users can add the npm package with <code>npx</code>.</p><p class="font-sans font-light text-[14.5px] leading-[1.85] text-sub" data-t lang="zh">Claude Desktop 使用者只要下載作業系統對應的最新版 <code>.mcpb</code> 並用 Desktop 開啟，不必另裝 Node.js 或 Bun。Claude Code 使用者可透過 <code>npx</code> 加入 npm 套件。</p>
           </div>
         </div>
         <div class="grid grid-cols-[40px_1fr] gap-5 py-7 border-t border-line" data-reveal>
@@ -378,7 +386,7 @@
       <h2 class="font-serif font-semibold text-[clamp(36px,6.5vw,80px)] leading-[1.08] mb-8" data-t lang="zh">讓你的 agent，<br>替你讀一次。</h2>
       <div class="max-w-[520px] mx-auto">
         <div class="yomi-cta__command flex items-stretch rounded-[8px] overflow-hidden mb-5">
-          <span class="yomi-cta__version font-mono text-[12px] px-3 py-3 border-r select-none">v0.3.1</span>
+          <span class="yomi-cta__version font-mono text-[12px] px-3 py-3 border-r select-none">v<span data-yomi-version>0.4.1</span></span>
           <span class="flex-1 font-mono text-[13px] px-4 py-3 text-left">Download · open · install</span>
         </div>
         <div class="flex gap-3 justify-center flex-wrap">
@@ -411,5 +419,6 @@
   </footer>
 
   <script src="/assets/ui.js" defer></script>
+  <script src="/assets/yomi-release.js" defer></script>
 </body>
 </html>

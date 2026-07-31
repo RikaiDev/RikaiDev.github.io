@@ -31,7 +31,7 @@ The npm path requires Node.js 24 or newer. Bun is not required.
 
 - Yomi targets personal LINE accounts and existing conversations. LINE's
   official Bot MCP server targets LINE Official Accounts through the Messaging API.
-- Yomi exposes 20 MCP tools.
+- Yomi exposes 41 MCP tools.
 - `get_insight` returns a compact context network (encoded as TOON) — cross-chat
   connectors and their bridges, per-conversation reply rhythm, and the
   conversations whose latest message is not the user's, ranked by how overdue
