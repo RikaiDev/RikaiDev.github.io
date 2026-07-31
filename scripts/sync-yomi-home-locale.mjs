@@ -21,7 +21,7 @@ function shellFrom(source, name) {
 
 const english = fs.readFileSync(sourceFile, 'utf8');
 let expected = english
-  .replace('<html lang="en" data-page-language-mode="route">', '<html lang="zh-Hant-TW" data-page-language-mode="route" data-lang="zh">')
+  .replace('<html lang="en" data-page-language-mode="route" data-locale="en" data-locale-autodetect data-locale-alternate="/yomi/zh-tw/">', '<html lang="zh-Hant-TW" data-page-language-mode="route" data-locale="zh-Hant-TW" data-locale-alternate="/yomi/" data-lang="zh">')
   .replace('<title>LINE MCP Server for Personal Chats — Yomi by RikaiDev</title>', '<title>個人 LINE MCP Server — Yomi by RikaiDev</title>')
   .replace('content="Yomi is the open-source personal LINE MCP server for Claude and local AI agents. Read, reply, send images, and search existing LINE conversations with local E2EE decryption."', 'content="Yomi 是開源的個人 LINE MCP server，讓 Claude 與本機 AI agent 讀取、回覆、傳圖並搜尋既有 LINE 對話，E2EE 全程在本機解密。"')
   .replace('<link rel="canonical" href="https://rikaidev.github.io/yomi/">', '<link rel="canonical" href="https://rikaidev.github.io/yomi/zh-tw/">')

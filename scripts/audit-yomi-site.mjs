@@ -22,7 +22,7 @@ const requireText = (source, text, file, message) => {
 
 for (const page of pages) {
   const source = fs.readFileSync(path.join(root, page.file), 'utf8');
-  requireText(source, `<html lang="${page.lang}" data-page-language-mode="route"`, page.file, `expected route language mode for ${page.lang}`);
+  requireText(source, `<html lang="${page.lang}" data-page-language-mode="route" data-locale="${page.lang === 'en' ? 'en' : 'zh-Hant-TW'}"`, page.file, `expected route language mode for ${page.lang}`);
   requireText(source, `<link rel="canonical" href="${page.canonical}">`, page.file, 'canonical URL is missing or wrong');
   requireText(source, '<!-- YOMI_SHELL:HEADER:START -->', page.file, 'generated header marker missing');
   requireText(source, '<!-- YOMI_SHELL:FOOTER:START -->', page.file, 'generated footer marker missing');
@@ -30,6 +30,9 @@ for (const page of pages) {
   requireText(source, 'id="yomi-mobile-menu"', page.file, 'standard mobile menu id missing');
   requireText(source, '/assets/ui.js', page.file, 'shared UI runtime missing');
   requireText(source, '/assets/theme-init.js', page.file, 'shared pre-paint preference bootstrap missing');
+  requireText(source, '/assets/locale-router.js', page.file, 'shared locale router missing');
+  requireText(source, 'data-locale-alternate=', page.file, 'locale alternate route missing');
+  if (page.lang === 'en') requireText(source, 'data-locale-autodetect', page.file, 'English entry must auto-detect locale');
   requireText(source, '/assets/yomi-release.js', page.file, 'live release metadata runtime missing');
   requireText(source, 'hreflang="en"', page.file, 'English hreflang missing');
   requireText(source, 'hreflang="zh-Hant-TW"', page.file, 'Traditional Chinese hreflang missing');

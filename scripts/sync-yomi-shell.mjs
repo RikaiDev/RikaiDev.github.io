@@ -50,7 +50,7 @@ function brand(config) {
 
 function homeNavigation(config) {
   const zh = config.locale.startsWith('zh');
-  return `<span class="rk-controls" role="group" aria-label="${zh ? '網站控制' : 'Site controls'}" data-language-href="${config.languageHref}" data-language-label="${config.languageLabel}"></span>
+  return `<span class="rk-controls" role="group" aria-label="${zh ? '網站控制' : 'Site controls'}" data-language-href="${config.languageHref}" data-language-label="${config.languageLabel}" data-language-locale="${zh ? 'en' : 'zh-Hant-TW'}"></span>
       <a href="#install" class="hidden md:inline hover:text-ink transition-colors">${zh ? '安裝' : 'Install'}</a>
       <a href="#how" class="hidden md:inline hover:text-ink transition-colors">${zh ? '運作' : 'How it works'}</a>
       <a href="#faq" class="hidden sm:inline hover:text-ink transition-colors">${zh ? '問答' : 'FAQ'}</a>
@@ -61,7 +61,7 @@ function guideNavigation(config) {
   const compare = t(config.locale, 'Compare', '三種做法');
   const install = t(config.locale, 'Install', '安裝');
   const home = t(config.locale, 'Product home', '產品首頁');
-  return `<span class="rk-controls" role="group" aria-label="${t(config.locale, 'Site controls', '網站控制')}" data-language-href="${config.languageHref}" data-language-label="${config.languageLabel}"></span>
+  return `<span class="rk-controls" role="group" aria-label="${t(config.locale, 'Site controls', '網站控制')}" data-language-href="${config.languageHref}" data-language-label="${config.languageLabel}" data-language-locale="${config.locale.startsWith('zh') ? 'en' : 'zh-Hant-TW'}"></span>
       <a href="#compare" class="hidden sm:inline hover:text-ink">${compare}</a>
       <a href="#install" class="hidden sm:inline hover:text-ink">${install}</a>
       <a href="/yomi/" class="rk-wide-nav hover:text-ink">${home}</a>`;
@@ -69,7 +69,7 @@ function guideNavigation(config) {
 
 function mobileLinks(config) {
   const utilities = config.page === 'home'
-    ? `<span class="rk-controls rk-mobile-utilities" role="group" aria-label="${t(config.locale, 'Site controls', '網站控制')}" data-language-href="${config.languageHref}" data-language-label="${config.languageLabel}"></span>`
+    ? `<span class="rk-controls rk-mobile-utilities" role="group" aria-label="${t(config.locale, 'Site controls', '網站控制')}" data-language-href="${config.languageHref}" data-language-label="${config.languageLabel}" data-language-locale="${config.locale.startsWith('zh') ? 'en' : 'zh-Hant-TW'}"></span>`
     : `<span class="rk-controls rk-mobile-utilities" role="group" aria-label="${t(config.locale, 'Display controls', '顯示控制')}" data-theme-only></span>`;
   if (config.page === 'home') {
     const zh = config.locale.startsWith('zh');
@@ -84,7 +84,7 @@ function mobileLinks(config) {
       <a href="#compare">${t(config.locale, 'Compare approaches', '三種做法')}</a>
       <a href="#install">${t(config.locale, 'Install', '安裝')}</a>
       <a href="/yomi/">${t(config.locale, 'Product home', '產品首頁')}</a>
-      <a href="${config.languageHref}" hreflang="${config.locale.startsWith('zh') ? 'en' : 'zh-Hant-TW'}">${config.languageLabel}</a>
+      <a href="${config.languageHref}" hreflang="${config.locale.startsWith('zh') ? 'en' : 'zh-Hant-TW'}" data-locale-target="${config.locale.startsWith('zh') ? 'en' : 'zh-Hant-TW'}">${config.languageLabel}</a>
       <a href="https://github.com/RikaiDev/yomi">GitHub</a>`;
 }
 
@@ -114,7 +114,7 @@ function footer(config) {
   const zh = config.locale.startsWith('zh');
   const tagline = zh ? '讀懂你的 LINE，也讀懂脈絡。' : 'Read your LINE — and the context around it.';
   const homeLink = `<a href="${zh ? '/yomi/zh-tw/' : '/yomi/'}" class="hover:text-accent">${zh ? '產品首頁' : 'Product home'}</a>`;
-  const languageLink = `<a href="${config.languageHref}" class="hover:text-accent">${config.languageLabel}</a>`;
+  const languageLink = `<a href="${config.languageHref}" class="hover:text-accent" data-locale-target="${zh ? 'en' : 'zh-Hant-TW'}">${config.languageLabel}</a>`;
   return `<!-- YOMI_SHELL:FOOTER:START -->
   <footer class="guide-footer bg-deep2 text-ondarksub">
     <div class="mx-auto max-w-[1100px] px-6 md:px-10 py-12 flex justify-between flex-wrap gap-6">

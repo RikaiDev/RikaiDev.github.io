@@ -5,6 +5,7 @@ on:
     paths:
       - 'yomi/**'
       - 'assets/site.css'
+      - 'assets/locale-router.js'
       - 'assets/theme-init.js'
       - 'assets/ui.js'
       - 'assets/yomi-release.js'
@@ -14,6 +15,7 @@ on:
     paths:
       - 'yomi/**'
       - 'assets/site.css'
+      - 'assets/locale-router.js'
       - 'assets/theme-init.js'
       - 'assets/ui.js'
       - 'assets/yomi-release.js'

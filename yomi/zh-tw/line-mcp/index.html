@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW" data-page-language-mode="route">
+<html lang="zh-Hant-TW" data-page-language-mode="route" data-locale="zh-Hant-TW" data-locale-alternate="/yomi/line-mcp/">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,6 +64,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/app.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/locale-router.js"></script>
   <script src="/assets/theme-init.js"></script>
 </head>
 <body class="guide-page bg-paper text-ink font-sans">
@@ -75,7 +76,7 @@
       <span class="font-mono font-bold text-[14px]">yomi · 読み</span>
     </a>
     <nav class="rk-desktop-nav flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub" aria-label="主要導覽">
-      <span class="rk-controls" role="group" aria-label="網站控制" data-language-href="/yomi/line-mcp/" data-language-label="English"></span>
+      <span class="rk-controls" role="group" aria-label="網站控制" data-language-href="/yomi/line-mcp/" data-language-label="English" data-language-locale="en"></span>
       <a href="#compare" class="hidden sm:inline hover:text-ink">三種做法</a>
       <a href="#install" class="hidden sm:inline hover:text-ink">安裝</a>
       <a href="/yomi/" class="rk-wide-nav hover:text-ink">產品首頁</a>
@@ -87,7 +88,7 @@
       <a href="#compare">三種做法</a>
       <a href="#install">安裝</a>
       <a href="/yomi/">產品首頁</a>
-      <a href="/yomi/line-mcp/" hreflang="en">English</a>
+      <a href="/yomi/line-mcp/" hreflang="en" data-locale-target="en">English</a>
       <a href="https://github.com/RikaiDev/yomi">GitHub</a>
     </nav>
   </header>
@@ -169,7 +170,7 @@
         <p class="font-mono text-[13px] text-ondark">yomi · 読み</p>
         <p class="font-mono text-[11px] mt-2">讀懂你的 LINE，也讀懂脈絡。</p>
       </div>
-      <p class="font-mono text-[11.5px]"><a href="/yomi/zh-tw/" class="hover:text-accent">產品首頁</a> · <a href="/yomi/line-mcp/" class="hover:text-accent">English</a> · <a href="https://github.com/RikaiDev/yomi" class="hover:text-accent">GitHub</a> · MIT</p>
+      <p class="font-mono text-[11.5px]"><a href="/yomi/zh-tw/" class="hover:text-accent">產品首頁</a> · <a href="/yomi/line-mcp/" class="hover:text-accent" data-locale-target="en">English</a> · <a href="https://github.com/RikaiDev/yomi" class="hover:text-accent">GitHub</a> · MIT</p>
     </div>
   </footer>
   <!-- YOMI_SHELL:FOOTER:END -->

@@ -52,7 +52,12 @@
         lb.type = 'button'; lb.className = 'rk-ctrl rk-ctrl-lang';
         slot.appendChild(lb);
         lb.addEventListener('click', function () {
-          if (slot.dataset.languageHref) window.location.assign(slot.dataset.languageHref);
+          if (slot.dataset.languageHref) {
+            if (window.rkSetLocalePreference && slot.dataset.languageLocale) {
+              window.rkSetLocalePreference(slot.dataset.languageLocale);
+            }
+            window.location.assign(slot.dataset.languageHref);
+          }
           else { applyLang(lang() === 'zh' ? 'en' : 'zh'); syncAll(); }
         });
       }

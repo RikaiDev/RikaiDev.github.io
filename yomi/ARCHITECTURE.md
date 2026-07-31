@@ -12,6 +12,10 @@ Yomi uses one shared site shell and one route-based language model.
   navigate to the reciprocal route; guide content must not use `data-t` swaps.
 - Every localized page family must publish reciprocal `hreflang` entries for `en`,
   `zh-Hant-TW`, and `x-default`.
+- English entry routes run `assets/locale-router.js` before first paint. A first
+  visit from any `zh` browser locale routes to Traditional Chinese. Manual
+  language selection is persisted as `rk-locale` and takes priority on later
+  visits.
 
 ## Shared shell contract
 

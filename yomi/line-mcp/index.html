@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-page-language-mode="route">
+<html lang="en" data-page-language-mode="route" data-locale="en" data-locale-autodetect data-locale-alternate="/yomi/zh-tw/line-mcp/">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,6 +64,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/app.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/locale-router.js"></script>
   <script src="/assets/theme-init.js"></script>
 </head>
 <body class="guide-page bg-paper text-ink font-sans">
@@ -75,7 +76,7 @@
       <span class="font-mono font-bold text-[14px]">yomi · 読み</span>
     </a>
     <nav class="rk-desktop-nav flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub" aria-label="Primary navigation">
-      <span class="rk-controls" role="group" aria-label="Site controls" data-language-href="/yomi/zh-tw/line-mcp/" data-language-label="繁中"></span>
+      <span class="rk-controls" role="group" aria-label="Site controls" data-language-href="/yomi/zh-tw/line-mcp/" data-language-label="繁中" data-language-locale="zh-Hant-TW"></span>
       <a href="#compare" class="hidden sm:inline hover:text-ink">Compare</a>
       <a href="#install" class="hidden sm:inline hover:text-ink">Install</a>
       <a href="/yomi/" class="rk-wide-nav hover:text-ink">Product home</a>
@@ -87,7 +88,7 @@
       <a href="#compare">Compare approaches</a>
       <a href="#install">Install</a>
       <a href="/yomi/">Product home</a>
-      <a href="/yomi/zh-tw/line-mcp/" hreflang="zh-Hant-TW">繁中</a>
+      <a href="/yomi/zh-tw/line-mcp/" hreflang="zh-Hant-TW" data-locale-target="zh-Hant-TW">繁中</a>
       <a href="https://github.com/RikaiDev/yomi">GitHub</a>
     </nav>
   </header>
@@ -169,7 +170,7 @@
         <p class="font-mono text-[13px] text-ondark">yomi · 読み</p>
         <p class="font-mono text-[11px] mt-2">Read your LINE — and the context around it.</p>
       </div>
-      <p class="font-mono text-[11.5px]"><a href="/yomi/" class="hover:text-accent">Product home</a> · <a href="/yomi/zh-tw/line-mcp/" class="hover:text-accent">繁中</a> · <a href="https://github.com/RikaiDev/yomi" class="hover:text-accent">GitHub</a> · MIT</p>
+      <p class="font-mono text-[11.5px]"><a href="/yomi/" class="hover:text-accent">Product home</a> · <a href="/yomi/zh-tw/line-mcp/" class="hover:text-accent" data-locale-target="zh-Hant-TW">繁中</a> · <a href="https://github.com/RikaiDev/yomi" class="hover:text-accent">GitHub</a> · MIT</p>
     </div>
   </footer>
   <!-- YOMI_SHELL:FOOTER:END -->
