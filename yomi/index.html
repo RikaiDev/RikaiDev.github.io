@@ -120,20 +120,20 @@
 
   <main>
   <!-- ===== hero ===== -->
-  <section class="mx-auto max-w-[1200px] px-6 md:px-10 pt-14 md:pt-20 pb-14">
-    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-14 items-center">
-      <div>
-        <div class="inline-flex items-center gap-2.5 font-mono text-[11.5px] tracking-[0.16em] uppercase text-sub border border-line rounded-full px-3.5 py-1.5 mb-7">
-          <span class="w-[7px] h-[7px] rounded-full bg-accent pulse"></span>読み · <span data-t lang="en">read your LINE, out loud</span><span data-t lang="zh">把你的 LINE 讀出來</span>
+  <section class="yomi-hero mx-auto max-w-[1200px] px-6 md:px-10">
+    <div class="yomi-hero__grid grid grid-cols-1 gap-12 items-center">
+      <div class="yomi-hero__copy">
+        <div class="yomi-hero__eyebrow inline-flex items-center gap-2.5 font-mono text-[11.5px] tracking-[0.16em] uppercase text-sub border border-line rounded-full px-3.5 py-1.5">
+          <span class="w-[7px] h-[7px] rounded-full bg-accent pulse"></span><span data-t lang="en">Personal LINE · local-first</span><span data-t lang="zh">個人 LINE · 本機優先</span>
         </div>
-        <h1 class="font-serif font-semibold text-[clamp(44px,7vw,88px)] leading-[0.98] tracking-[-0.01em] mb-6" data-t lang="en">The LINE MCP server for your personal chats.</h1>
-        <h1 class="font-serif font-semibold text-[clamp(44px,7vw,88px)] leading-[1.02] tracking-[0.01em] mb-6" data-t lang="zh">你的個人 LINE MCP server。</h1>
-        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="en">Connect Claude or any local AI agent to your existing LINE account. Read, reply, send images, mention someone, and search conversations — <b class="font-medium text-accent">E2EE decrypted locally</b>. No browser. No bot account.</p>
-        <p class="font-sans font-light text-[clamp(16px,1.9vw,20px)] leading-[1.8] text-inksoft max-w-[560px] mb-8" data-t lang="zh">把 Claude 或任何本機 AI agent 接上你現有的 LINE 個人帳號。讀訊息、回覆、傳圖、標註與跨對話搜尋；<b class="font-medium text-accent">E2EE 全在本機解密</b>。不用瀏覽器，也不用 bot 帳號。</p>
+        <h1 class="yomi-hero__title yomi-hero__title--en font-serif font-semibold" data-t lang="en">Your LINE,<br>readable by AI.</h1>
+        <h1 class="yomi-hero__title yomi-hero__title--zh font-semibold" data-t lang="zh">讓 AI 讀懂<br>你的 LINE</h1>
+        <p class="yomi-hero__lede font-sans font-light text-inksoft" data-t lang="en">Give Claude and local AI agents access to your personal LINE chats — read, reply, send images, and search. <b class="font-medium text-accent">E2EE stays on your device.</b></p>
+        <p class="yomi-hero__lede font-sans font-light text-inksoft" data-t lang="zh">讓 Claude 與本機 AI agent 讀取、回覆、傳圖和搜尋你的個人 LINE；<b class="font-medium text-accent">訊息與 E2EE 解密都留在裝置上。</b></p>
 
-        <div class="flex items-stretch rounded-[8px] overflow-hidden border border-line bg-card max-w-[520px] mb-4">
+        <div class="yomi-hero__version flex items-stretch rounded-[8px] overflow-hidden border border-line bg-card max-w-[520px]">
           <span class="font-mono text-[12px] text-sub2 px-3 py-3 border-r border-line select-none">v<span data-yomi-version>0.4.1</span></span>
-          <span class="flex-1 font-mono text-[13px] text-accent px-4 py-3">One file. Drag in. Install.</span>
+          <span class="flex-1 font-mono text-[13px] text-accent px-4 py-3" data-t lang="en">One file. Open it. Done.</span><span class="flex-1 font-mono text-[13px] text-accent px-4 py-3" data-t lang="zh">一個檔案，開啟即安裝。</span>
         </div>
         <div class="flex gap-3 flex-wrap">
           <a href="https://github.com/RikaiDev/yomi/releases/latest" target="_blank" rel="noopener" class="font-mono font-medium text-[14px] bg-accent text-hi px-6 py-[13px] rounded-[6px] hover:opacity-90 transition-opacity" data-t lang="en">Download extension →</a>
@@ -144,14 +144,14 @@
       </div>
 
       <!-- hero terminal -->
-      <div class="yomi-console rounded-[12px] overflow-hidden shadow-[0_2px_0_rgba(31,28,23,0.12)]" data-reveal>
+      <div class="yomi-console yomi-hero__console rounded-[12px] overflow-hidden shadow-[0_2px_0_rgba(31,28,23,0.12)]" data-reveal>
         <div class="yomi-console__bar flex items-center gap-[7px] px-[18px] py-[13px]">
           <div class="yomi-console__dot--red w-[11px] h-[11px] rounded-full"></div>
           <div class="yomi-console__dot--amber w-[11px] h-[11px] rounded-full"></div>
           <div class="yomi-console__dot--green w-[11px] h-[11px] rounded-full"></div>
           <span class="yomi-console__muted font-mono text-[11px] ml-2">yomi — desktop extension</span>
         </div>
-        <div class="rk-xscroll p-[22px] font-mono text-[12.5px] leading-[1.95]">
+        <div class="rk-xscroll p-[22px] font-mono text-[12.5px] leading-[1.95]" data-t lang="en">
           <span class="yomi-console__key">01</span> Download the file for your operating system<br>
           <span class="yomi-console__key">02</span> Open it with Claude Desktop<br>
           <span class="yomi-console__key">03</span> Review permissions, then select Install<br>
@@ -161,6 +161,17 @@
           <span class="yomi-console__muted">// read locally · does not mark messages read</span><br>
           <span class="yomi-console__key">summary ›</span> Three conversations need attention.<br>
           &nbsp;&nbsp;Aya is waiting for approval on the new mark.
+        </div>
+        <div class="rk-xscroll p-[22px] font-mono text-[12.5px] leading-[1.95]" data-t lang="zh">
+          <span class="yomi-console__key">01</span> 下載適合你作業系統的檔案<br>
+          <span class="yomi-console__key">02</span> 用 Claude Desktop 開啟<br>
+          <span class="yomi-console__key">03</span> 確認權限後選擇安裝<br>
+          <span class="yomi-console__success">✓</span> Claude 可使用 41 個 Yomi 工具<br><br>
+          <span class="yomi-console__muted">你 ›</span> 整理我的 LINE 未讀訊息<br>
+          <span class="text-accent">yomi ›</span> get_unread_digest()<br>
+          <span class="yomi-console__muted">// 本機讀取 · 不會標示已讀</span><br>
+          <span class="yomi-console__key">摘要 ›</span> 三個對話需要你處理。<br>
+          &nbsp;&nbsp;Aya 正等你確認新版標記。
         </div>
       </div>
     </div>
