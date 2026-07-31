@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-page-language-mode="route">
+<html lang="zh-Hant-TW" data-page-language-mode="route" data-lang="zh">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>LINE MCP Server for Personal Chats — Yomi by RikaiDev</title>
-  <meta name="description" content="Yomi is the open-source personal LINE MCP server for Claude and local AI agents. Read, reply, send images, and search existing LINE conversations with local E2EE decryption.">
+  <title>個人 LINE MCP Server — Yomi by RikaiDev</title>
+  <meta name="description" content="Yomi 是開源的個人 LINE MCP server，讓 Claude 與本機 AI agent 讀取、回覆、傳圖並搜尋既有 LINE 對話，E2EE 全程在本機解密。">
   <meta name="keywords" content="Yomi, 読み, LINE MCP server, Claude Desktop extension, Claude Cowork, Claude Code MCP, Model Context Protocol, LINE AI agent, LINE E2EE, Letter Sealing, local-first, open source">
   <meta name="author" content="RikaiDev">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#F2EEE5" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#17150F" media="(prefers-color-scheme: dark)">
-  <link rel="canonical" href="https://rikaidev.github.io/yomi/">
+  <link rel="canonical" href="https://rikaidev.github.io/yomi/zh-tw/">
   <link rel="alternate" hreflang="en" href="https://rikaidev.github.io/yomi/">
   <link rel="alternate" hreflang="zh-Hant-TW" href="https://rikaidev.github.io/yomi/zh-tw/">
   <link rel="alternate" hreflang="x-default" href="https://rikaidev.github.io/yomi/">
@@ -21,16 +21,16 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="RikaiDev">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Yomi — the personal LINE MCP server">
-  <meta property="og:description" content="Connect Claude or another local AI agent to your personal LINE chats. Read, reply, send images, and search conversations locally.">
-  <meta property="og:url" content="https://rikaidev.github.io/yomi/">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:title" content="Yomi — 個人 LINE MCP server">
+  <meta property="og:description" content="把 Claude 或其他本機 AI agent 接上你的個人 LINE，讀取、回覆、傳圖並在本機搜尋對話。">
+  <meta property="og:url" content="https://rikaidev.github.io/yomi/zh-tw/">
   <meta property="og:image" content="https://rikaidev.github.io/assets/og.svg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Yomi — the personal LINE MCP server">
-  <meta name="twitter:description" content="One-file Claude Desktop install. Read, reply, send images, and search your own LINE from an AI agent. Open source and local-first.">
+  <meta name="twitter:title" content="Yomi — 個人 LINE MCP server">
+  <meta name="twitter:description" content="一個檔案安裝到 Claude Desktop，讓 AI agent 讀取、回覆、傳圖並搜尋你的個人 LINE。開源且 local-first。">
   <meta name="twitter:image" content="https://rikaidev.github.io/assets/og.svg">
 
   <script id="yomi-schema" type="application/ld+json">
@@ -92,26 +92,26 @@
 
   <!-- header -->
 <!-- YOMI_SHELL:HEADER:START -->
-  <header class="site-header sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 py-[15px] backdrop-blur-md border-b border-line" data-mobile-nav data-shell-page="home" data-shell-locale="en">
-    <a href="/yomi/" class="rk-shell-brand flex items-center gap-3" aria-label="Yomi home">
+  <header class="site-header sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 py-[15px] backdrop-blur-md border-b border-line" data-mobile-nav data-shell-page="home" data-shell-locale="zh-Hant-TW">
+    <a href="/yomi/zh-tw/" class="rk-shell-brand flex items-center gap-3" aria-label="Yomi 產品首頁">
       <img src="/logos/yomi.svg" alt="" width="28" height="28">
       <span class="font-mono font-bold text-[14px]">yomi · 読み</span>
     </a>
-    <nav class="rk-desktop-nav flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub" aria-label="Primary navigation">
-      <span class="rk-controls" role="group" aria-label="Site controls" data-language-href="/yomi/zh-tw/" data-language-label="繁中"></span>
-      <a href="#install" class="hidden md:inline hover:text-ink transition-colors">Install</a>
-      <a href="#how" class="hidden md:inline hover:text-ink transition-colors">How it works</a>
-      <a href="#faq" class="hidden sm:inline hover:text-ink transition-colors">FAQ</a>
-      <a href="/yomi/line-mcp/" class="rk-wide-nav hover:text-ink transition-colors">LINE MCP guide</a>
+    <nav class="rk-desktop-nav flex items-center gap-4 sm:gap-6 font-mono text-[12px] tracking-[0.06em] text-sub" aria-label="主要導覽">
+      <span class="rk-controls" role="group" aria-label="網站控制" data-language-href="/yomi/" data-language-label="English"></span>
+      <a href="#install" class="hidden md:inline hover:text-ink transition-colors">安裝</a>
+      <a href="#how" class="hidden md:inline hover:text-ink transition-colors">運作</a>
+      <a href="#faq" class="hidden sm:inline hover:text-ink transition-colors">問答</a>
+      <a href="/yomi/zh-tw/line-mcp/" class="rk-wide-nav hover:text-ink transition-colors">LINE MCP 指南</a>
       <a href="https://github.com/RikaiDev/yomi" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-ink text-paper px-[13px] py-[7px] rounded-[5px] hover:opacity-90 transition-opacity">★ GitHub</a>
     </nav>
-    <button class="rk-menu-toggle" type="button" aria-expanded="false" aria-controls="yomi-mobile-menu" aria-label="Open navigation menu" data-label-open="Open navigation menu" data-label-close="Close navigation menu"><span class="rk-menu-icon" aria-hidden="true"></span></button>
-    <nav class="rk-mobile-menu" id="yomi-mobile-menu" aria-label="Mobile navigation" data-menu-title="Navigate · 導覽" data-menu-note="YOMI · PERSONAL LINE MCP · RIKAIDEV" hidden>
-      <span class="rk-controls rk-mobile-utilities" role="group" aria-label="Site controls" data-language-href="/yomi/zh-tw/" data-language-label="繁中"></span>
-      <a href="#install">Install</a>
-      <a href="#how">How it works</a>
-      <a href="#faq">FAQ</a>
-      <a href="/yomi/line-mcp/">LINE MCP guide</a>
+    <button class="rk-menu-toggle" type="button" aria-expanded="false" aria-controls="yomi-mobile-menu" aria-label="開啟導覽選單" data-label-open="開啟導覽選單" data-label-close="關閉導覽選單"><span class="rk-menu-icon" aria-hidden="true"></span></button>
+    <nav class="rk-mobile-menu" id="yomi-mobile-menu" aria-label="手機導覽" data-menu-title="Navigate · 導覽" data-menu-note="YOMI · PERSONAL LINE MCP · RIKAIDEV" hidden>
+      <span class="rk-controls rk-mobile-utilities" role="group" aria-label="網站控制" data-language-href="/yomi/" data-language-label="English"></span>
+      <a href="#install">安裝</a>
+      <a href="#how">運作方式</a>
+      <a href="#faq">問答</a>
+      <a href="/yomi/zh-tw/line-mcp/">LINE MCP 指南</a>
       <a href="https://github.com/RikaiDev/yomi">GitHub</a>
     </nav>
   </header>
@@ -410,9 +410,9 @@
     <div class="mx-auto max-w-[1100px] px-6 md:px-10 py-12 flex justify-between flex-wrap gap-6">
       <div>
         <p class="font-mono text-[13px] text-ondark">yomi · 読み</p>
-        <p class="font-mono text-[11px] mt-2">Read your LINE — and the context around it.</p>
+        <p class="font-mono text-[11px] mt-2">讀懂你的 LINE，也讀懂脈絡。</p>
       </div>
-      <p class="font-mono text-[11.5px]"><a href="/yomi/" class="hover:text-accent">Product home</a> · <a href="/yomi/zh-tw/" class="hover:text-accent">繁中</a> · <a href="https://github.com/RikaiDev/yomi" class="hover:text-accent">GitHub</a> · MIT</p>
+      <p class="font-mono text-[11.5px]"><a href="/yomi/zh-tw/" class="hover:text-accent">產品首頁</a> · <a href="/yomi/" class="hover:text-accent">English</a> · <a href="https://github.com/RikaiDev/yomi" class="hover:text-accent">GitHub</a> · MIT</p>
     </div>
   </footer>
   <!-- YOMI_SHELL:FOOTER:END -->

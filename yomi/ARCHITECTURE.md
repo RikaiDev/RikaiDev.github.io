@@ -1,15 +1,16 @@
 # Yomi website architecture
 
-Yomi uses one shared site shell and two explicit language modes.
+Yomi uses one shared site shell and one route-based language model.
 
 ## Language contract
 
-- The product page at `/yomi/` is an interactive bilingual page. Its language
-  control swaps complete `data-t` pairs on the same canonical URL.
-- Search-focused guides are locale documents with separate canonical URLs:
+- Product pages use `/yomi/` for English and `/yomi/zh-tw/` for Traditional
+  Chinese. The localized home is generated from the English source document by
+  `scripts/sync-yomi-home-locale.mjs` so their structure cannot drift.
+- Search-focused guides also use separate canonical URLs:
   `/yomi/line-mcp/` and `/yomi/zh-tw/line-mcp/`. Their language controls always
   navigate to the reciprocal route; guide content must not use `data-t` swaps.
-- Localized guide pages must publish reciprocal `hreflang` entries for `en`,
+- Every localized page family must publish reciprocal `hreflang` entries for `en`,
   `zh-Hant-TW`, and `x-default`.
 
 ## Shared shell contract
@@ -22,6 +23,9 @@ After changing the renderer, regenerate and audit:
 
 ```sh
 node scripts/sync-yomi-shell.mjs
+node scripts/sync-yomi-home-locale.mjs
+node scripts/sync-yomi-shell.mjs
+node scripts/sync-yomi-home-locale.mjs --check
 node scripts/sync-yomi-shell.mjs --check
 node scripts/audit-yomi-site.mjs
 ```

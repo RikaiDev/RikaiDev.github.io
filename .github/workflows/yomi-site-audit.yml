@@ -33,5 +33,7 @@ jobs:
           node-version: 24
       - name: Verify generated shell is current
         run: node scripts/sync-yomi-shell.mjs --check
+      - name: Verify localized home is current
+        run: node scripts/sync-yomi-home-locale.mjs --check
       - name: Audit page architecture
         run: node scripts/audit-yomi-site.mjs
